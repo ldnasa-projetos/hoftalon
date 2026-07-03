@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoftalon Hospital de Olhos — Referencia Internacional em Oftalmologia</title>
+  <meta name="description" content="Hoftalon Hospital de Olhos — referencia internacional em oftalmologia. Londrina, PR.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    :root {
+      --brand: #0B9ECE;
+      --brand-light: #E6F6FC;
+      --brand-hover: #0889B5;
+      --navy: #0A2A4A;
+      --navy-light: #143A5E;
+      --teal: #0D9488;
+      --teal-light: #CCFBF1;
+
+      --success: #10B981;
+      --success-light: #ECFDF5;
+      --warning: #F59E0B;
+      --warning-light: #FFFBEB;
+
+      --n50: #F8FAFC; --n100: #F1F5F9; --n200: #E2E8F0; --n300: #CBD5E1;
+      --n400: #94A3B8; --n500: #64748B; --n600: #475569; --n700: #334155;
+      --n800: #1E293B; --n900: #0F172A;
+
+      --heading: 'Plus Jakarta Sans', sans-serif;
+      --body: 'Inter', sans-serif;
+      --r-sm: 4px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px; --r-pill: 50px; --r-full: 9999px;
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
+      --shadow-xl: 0 20px 40px rgba(0,0,0,0.06);
+      --ease: cubic-bezier(0.16,1,0.3,1);
+      --dur: 300ms;
+      --dur-slow: 600ms;
+      --dur-reveal: 900ms;
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:var(--body);font-size:1rem;line-height:1.6;color:var(--n700);background:#fff;overflow-x:hidden}
+    ::selection{background:var(--brand-light);color:var(--navy)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    ul,ol{list-style:none}
+    h1,h2,h3,h4,h5,h6{font-family:var(--heading);color:var(--n900);letter-spacing:-.03em;font-weight:700;line-height:1.1}
+    .container{width:100%;max-width:1280px;margin:0 auto;padding:0 24px}
+
+    /* ======== TOP NAV ======== */
+    .topnav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      padding:16px 0;
+      transition:all var(--dur);
+    }
+    .topnav.scrolled{
+      background:rgba(255,255,255,.85);
+      backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--n200);
+      padding:10px 0;
+    }
+    .topnav .container{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .topnav__brand{display:flex;align-items:center;gap:10px}
+    .topnav__logo{
+      width:42px;height:42px;
+      background:linear-gradient(135deg,var(--brand),var(--teal));
+      border-radius:12px;display:flex;align-items:center;justify-content:center;
+      color:#fff;font-family:var(--heading);font-weight:800;font-size:1.15rem;
+      box-shadow:0 4px 12px rgba(11,158,206,.3);
+    }
+    .topnav__name{font-family:var(--heading);font-weight:800;font-size:1.05rem;color:var(--n900)}
+    .topnav__sub{font-size:.6rem;font-weight:500;color:var(--n400);letter-spacing:.06em;text-transform:uppercase}
+    .topnav__links{display:flex;gap:4px;align-items:center}
+    .topnav__links a{
+      padding:8px 14px;font-size:.85rem;font-weight:500;color:var(--n600);
+      border-radius:8px;transition:all var(--dur);
+    }
+    .topnav__links a:hover{color:var(--n900);background:var(--n100)}
+    .topnav__cta{
+      display:inline-flex;align-items:center;gap:8px;
+      background:var(--navy);color:#fff;
+      padding:7px 7px 7px 22px;border-radius:var(--r-pill);border:none;
+      font-family:var(--body);font-size:.85rem;font-weight:600;cursor:pointer;
+      transition:all var(--dur);text-decoration:none;
+    }
+    .topnav__cta:hover{background:var(--brand)}
+    .topnav__cta-arrow{
+      width:32px;height:32px;border-radius:50%;
+      background:rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      transition:transform var(--dur) var(--ease);
+    }
+    .topnav__cta:hover .topnav__cta-arrow{transform:translateX(2px)}
+    .topnav__hamburger{
+      display:none;background:none;border:none;cursor:pointer;
+      width:40px;height:40px;border-radius:8px;
+      align-items:center;justify-content:center;
+    }
+    .topnav__hamburger span{display:block;width:20px;height:2px;background:var(--n700);margin:5px auto;transition:all var(--dur)}
+
+    /* ======== HERO — FULL VIEWPORT CINEMATIC ======== */
+    .hero{
+      min-height:100vh;display:flex;align-items:center;
+      position:relative;overflow:hidden;
+      background:var(--navy);
+    }
+    .hero__bg{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(11,158,206,.2) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(13,148,136,.15) 0%, transparent 60%),
+        linear-gradient(180deg, var(--navy) 0%, #071E36 100%);
+    }
+    .hero__grain{
+      position:absolute;inset:0;opacity:.03;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:128px;
+    }
+    .hero .container{position:relative;z-index:1;padding-top:120px;padding-bottom:80px}
+    .hero__badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 18px 6px 12px;
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.1);
+      border-radius:var(--r-full);
+      font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+      color:var(--brand-light);margin-bottom:32px;
+      backdrop-filter:blur(8px);
+    }
+    .hero__badge-dot{width:8px;height:8px;border-radius:50%;background:var(--brand);animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(11,158,206,.4)}50%{opacity:.7;box-shadow:0 0 0 8px rgba(11,158,206,0)}}
+    .hero__title{
+      font-size:clamp(2.5rem, 6vw, 5rem);font-weight:800;
+      color:#fff;max-width:800px;margin-bottom:24px;
+      line-height:.95;letter-spacing:-.04em;
+    }
+    .hero__title em{
+      font-style:normal;
+      background:linear-gradient(135deg, var(--brand), var(--teal));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .hero__desc{
+      font-size:1.15rem;font-weight:300;line-height:1.7;
+      color:rgba(255,255,255,.55);max-width:540px;margin-bottom:40px;
+    }
+    .hero__actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:64px}
+    .btn-hero{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 8px 8px 28px;border-radius:var(--r-pill);
+      font-family:var(--body);font-size:1rem;font-weight:600;
+      cursor:pointer;border:none;transition:all var(--dur);text-decoration:none;
+    }
+    .btn-hero--primary{background:var(--brand);color:#fff}
+    .btn-hero--primary:hover{background:var(--brand-hover)}
+    .btn-hero--primary .btn-hero__icon{
+      width:38px;height:38px;border-radius:50%;background:#fff;
+      color:var(--brand);display:flex;align-items:center;justify-content:center;
+      transition:transform var(--dur) var(--ease);
+    }
+    .btn-hero--primary:hover .btn-hero__icon{transform:scale(1.1)}
+    .btn-hero--ghost{
+      background:transparent;color:rgba(255,255,255,.7);
+      border:1px solid rgba(255,255,255,.15);
+      padding:14px 28px;
+    }
+    .btn-hero--ghost:hover{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.3)}
+
+    /* hero stats — horizontal strip at bottom */
+    .hero__stats{
+      display:flex;gap:1px;
+      background:rgba(255,255,255,.06);
+      border-radius:var(--r-lg);overflow:hidden;
+      max-width:720px;
+    }
+    .hero__stat{
+      flex:1;padding:24px 28px;
+      background:rgba(255,255,255,.03);
+      border-right:1px solid rgba(255,255,255,.06);
+    }
+    .hero__stat:last-child{border-right:none}
+    .hero__stat-val{font-family:var(--heading);font-size:1.75rem;font-weight:800;color:#fff;letter-spacing:-.03em}
+    .hero__stat-lbl{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:2px}
+
+    /* ======== MARQUEE — trust logos ======== */
+    .marquee{
+      background:var(--n50);border-bottom:1px solid var(--n200);
+      padding:20px 0;overflow:hidden;
+    }
+    .marquee__track{
+      display:flex;gap:48px;align-items:center;
+      animation:scroll-marquee 30s linear infinite;
+      width:max-content;
+    }
+    .marquee__item{
+      display:flex;align-items:center;gap:8px;
+      font-size:.8rem;font-weight:700;color:var(--n400);
+      white-space:nowrap;letter-spacing:.02em;
+      flex-shrink:0;
+    }
+    .marquee__item .iconify{font-size:1.1rem;color:var(--n300)}
+    @keyframes scroll-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* ======== BENTO — specialties ======== */
+    .bento{padding:120px 0}
+    .bento__head{margin-bottom:56px}
+    .bento__label{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+      color:var(--brand);margin-bottom:12px;
+    }
+    .bento__head h2{font-size:2.75rem;max-width:600px;margin-bottom:12px}
+    .bento__head p{font-size:1.05rem;color:var(--n500);max-width:480px;font-weight:300}
+    .bento__grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      grid-auto-rows:minmax(160px,auto);
+      gap:16px;
+    }
+    .bento__card{
+      background:#fff;border:1px solid var(--n200);border-radius:var(--r-lg);
+      padding:28px;display:flex;flex-direction:column;justify-content:space-between;
+      transition:all var(--dur) var(--ease);position:relative;overflow:hidden;cursor:pointer;
+    }
+    .bento__card:hover{border-color:var(--brand);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+    .bento__card-icon{
+      width:44px;height:44px;border-radius:var(--r-md);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.25rem;margin-bottom:auto;
+    }
+    .bento__card-icon--brand{background:var(--brand-light);color:var(--brand)}
+    .bento__card-icon--teal{background:var(--teal-light);color:var(--teal)}
+    .bento__card-icon--navy{background:rgba(10,42,74,.08);color:var(--navy)}
+    .bento__card h3{font-size:1.05rem;font-weight:700;margin-top:16px;margin-bottom:6px;color:var(--n900)}
+    .bento__card p{font-size:.82rem;color:var(--n500);line-height:1.55}
+    .bento__card--hero{
+      grid-column:span 8;grid-row:span 2;
+      background:var(--navy);border-color:var(--navy);
+      padding:44px;
+    }
+    .bento__card--hero:hover{border-color:var(--brand);background:var(--navy-light)}
+    .bento__card--hero .bento__card-icon{background:rgba(255,255,255,.08);color:var(--brand-light)}
+    .bento__card--hero h3{color:#fff;font-size:1.5rem}
+    .bento__card--hero p{color:rgba(255,255,255,.5);font-size:.95rem}
+    .bento__card--hero .bento__card-arrow{
+      position:absolute;bottom:28px;right:28px;
+      width:44px;height:44px;border-radius:50%;
+      background:rgba(255,255,255,.08);
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.4);transition:all var(--dur);
+    }
+    .bento__card--hero:hover .bento__card-arrow{background:var(--brand);color:#fff}
+    .bento__card--wide{grid-column:span 4}
+    .bento__card--tall{grid-row:span 2}
+    .bento__card--std{grid-column:span 4}
+
+    /* ======== NUMBERS — horizontal scroll strip ======== */
+    .nums{
+      background:var(--n50);
+      border-top:1px solid var(--n200);border-bottom:1px solid var(--n200);
+      padding:0;
+    }
+    .nums__inner{
+      display:grid;grid-template-columns:repeat(5,1fr);
+    }
+    .nums__item{
+      padding:48px 32px;text-align:center;
+      border-right:1px solid var(--n200);
+      transition:background var(--dur);
+    }
+    .nums__item:last-child{border-right:none}
+    .nums__item:hover{background:var(--brand-light)}
+    .nums__val{
+      font-family:var(--heading);font-size:2.5rem;font-weight:800;
+      color:var(--navy);letter-spacing:-.04em;line-height:1;
+    }
+    .nums__lbl{font-size:.82rem;color:var(--n500);margin-top:6px}
+
+    /* ======== SPLIT — about/units alternating ======== */
+    .split{padding:120px 0}
+    .split .container{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+    .split--reverse .container{direction:rtl}
+    .split--reverse .container > *{direction:ltr}
+    .split__media{
+      aspect-ratio:4/3;border-radius:var(--r-xl);
+      overflow:hidden;position:relative;
+      background:linear-gradient(135deg,var(--n100),var(--n200));
+      display:flex;align-items:center;justify-content:center;
+      color:var(--n400);font-size:.9rem;
+    }
+    .split__media--accent{background:linear-gradient(135deg,var(--brand-light),var(--teal-light))}
+    .split__content{}
+    .split__label{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+      color:var(--brand);margin-bottom:16px;
+    }
+    .split__content h2{font-size:2.25rem;margin-bottom:16px;max-width:460px}
+    .split__content p{font-size:1rem;color:var(--n500);line-height:1.7;margin-bottom:24px;max-width:440px;font-weight:300}
+
+    /* unit mini-cards inside split */
+    .unit-list{display:flex;flex-direction:column;gap:12px}
+    .unit-mini{
+      display:flex;align-items:center;gap:16px;
+      padding:16px 20px;
+      background:var(--n50);border:1px solid var(--n200);border-radius:var(--r-md);
+      transition:all var(--dur);cursor:pointer;
+    }
+    .unit-mini:hover{border-color:var(--brand);background:#fff;box-shadow:var(--shadow-md)}
+    .unit-mini__icon{
+      width:40px;height:40px;border-radius:10px;flex-shrink:0;
+      background:var(--brand-light);color:var(--brand);
+      display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+    }
+    .unit-mini__info{flex:1}
+    .unit-mini__name{font-family:var(--heading);font-size:.9rem;font-weight:700;color:var(--n900)}
+    .unit-mini__meta{font-size:.75rem;color:var(--n400)}
+    .unit-mini__tags{display:flex;gap:4px;flex-shrink:0}
+    .tag{
+      display:inline-flex;padding:2px 8px;border-radius:var(--r-full);
+      font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+    }
+    .tag--sus{background:var(--success-light);color:var(--success)}
+    .tag--conv{background:var(--brand-light);color:var(--brand)}
+    .tag--part{background:var(--warning-light);color:var(--warning)}
+    .tag--24h{background:#FEE2E2;color:#DC2626}
+
+    /* ======== BLOG — magazine layout ======== */
+    .magazine{padding:120px 0;background:var(--n50);border-top:1px solid var(--n200)}
+    .magazine__head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;flex-wrap:wrap;gap:16px}
+    .magazine__head h2{font-size:2.25rem}
+    .magazine__head p{font-size:1rem;color:var(--n500);font-weight:300}
+    .magazine__link{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:.85rem;font-weight:600;color:var(--brand);
+      transition:gap var(--dur);
+    }
+    .magazine__link:hover{gap:10px}
+    .magazine__grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+    .magazine__featured{
+      background:#fff;border:1px solid var(--n200);border-radius:var(--r-lg);
+      overflow:hidden;cursor:pointer;transition:all var(--dur);
+    }
+    .magazine__featured:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+    .magazine__featured-img{
+      height:280px;
+      background:linear-gradient(135deg,var(--n100),var(--n200));
+      display:flex;align-items:center;justify-content:center;color:var(--n400);font-size:.85rem;
+    }
+    .magazine__featured-body{padding:28px 28px 32px}
+    .magazine__tag{
+      display:inline-flex;padding:3px 10px;
+      background:var(--brand-light);border-radius:var(--r-sm);
+      font-size:.62rem;font-weight:700;color:var(--brand);
+      text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;
+    }
+    .magazine__featured-body h3{font-size:1.35rem;font-weight:700;margin-bottom:8px;line-height:1.3}
+    .magazine__featured-body p{font-size:.88rem;color:var(--n500)}
+    .magazine__stack{display:flex;flex-direction:column;gap:16px}
+    .magazine__item{
+      flex:1;display:flex;gap:20px;align-items:center;
+      background:#fff;border:1px solid var(--n200);border-radius:var(--r-lg);
+      padding:20px;cursor:pointer;transition:all var(--dur);
+    }
+    .magazine__item:hover{box-shadow:var(--shadow-md);border-color:var(--brand);transform:translateY(-2px)}
+    .magazine__item-img{
+      width:120px;height:100%;min-height:100px;flex-shrink:0;border-radius:var(--r-md);
+      background:linear-gradient(135deg,var(--n100),var(--n200));
+      display:flex;align-items:center;justify-content:center;color:var(--n400);font-size:.7rem;
+    }
+    .magazine__item-body h3{font-size:1rem;font-weight:700;margin-bottom:6px;line-height:1.3;color:var(--n900)}
+    .magazine__item-body p{font-size:.78rem;color:var(--n500)}
+
+    /* ======== CAREERS — glass card ======== */
+    .careers{padding:120px 0}
+    .careers__card{
+      background:linear-gradient(135deg, var(--navy) 0%, #0E3B63 100%);
+      border-radius:var(--r-xl);
+      display:grid;grid-template-columns:1fr 1fr;
+      overflow:hidden;position:relative;min-height:400px;
+    }
+    .careers__card::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(circle at 80% 30%, rgba(11,158,206,.2), transparent 60%);
+    }
+    .careers__content{
+      padding:56px 56px;display:flex;flex-direction:column;justify-content:center;
+      position:relative;z-index:1;
+    }
+    .careers__badge{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:5px 14px 5px 10px;
+      background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.2);
+      border-radius:var(--r-full);
+      font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+      color:var(--success);margin-bottom:24px;width:fit-content;
+    }
+    .careers__badge-dot{width:7px;height:7px;border-radius:50%;background:var(--success);animation:pulse 2s ease-in-out infinite}
+    .careers__content h2{font-size:2.5rem;color:#fff;margin-bottom:16px}
+    .careers__content p{font-size:1.05rem;color:rgba(255,255,255,.5);margin-bottom:32px;max-width:400px;font-weight:300;line-height:1.7}
+    .careers__visual{
+      position:relative;
+      background:linear-gradient(135deg,rgba(11,158,206,.15),rgba(13,148,136,.1));
+      display:flex;align-items:center;justify-content:center;
+      color:rgba(255,255,255,.2);font-size:.9rem;
+    }
+    .careers__visual-accent{
+      position:absolute;bottom:32px;right:32px;
+      padding:16px 24px;
+      background:rgba(255,255,255,.08);backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.1);border-radius:var(--r-md);
+      display:flex;align-items:center;gap:12px;
+    }
+    .careers__visual-accent .iconify{color:var(--brand);font-size:1.5rem}
+    .careers__visual-accent span{font-size:.85rem;font-weight:600;color:#fff}
+
+    /* ======== CTA FINAL ======== */
+    .cta-end{
+      padding:140px 0;text-align:center;
+      background:#fff;position:relative;overflow:hidden;
+    }
+    .cta-end::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 100%, var(--brand-light) 0%, transparent 70%);
+    }
+    .cta-end .container{position:relative;z-index:1}
+    .cta-end h2{font-size:clamp(2rem,4vw,3.25rem);margin-bottom:16px}
+    .cta-end p{font-size:1.1rem;color:var(--n500);margin-bottom:40px;max-width:480px;margin-left:auto;margin-right:auto;font-weight:300}
+    .cta-end__btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+    /* ======== FOOTER ======== */
+    .foot{background:var(--n900);padding:80px 0 32px;color:var(--n400)}
+    .foot__grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:56px}
+    .foot__brand{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .foot__brand-logo{
+      width:36px;height:36px;border-radius:10px;
+      background:linear-gradient(135deg,var(--brand),var(--teal));
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-family:var(--heading);font-weight:800;font-size:.95rem;
+    }
+    .foot__brand-name{font-family:var(--heading);font-weight:700;font-size:.95rem;color:#fff}
+    .foot__desc{font-size:.85rem;color:var(--n500);line-height:1.7;margin-bottom:20px;max-width:320px}
+    .foot__social{display:flex;gap:8px}
+    .foot__social-link{
+      width:36px;height:36px;border-radius:50%;
+      border:1px solid var(--n700);
+      display:inline-flex;align-items:center;justify-content:center;
+      color:var(--n500);font-size:1rem;transition:all var(--dur);
+    }
+    .foot__social-link:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+    .foot__heading{
+      font-size:.68rem;font-weight:600;text-transform:uppercase;
+      letter-spacing:.12em;color:var(--n500);margin-bottom:20px;
+    }
+    .foot__links{display:flex;flex-direction:column;gap:10px}
+    .foot__links a{font-size:.85rem;color:var(--n500);transition:color var(--dur)}
+    .foot__links a:hover{color:var(--brand)}
+    .foot__contact{display:flex;flex-direction:column;gap:14px}
+    .foot__contact-item{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--n500)}
+    .foot__contact-item .iconify{color:var(--brand);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+    .foot__bottom{
+      border-top:1px solid var(--n800);padding-top:24px;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    }
+    .foot__bottom p{font-size:.75rem;color:var(--n600)}
+    .foot__seals{display:flex;gap:6px}
+    .foot__seal{
+      padding:3px 10px;background:var(--n800);border-radius:var(--r-sm);
+      font-size:.62rem;font-weight:700;color:var(--n500);letter-spacing:.03em;
+    }
+
+    /* ======== WHATSAPP ======== */
+    .wpp{
+      position:fixed;bottom:24px;right:24px;z-index:200;
+      width:56px;height:56px;border-radius:50%;
+      background:#25D366;
+      display:flex;align-items:center;justify-content:center;
+      color:#fff;font-size:1.6rem;cursor:pointer;
+      box-shadow:0 4px 16px rgba(37,211,102,.4);
+      transition:transform var(--dur);text-decoration:none;
+    }
+    .wpp:hover{transform:scale(1.12)}
+
+    /* ======== SCROLL REVEAL ======== */
+    .sr{opacity:0;transform:translateY(28px);transition:all var(--dur-reveal) var(--ease)}
+    .sr.visible{opacity:1;transform:translateY(0)}
+    .sr-d1{transition-delay:80ms}
+    .sr-d2{transition-delay:160ms}
+    .sr-d3{transition-delay:240ms}
+    .sr-d4{transition-delay:320ms}
+    .sr-d5{transition-delay:400ms}
+
+    /* ======== RESPONSIVE ======== */
+    @media(max-width:1024px){
+      .bento__grid{grid-template-columns:repeat(6,1fr)}
+      .bento__card--hero{grid-column:span 6}
+      .bento__card--wide{grid-column:span 3}
+      .bento__card--tall{grid-row:span 1}
+      .bento__card--std{grid-column:span 3}
+      .split .container{grid-template-columns:1fr;gap:40px}
+      .split--reverse .container{direction:ltr}
+      .careers__card{grid-template-columns:1fr}
+      .careers__visual{min-height:220px}
+      .nums__inner{grid-template-columns:repeat(3,1fr)}
+      .nums__item:nth-child(4),.nums__item:nth-child(5){border-top:1px solid var(--n200)}
+      .magazine__grid{grid-template-columns:1fr}
+      .foot__grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:768px){
+      .topnav__links{display:none}
+      .topnav__cta.desk{display:none}
+      .topnav__hamburger{display:flex}
+      .topnav__links.open{
+        display:flex;flex-direction:column;
+        position:absolute;top:100%;left:0;right:0;
+        background:#fff;border-bottom:1px solid var(--n200);
+        padding:16px 24px;gap:4px;box-shadow:var(--shadow-lg);
+      }
+      .topnav__links.open a{padding:12px 16px;width:100%}
+      .hero__title{font-size:2.25rem}
+      .hero__stats{flex-direction:column;gap:0;max-width:100%}
+      .hero__stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.06);padding:16px 20px}
+      .hero__stat:last-child{border-bottom:none}
+      .bento__grid{grid-template-columns:1fr}
+      .bento__card--hero,.bento__card--wide,.bento__card--std{grid-column:span 1}
+      .bento__head h2{font-size:2rem}
+      .nums__inner{grid-template-columns:repeat(2,1fr)}
+      .magazine__featured-img{height:200px}
+      .cta-end h2{font-size:1.75rem}
+      .careers__content{padding:36px 28px}
+      .foot__grid{grid-template-columns:1fr;gap:32px}
+      .foot__bottom{flex-direction:column;text-align:center}
+    }
+    @media(max-width:480px){
+      .hero__title{font-size:1.85rem}
+      .nums__inner{grid-template-columns:1fr}
+      .nums__item{border-right:none;border-bottom:1px solid var(--n200)}
+      .nums__item:last-child{border-bottom:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav" id="topnav">
+  <div class="container">
+    <a href="#" class="topnav__brand">
+      <div class="topnav__logo">H</div>
+      <div>
+        <div class="topnav__name">HOFTALON</div>
+        <span class="topnav__sub">Hospital de Olhos</span>
+      </div>
+    </a>
+    <div class="topnav__links" id="navLinks">
+      <a href="#">O Hospital</a>
+      <a href="#">Especialidades</a>
+      <a href="#">Hoftalon Clinic</a>
+      <a href="#">Quero Ajudar</a>
+      <a href="#">Blog</a>
+      <a href="#">Fale Conosco</a>
+    </div>
+    <a href="#" class="topnav__cta desk">
+      Agende sua Consulta
+      <span class="topnav__cta-arrow">
+        <span class="iconify" data-icon="solar:arrow-right-linear" data-width="15"></span>
+      </span>
+    </a>
+    <button class="topnav__hamburger" id="menuBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__grain"></div>
+  <div class="container">
+    <div>
+      <div class="hero__badge sr">
+        <span class="hero__badge-dot"></span>
+        Referencia internacional em oftalmologia
+      </div>
+      <h1 class="hero__title sr sr-d1">
+        Enxergar bem<br>e <em>viver melhor.</em>
+      </h1>
+      <p class="hero__desc sr sr-d2">
+        Da consulta a cirurgia, todas as especialidades oftalmologicas em um so lugar — com tecnologia de ponta e o maior corpo clinico do Brasil no segmento.
+      </p>
+      <div class="hero__actions sr sr-d3">
+        <a href="#" class="btn-hero btn-hero--primary">
+          Agende sua Consulta
+          <span class="btn-hero__icon">
+            <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+          </span>
+        </a>
+        <a href="#" class="btn-hero btn-hero--ghost">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="20" style="margin-right:4px"></span>
+          Especialidades
+        </a>
+      </div>
+      <div class="hero__stats sr sr-d4">
+        <div class="hero__stat">
+          <div class="hero__stat-val" data-count="33">0</div>
+          <div class="hero__stat-lbl">anos de historia</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-val" data-count="130" data-suffix="+">0</div>
+          <div class="hero__stat-lbl">oftalmologistas</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-val" data-count="150" data-suffix=" mil+">0</div>
+          <div class="hero__stat-lbl">atendimentos por ano</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-val" data-count="11" data-suffix=" mil+">0</div>
+          <div class="hero__stat-lbl">cirurgias por ano</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee__track" id="marqueeTrack">
+    <span class="marquee__item"><span class="iconify" data-icon="solar:global-linear"></span> WAEH Full Member</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:verified-check-linear"></span> ONA Acreditado Pleno</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:star-linear"></span> Newsweek Best Hospitals</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:heart-linear"></span> GPTW — Melhores Hospitais</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:diploma-linear"></span> CBO / MEC Credenciado</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:shield-check-linear"></span> CEBAS Saude</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:ranking-linear"></span> 42a America Latina — Catarata</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:users-group-rounded-linear"></span> 120 municipios atendidos</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee__item"><span class="iconify" data-icon="solar:global-linear"></span> WAEH Full Member</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:verified-check-linear"></span> ONA Acreditado Pleno</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:star-linear"></span> Newsweek Best Hospitals</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:heart-linear"></span> GPTW — Melhores Hospitais</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:diploma-linear"></span> CBO / MEC Credenciado</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:shield-check-linear"></span> CEBAS Saude</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:ranking-linear"></span> 42a America Latina — Catarata</span>
+    <span class="marquee__item"><span class="iconify" data-icon="solar:users-group-rounded-linear"></span> 120 municipios atendidos</span>
+  </div>
+</div>
+
+<!-- BENTO SPECIALTIES -->
+<section class="bento" id="especialidades">
+  <div class="container">
+    <div class="bento__head sr">
+      <div class="bento__label">
+        <span class="iconify" data-icon="solar:eye-linear" data-width="14"></span>
+        Especialidades
+      </div>
+      <h2>Oftalmologia completa.<br>Um so hospital.</h2>
+      <p>Do diagnostico a cirurgia, sem precisar sair daqui.</p>
+    </div>
+
+    <div class="bento__grid">
+      <!-- Hero card -->
+      <div class="bento__card bento__card--hero sr">
+        <div>
+          <div class="bento__card-icon">
+            <span class="iconify" data-icon="solar:test-tube-linear" data-width="22"></span>
+          </div>
+          <h3>Exames Oftalmologicos</h3>
+          <p>13+ exames com tecnologia de ponta — OCT, campimetria, topografia, retinografia e mais. Tudo no mesmo hospital.</p>
+        </div>
+        <div class="bento__card-arrow">
+          <span class="iconify" data-icon="solar:arrow-right-up-linear" data-width="20"></span>
+        </div>
+      </div>
+
+      <!-- Side stack -->
+      <div class="bento__card bento__card--wide sr sr-d1">
+        <div class="bento__card-icon bento__card-icon--brand">
+          <span class="iconify" data-icon="solar:eye-scan-linear" data-width="20"></span>
+        </div>
+        <h3>Catarata</h3>
+        <p>42a posicao na America Latina. Mais de 11 mil cirurgias por ano.</p>
+      </div>
+      <div class="bento__card bento__card--wide sr sr-d2">
+        <div class="bento__card-icon bento__card-icon--teal">
+          <span class="iconify" data-icon="solar:chart-2-linear" data-width="20"></span>
+        </div>
+        <h3>Glaucoma</h3>
+        <p>Diagnostico precoce com equipamentos de ultima geracao.</p>
+      </div>
+
+      <!-- Row 2 -->
+      <div class="bento__card bento__card--std sr">
+        <div class="bento__card-icon bento__card-icon--navy">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="20"></span>
+        </div>
+        <h3>Retina e Vitreo</h3>
+        <p>Tratamento de doencas da retina, incluindo retinopatia diabetica.</p>
+      </div>
+      <div class="bento__card bento__card--std sr sr-d1">
+        <div class="bento__card-icon bento__card-icon--brand">
+          <span class="iconify" data-icon="solar:atom-linear" data-width="20"></span>
+        </div>
+        <h3>Cornea</h3>
+        <p>Transplantes, ceratocone e doencas de superficie.</p>
+      </div>
+      <div class="bento__card bento__card--std sr sr-d2">
+        <div class="bento__card-icon bento__card-icon--teal">
+          <span class="iconify" data-icon="solar:minimalistic-magnifer-linear" data-width="20"></span>
+        </div>
+        <h3>Cirurgia Refrativa</h3>
+        <p>Correcao de miopia, hipermetropia e astigmatismo.</p>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="bento__card bento__card--std sr">
+        <div class="bento__card-icon bento__card-icon--navy">
+          <span class="iconify" data-icon="solar:magic-stick-3-linear" data-width="20"></span>
+        </div>
+        <h3>Plastica Ocular</h3>
+        <p>Procedimentos esteticos e reconstrutivos.</p>
+      </div>
+      <div class="bento__card bento__card--std sr sr-d1">
+        <div class="bento__card-icon bento__card-icon--brand">
+          <span class="iconify" data-icon="solar:baby-linear" data-width="20"></span>
+        </div>
+        <h3>Oftalmopediatria</h3>
+        <p>Cuidado com a visao das criancas desde os primeiros meses.</p>
+      </div>
+      <div class="bento__card bento__card--std sr sr-d2">
+        <div class="bento__card-icon bento__card-icon--teal">
+          <span class="iconify" data-icon="solar:target-linear" data-width="20"></span>
+        </div>
+        <h3>Estrabismo</h3>
+        <p>Tratamento clinico e cirurgico para alinhamento ocular.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section class="nums">
+  <div class="nums__inner">
+    <div class="nums__item sr">
+      <div class="nums__val" data-count="33">0</div>
+      <div class="nums__lbl">anos de historia</div>
+    </div>
+    <div class="nums__item sr sr-d1">
+      <div class="nums__val" data-count="130" data-suffix="+">0</div>
+      <div class="nums__lbl">oftalmologistas</div>
+    </div>
+    <div class="nums__item sr sr-d2">
+      <div class="nums__val" data-count="150" data-suffix=" mil+">0</div>
+      <div class="nums__lbl">atendimentos/ano</div>
+    </div>
+    <div class="nums__item sr sr-d3">
+      <div class="nums__val" data-count="11" data-suffix=" mil+">0</div>
+      <div class="nums__lbl">cirurgias/ano</div>
+    </div>
+    <div class="nums__item sr sr-d4">
+      <div class="nums__val" data-count="120">0</div>
+      <div class="nums__lbl">municipios (SUS)</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT — UNITS -->
+<section class="split" id="unidades">
+  <div class="container">
+    <div class="split__media sr">[ Mapa interativo / Foto fachada ]</div>
+    <div class="split__content sr sr-d1">
+      <div class="split__label">
+        <span class="iconify" data-icon="solar:map-point-linear" data-width="14"></span>
+        Nossas Unidades
+      </div>
+      <h2>Encontre a unidade mais proxima</h2>
+      <p>Atendemos pacientes de mais de 120 municipios, com unidades hospitalares e clinicas em Londrina e regiao.</p>
+      <div class="unit-list">
+        <div class="unit-mini">
+          <div class="unit-mini__icon">
+            <span class="iconify" data-icon="solar:hospital-linear" data-width="18"></span>
+          </div>
+          <div class="unit-mini__info">
+            <div class="unit-mini__name">Unidade Souza Naves</div>
+            <div class="unit-mini__meta">R. Sen. Souza Naves, 648 — Aberto 24h</div>
+          </div>
+          <div class="unit-mini__tags"><span class="tag tag--24h">24h</span><span class="tag tag--sus">SUS</span></div>
+        </div>
+        <div class="unit-mini">
+          <div class="unit-mini__icon">
+            <span class="iconify" data-icon="solar:hospital-linear" data-width="18"></span>
+          </div>
+          <div class="unit-mini__info">
+            <div class="unit-mini__name">Unidade Cambara</div>
+            <div class="unit-mini__meta">Rua Cambara, 714 — Seg-Sex 7h-19h</div>
+          </div>
+          <div class="unit-mini__tags"><span class="tag tag--sus">SUS</span></div>
+        </div>
+        <div class="unit-mini">
+          <div class="unit-mini__icon">
+            <span class="iconify" data-icon="solar:buildings-linear" data-width="18"></span>
+          </div>
+          <div class="unit-mini__info">
+            <div class="unit-mini__name">Clinic Souza Naves</div>
+            <div class="unit-mini__meta">R. Sen. Souza Naves, 626 — Seg-Sex 8h-18h</div>
+          </div>
+          <div class="unit-mini__tags"><span class="tag tag--conv">Conv</span><span class="tag tag--part">Part</span></div>
+        </div>
+        <div class="unit-mini">
+          <div class="unit-mini__icon">
+            <span class="iconify" data-icon="solar:buildings-linear" data-width="18"></span>
+          </div>
+          <div class="unit-mini__info">
+            <div class="unit-mini__name">Clinic Ayrton Senna</div>
+            <div class="unit-mini__meta">Av. Ayrton Senna da Silva, 900</div>
+          </div>
+          <div class="unit-mini__tags"><span class="tag tag--conv">Conv</span><span class="tag tag--part">Part</span></div>
+        </div>
+      </div>
+      <div style="margin-top:20px">
+        <a href="#" class="btn-hero btn-hero--primary" style="font-size:.88rem;padding:6px 6px 6px 20px">
+          Ver todas as unidades
+          <span class="btn-hero__icon" style="width:32px;height:32px">
+            <span class="iconify" data-icon="solar:arrow-right-linear" data-width="14"></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPLIT — QUICK ACCESS (reversed) -->
+<section class="split split--reverse" style="background:var(--n50);border-top:1px solid var(--n200);border-bottom:1px solid var(--n200)">
+  <div class="container">
+    <div class="split__media split__media--accent sr">[ Paciente sendo atendido ]</div>
+    <div class="split__content sr sr-d1">
+      <div class="split__label">
+        <span class="iconify" data-icon="solar:widget-linear" data-width="14"></span>
+        Acesso Rapido
+      </div>
+      <h2>Tudo o que voce precisa, a um clique</h2>
+      <p>Agende consultas, consulte resultados de exames, verifique sua posicao na fila do SUS e encontre informacoes sobre convenios aceitos.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <a href="#" class="btn-hero btn-hero--primary" style="font-size:.85rem;padding:6px 6px 6px 18px">
+          Agendar Consulta
+          <span class="btn-hero__icon" style="width:30px;height:30px">
+            <span class="iconify" data-icon="solar:calendar-mark-linear" data-width="14"></span>
+          </span>
+        </a>
+        <a href="#" class="btn-hero btn-hero--ghost" style="font-size:.85rem;padding:10px 20px;color:var(--n700);border-color:var(--n300)">
+          <span class="iconify" data-icon="solar:document-text-linear" data-width="16"></span>
+          Resultados de Exames
+        </a>
+        <a href="#" class="btn-hero btn-hero--ghost" style="font-size:.85rem;padding:10px 20px;color:var(--n700);border-color:var(--n300)">
+          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="16"></span>
+          Fila SUS
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAGAZINE BLOG -->
+<section class="magazine" id="blog">
+  <div class="container">
+    <div class="magazine__head sr">
+      <div>
+        <div class="bento__label">
+          <span class="iconify" data-icon="solar:pen-new-square-linear" data-width="14"></span>
+          Blog
+        </div>
+        <h2>Hoftalon em Foco</h2>
+        <p>Novidades, conquistas e conteudos sobre saude ocular.</p>
+      </div>
+      <a href="#" class="magazine__link">
+        Ver todos os posts
+        <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+      </a>
+    </div>
+
+    <div class="magazine__grid">
+      <a href="#" class="magazine__featured sr">
+        <div class="magazine__featured-img">[ Thumbnail ]</div>
+        <div class="magazine__featured-body">
+          <div class="magazine__tag">Noticias</div>
+          <h3>Hoftalon e destaque entre os melhores hospitais da America Latina</h3>
+          <p>Janeiro 2026</p>
+        </div>
+      </a>
+      <div class="magazine__stack">
+        <a href="#" class="magazine__item sr sr-d1">
+          <div class="magazine__item-img">[ Thumb ]</div>
+          <div class="magazine__item-body">
+            <div class="magazine__tag">Institucional</div>
+            <h3>Hoftalon recebe doacao de terrenos para hospital 100% SUS</h3>
+            <p>Novembro 2025</p>
+          </div>
+        </a>
+        <a href="#" class="magazine__item sr sr-d2">
+          <div class="magazine__item-img">[ Thumb ]</div>
+          <div class="magazine__item-body">
+            <div class="magazine__tag">Campanhas</div>
+            <h3>Maior campanha de cirurgias de catarata da nossa historia</h3>
+            <p>Abril 2025</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="careers">
+  <div class="container">
+    <div class="careers__card sr">
+      <div class="careers__content">
+        <div class="careers__badge">
+          <span class="careers__badge-dot"></span>
+          GPTW — Melhores Hospitais
+        </div>
+        <h2>Trabalhe no<br>Hoftalon</h2>
+        <p>Junte-se ao time que transforma a saude ocular de milhares de pessoas. Um dos melhores hospitais para trabalhar no Brasil.</p>
+        <a href="#" class="btn-hero btn-hero--primary" style="width:fit-content">
+          Ver Vagas
+          <span class="btn-hero__icon">
+            <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+          </span>
+        </a>
+      </div>
+      <div class="careers__visual">
+        [ Fotos da equipe ]
+        <div class="careers__visual-accent">
+          <span class="iconify" data-icon="solar:users-group-rounded-linear" data-width="24"></span>
+          <span>200+ colaboradores</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-end">
+  <div class="container sr">
+    <h2>Sua visao nao pode esperar.</h2>
+    <p>Agende sua consulta com um dos melhores hospitais de olhos da America Latina.</p>
+    <div class="cta-end__btns">
+      <a href="#" class="btn-hero btn-hero--primary" style="background:var(--navy);font-size:1rem;padding:8px 8px 8px 28px">
+        Agende sua Consulta
+        <span class="btn-hero__icon" style="width:38px;height:38px;background:#fff;color:var(--navy)">
+          <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+        </span>
+      </a>
+      <a href="tel:4333759500" class="btn-hero btn-hero--ghost" style="color:var(--n700);border-color:var(--n300);font-size:1rem;padding:14px 28px">
+        <span class="iconify" data-icon="solar:phone-linear" data-width="18"></span>
+        Ligue: (43) 3375-9500
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="container">
+    <div class="foot__grid">
+      <div>
+        <div class="foot__brand">
+          <div class="foot__brand-logo">H</div>
+          <div>
+            <div class="foot__brand-name">HOFTALON</div>
+            <span style="font-size:.6rem;color:var(--n500)">Hospital de Olhos</span>
+          </div>
+        </div>
+        <p class="foot__desc">Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.</p>
+        <div class="foot__social">
+          <a href="#" class="foot__social-link" aria-label="Facebook"><span class="iconify" data-icon="mdi:facebook" data-width="18"></span></a>
+          <a href="#" class="foot__social-link" aria-label="Instagram"><span class="iconify" data-icon="mdi:instagram" data-width="18"></span></a>
+          <a href="#" class="foot__social-link" aria-label="YouTube"><span class="iconify" data-icon="mdi:youtube" data-width="18"></span></a>
+          <a href="#" class="foot__social-link" aria-label="LinkedIn"><span class="iconify" data-icon="mdi:linkedin" data-width="18"></span></a>
+        </div>
+      </div>
+      <div>
+        <div class="foot__heading">Institucional</div>
+        <div class="foot__links">
+          <a href="#">O Hospital</a>
+          <a href="#">Nossa Historia</a>
+          <a href="#">Ensino e Pesquisa</a>
+          <a href="#">Responsabilidade Social</a>
+          <a href="#">Trabalhe Conosco</a>
+          <a href="#">Transparencia</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot__heading">Servicos</div>
+        <div class="foot__links">
+          <a href="#">Especialidades</a>
+          <a href="#">Exames</a>
+          <a href="#">Hoftalon Clinic</a>
+          <a href="#">Convenios</a>
+          <a href="#">SUS</a>
+          <a href="#">Quero Ajudar</a>
+        </div>
+      </div>
+      <div>
+        <div class="foot__heading">Contato</div>
+        <div class="foot__contact">
+          <div class="foot__contact-item">
+            <span class="iconify" data-icon="solar:phone-linear" data-width="16"></span>
+            <span>(43) 3375-9500</span>
+          </div>
+          <div class="foot__contact-item">
+            <span class="iconify" data-icon="solar:chat-round-dots-linear" data-width="16"></span>
+            <span>WhatsApp: (43) 99173-5250</span>
+          </div>
+          <div class="foot__contact-item">
+            <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
+            <span>R. Senador Souza Naves, 648<br>Londrina — PR, 86015-430</span>
+          </div>
+          <div class="foot__contact-item">
+            <span class="iconify" data-icon="solar:clock-circle-linear" data-width="16"></span>
+            <span>Hospital: 24h<br>Clinicas: Seg-Sex 8h-18h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="foot__bottom">
+      <p>&copy; 2026 Hoftalon Hospital de Olhos. Todos os direitos reservados.</p>
+      <div class="foot__seals">
+        <span class="foot__seal">WAEH</span>
+        <span class="foot__seal">ONA</span>
+        <span class="foot__seal">GPTW</span>
+        <span class="foot__seal">CEBAS</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5543991735250" target="_blank" class="wpp" aria-label="WhatsApp">
+  <span class="iconify" data-icon="mdi:whatsapp" data-width="28"></span>
+</a>
+
+<script>
+// ===== NAV =====
+const nav = document.getElementById('topnav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+document.getElementById('menuBtn').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+
+// ===== SCROLL REVEAL =====
+const sr = document.querySelectorAll('.sr');
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+sr.forEach(el => obs.observe(el));
+
+// ===== COUNTER =====
+const counters = document.querySelectorAll('[data-count]');
+const cobs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const dur = 2200;
+    const start = performance.now();
+    (function tick(now) {
+      const p = Math.min((now - start) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 4);
+      el.textContent = Math.round(target * ease) + (p >= 1 ? suffix : '');
+      if (p < 1) requestAnimationFrame(tick);
+    })(start);
+    cobs.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(el => cobs.observe(el));
+</script>
+
+</body>
+</html>

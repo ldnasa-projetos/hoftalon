@@ -1,0 +1,2324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoftalon Design System</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans (headings) + Inter (body) — from Vitalis ref -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Iconify: Solar icon set — from Vitalis ref -->
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       LAYER 1: DESIGN TOKENS
+       Hoftalon Hospital de Olhos — Fused Design System
+       Sources: Vitalis Medical (A), Glowdent (B), Vaxet Template (C)
+       ========================================================================== */
+
+    :root {
+      /* ========== BRAND ========== */
+      --brand-primary: #0B9ECE;          /* Hoftalon logo cyan-blue */
+      --brand-primary-light: #E6F6FC;    /* derived — tinted surface */
+      --brand-primary-hover: #0889B5;    /* derived — darker for hover */
+      --brand-secondary: #0A2A4A;        /* dark navy — adapted from ref C (#031b4e) */
+      --brand-secondary-light: #143A5E;  /* derived — lighter navy */
+      --brand-accent: #0D9488;           /* teal — from ref A */
+      --brand-accent-light: #CCFBF1;    /* teal-100 — from ref A */
+      --brand-accent-hover: #0F766E;    /* teal-700 — from ref A */
+
+      /* ========== SEMANTIC ========== */
+      --color-success: #10B981;          /* emerald-500 — from ref A */
+      --color-success-light: #ECFDF5;   /* emerald-50 — from ref A */
+      --color-warning: #F59E0B;          /* amber-500 */
+      --color-warning-light: #FFFBEB;   /* amber-50 */
+      --color-error: #EF4444;            /* red-500 */
+      --color-error-light: #FEF2F2;     /* red-50 */
+      --color-info: #0B9ECE;             /* brand primary */
+
+      /* ========== NEUTRALS (Slate scale — from ref A) ========== */
+      --neutral-50: #F8FAFC;
+      --neutral-100: #F1F5F9;
+      --neutral-200: #E2E8F0;
+      --neutral-300: #CBD5E1;
+      --neutral-400: #94A3B8;
+      --neutral-500: #64748B;
+      --neutral-600: #475569;
+      --neutral-700: #334155;
+      --neutral-800: #1E293B;
+      --neutral-900: #0F172A;
+
+      /* ========== TYPOGRAPHY ========== */
+      --font-heading: 'Plus Jakarta Sans', sans-serif;   /* from ref A */
+      --font-body: 'Inter', sans-serif;                   /* from ref A */
+      --font-mono: 'Geist Mono', monospace;               /* from ref A — for labels */
+
+      /* size / line-height */
+      --text-xs: 0.75rem/1.5;       /* 12px/18px */
+      --text-sm: 0.875rem/1.5;      /* 14px/21px */
+      --text-base: 1rem/1.625;      /* 16px/26px */
+      --text-lg: 1.125rem/1.5;      /* 18px/27px */
+      --text-xl: 1.25rem/1.4;       /* 20px/28px */
+      --text-2xl: 1.5rem/1.3;       /* 24px/31.2px */
+      --text-3xl: 1.875rem/1.25;    /* 30px/37.5px */
+      --text-4xl: 2.25rem/1.15;     /* 36px/41.4px */
+      --text-5xl: 3rem/1.05;        /* 48px/50.4px */
+      --text-6xl: 3.75rem/1;        /* 60px/60px */
+      --text-7xl: 4.5rem/0.95;      /* 72px/68.4px */
+
+      /* individual sizes for component use */
+      --size-xs: 0.75rem;
+      --size-sm: 0.875rem;
+      --size-base: 1rem;
+      --size-lg: 1.125rem;
+      --size-xl: 1.25rem;
+      --size-2xl: 1.5rem;
+      --size-3xl: 1.875rem;
+      --size-4xl: 2.25rem;
+      --size-5xl: 3rem;
+      --size-6xl: 3.75rem;
+      --size-7xl: 4.5rem;
+
+      /* ========== SPACING ========== */
+      --space-xs: 0.25rem;    /* 4px */
+      --space-sm: 0.5rem;     /* 8px */
+      --space-md: 1rem;       /* 16px */
+      --space-lg: 1.5rem;     /* 24px */
+      --space-xl: 2rem;       /* 32px */
+      --space-2xl: 3rem;      /* 48px */
+      --space-3xl: 4rem;      /* 64px */
+      --space-4xl: 5rem;      /* 80px */
+      --space-5xl: 6rem;      /* 96px */
+
+      /* responsive section spacing — from ref C */
+      --section-padding: 9.375rem;  /* 150px desktop */
+
+      /* ========== SURFACES ========== */
+      --radius-sm: 4px;                  /* buttons, small elements */
+      --radius-md: 12px;                 /* cards — fusion of ref A (2px) + ref B (20-30px) */
+      --radius-lg: 16px;                 /* large cards, modals */
+      --radius-pill: 50px;               /* pill buttons — from ref C */
+      --radius-full: 9999px;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);                            /* from ref A */
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);  /* from ref A */
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05); /* from ref A */
+      --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.05);                          /* from ref C */
+
+      --surface-page: #F2F9FD;           /* light blue page bg — from ref C */
+      --surface-primary: #FFFFFF;
+      --surface-secondary: var(--neutral-50);
+      --surface-glass: rgba(255, 255, 255, 0.70);       /* from ref A navbar */
+      --surface-glass-strong: rgba(255, 255, 255, 0.90);
+      --surface-glass-blur: 12px;                         /* from ref A */
+      --surface-glass-hero: rgba(255, 255, 255, 0.15);  /* from ref B hero tag */
+      --surface-glass-hero-blur: 25px;                    /* from ref B */
+
+      /* ========== MOTION ========== */
+      --ease-default: cubic-bezier(0.16, 1, 0.3, 1);   /* expo ease-out — from ref A */
+      --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+      --duration-fast: 150ms;
+      --duration-normal: 300ms;         /* from ref B & C — standard interactive */
+      --duration-slow: 500ms;
+      --duration-reveal: 1000ms;        /* from ref A — scroll reveal */
+
+      /* ========== BORDERS ========== */
+      --border-default: 1px solid var(--neutral-200);    /* from ref A */
+      --border-subtle: 1px solid var(--neutral-100);     /* from ref A */
+      --border-input: 1px solid rgba(0, 0, 0, 0.2);     /* from ref C — underline inputs */
+      --border-input-focus: 1px solid var(--brand-primary);
+
+      /* ========== CONTAINER ========== */
+      --container-max: 1280px;           /* adapted from ref C (1336px) */
+      --container-padding: 1.5rem;       /* 24px — from ref A */
+    }
+
+    /* Responsive section spacing — from ref C pattern */
+    @media (max-width: 991px) {
+      :root { --section-padding: 6.25rem; }  /* 100px tablet */
+    }
+    @media (max-width: 767px) {
+      :root { --section-padding: 5rem; }     /* 80px landscape mobile */
+    }
+    @media (max-width: 479px) {
+      :root { --section-padding: 3.75rem; }  /* 60px portrait mobile */
+    }
+
+
+    /* ==========================================================================
+       LAYER 2: BASE RESET & GLOBALS
+       ========================================================================== */
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--size-base);
+      line-height: 1.625;
+      color: var(--neutral-700);
+      background-color: var(--surface-page);
+    }
+
+    /* Text selection — adapted from ref A (teal) to brand primary */
+    ::selection {
+      background-color: var(--brand-primary-light);
+      color: var(--brand-secondary);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: var(--brand-primary);
+      text-decoration: none;
+      transition: color var(--duration-normal) var(--ease-smooth);
+    }
+    a:hover {
+      color: var(--brand-primary-hover);
+    }
+
+    /* ========== TYPOGRAPHY CLASSES — from ref A (Vitalis) ========== */
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--font-heading);
+      color: var(--neutral-900);
+      letter-spacing: -0.025em; /* tracking-tight — from ref A */
+      font-weight: 600;
+    }
+
+    h1 { font-size: var(--size-5xl); line-height: 1.05; }
+    h2 { font-size: var(--size-4xl); line-height: 1.15; }
+    h3 { font-size: var(--size-2xl); line-height: 1.3; }
+    h4 { font-size: var(--size-xl); line-height: 1.4; }
+    h5 { font-size: var(--size-lg); line-height: 1.5; }
+    h6 { font-size: var(--size-base); line-height: 1.5; }
+
+    @media (min-width: 768px) {
+      h1 { font-size: var(--size-6xl); line-height: 1; }
+      h2 { font-size: var(--size-5xl); line-height: 1.05; }
+    }
+    @media (min-width: 1024px) {
+      h1 { font-size: var(--size-7xl); line-height: 0.95; }
+    }
+
+    .text-xs { font-size: var(--size-xs); line-height: 1.5; }
+    .text-sm { font-size: var(--size-sm); line-height: 1.5; }
+    .text-base { font-size: var(--size-base); line-height: 1.625; }
+    .text-lg { font-size: var(--size-lg); line-height: 1.5; }
+    .text-xl { font-size: var(--size-xl); line-height: 1.4; }
+    .text-2xl { font-size: var(--size-2xl); line-height: 1.3; }
+    .text-3xl { font-size: var(--size-3xl); line-height: 1.25; }
+    .text-4xl { font-size: var(--size-4xl); line-height: 1.15; }
+    .text-5xl { font-size: var(--size-5xl); line-height: 1.05; }
+    .text-6xl { font-size: var(--size-6xl); line-height: 1; }
+    .text-7xl { font-size: var(--size-7xl); line-height: 0.95; }
+
+    /* Gradient text — from ref A */
+    .text-gradient {
+      background: linear-gradient(to right, var(--brand-primary), var(--brand-accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Muted heading text — from ref A (.text-slate-300 on split headings) */
+    .text-muted-heading {
+      color: var(--neutral-300);
+    }
+
+    /* Mono label — from ref A (font-mono uppercase tracking-widest) */
+    .label-mono {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-400);
+    }
+
+    /* Body light — from ref A (font-light leading-relaxed) */
+    .text-body-light {
+      font-weight: 300;
+      line-height: 1.625;
+      color: var(--neutral-500);
+    }
+
+
+    /* ==========================================================================
+       CONTAINER & LAYOUT
+       ========================================================================== */
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--container-padding);
+      padding-right: var(--container-padding);
+    }
+
+    .section {
+      padding-top: var(--space-5xl);
+      padding-bottom: var(--space-5xl);
+    }
+
+    .section-alt {
+      background-color: var(--surface-secondary);
+    }
+
+    /* ==========================================================================
+       STICKY NAV — from ref A (glassmorphism navbar)
+       + pill CTA button from ref C
+       ========================================================================== */
+
+    .ds-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--surface-glass);
+      backdrop-filter: blur(var(--surface-glass-blur));
+      -webkit-backdrop-filter: blur(var(--surface-glass-blur));
+      border-bottom: var(--border-subtle);
+      padding: var(--space-md) 0;
+    }
+
+    .ds-nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-lg);
+    }
+
+    .ds-nav__brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      text-decoration: none;
+    }
+
+    .ds-nav__brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .ds-nav__brand-text {
+      font-family: var(--font-heading);
+      font-size: var(--size-sm);
+      font-weight: 700;
+      color: var(--neutral-900);
+      letter-spacing: -0.025em;
+    }
+
+    .ds-nav__links {
+      display: none;
+      list-style: none;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .ds-nav__links {
+        display: flex;
+      }
+    }
+
+    .ds-nav__links a {
+      font-size: var(--size-sm);
+      font-weight: 500;
+      color: var(--neutral-500);
+      transition: color var(--duration-normal);
+    }
+
+    .ds-nav__links a:hover {
+      color: var(--neutral-900);
+    }
+
+    /* ==========================================================================
+       BUTTONS — pill-shaped from ref C, hover from ref B
+       ========================================================================== */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      font-family: var(--font-body);
+      font-size: var(--size-sm);
+      font-weight: 600;
+      line-height: 1.3;
+      border-radius: var(--radius-pill);
+      padding: 6px 6px 6px 20px;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background-color var(--duration-normal), color var(--duration-normal), border-color var(--duration-normal), box-shadow var(--duration-normal);
+    }
+
+    .btn__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      transition: transform var(--duration-normal) var(--ease-default);
+    }
+
+    .btn:hover .btn__icon {
+      transform: scale(1.1);
+    }
+
+    /* Primary — blue bg, white text, white icon circle */
+    .btn-primary {
+      background-color: var(--brand-primary);
+      color: var(--surface-primary);
+    }
+    .btn-primary .btn__icon {
+      background-color: var(--surface-primary);
+      color: var(--brand-primary);
+    }
+    .btn-primary:hover {
+      background-color: var(--brand-primary-hover);
+      color: var(--surface-primary);
+    }
+
+    /* Secondary — navy bg */
+    .btn-secondary {
+      background-color: var(--brand-secondary);
+      color: var(--surface-primary);
+    }
+    .btn-secondary .btn__icon {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: var(--surface-primary);
+    }
+    .btn-secondary:hover {
+      background-color: var(--brand-secondary-light);
+      color: var(--surface-primary);
+    }
+
+    /* Outline — border, transparent bg */
+    .btn-outline {
+      background-color: transparent;
+      color: var(--neutral-900);
+      border: 1px solid var(--neutral-900);
+    }
+    .btn-outline .btn__icon {
+      background-color: var(--neutral-900);
+      color: var(--surface-primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--brand-primary);
+      color: var(--surface-primary);
+      border-color: var(--brand-primary);
+    }
+    .btn-outline:hover .btn__icon {
+      background-color: var(--surface-primary);
+      color: var(--brand-primary);
+    }
+
+    /* Ghost — text only */
+    .btn-ghost {
+      background-color: transparent;
+      color: var(--brand-primary);
+      padding: 6px var(--space-md);
+    }
+    .btn-ghost:hover {
+      color: var(--brand-primary-hover);
+    }
+    .btn-ghost .btn__icon {
+      background: none;
+      width: auto;
+      height: auto;
+    }
+
+    /* White — on dark backgrounds */
+    .btn-white {
+      background-color: var(--surface-primary);
+      color: var(--brand-secondary);
+    }
+    .btn-white .btn__icon {
+      background-color: var(--brand-secondary);
+      color: var(--surface-primary);
+    }
+    .btn-white:hover {
+      background-color: var(--neutral-100);
+      color: var(--brand-secondary);
+    }
+
+    /* Button States */
+    .btn:disabled, .btn.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--brand-primary);
+      outline-offset: 2px;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ==========================================================================
+       INPUTS — underline style from ref C, focus with brand primary
+       ========================================================================== */
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .input-label {
+      font-size: var(--size-sm);
+      font-weight: 500;
+      color: var(--neutral-900);
+    }
+
+    .input {
+      font-family: var(--font-body);
+      font-size: var(--size-base);
+      color: var(--neutral-700);
+      background-color: transparent;
+      border: none;
+      border-bottom: var(--border-input);
+      border-radius: 0;
+      padding: var(--space-sm) 0 var(--space-sm);
+      transition: border-color var(--duration-normal);
+      outline: none;
+      width: 100%;
+    }
+
+    .input::placeholder {
+      color: var(--neutral-400);
+      font-size: var(--size-sm);
+    }
+
+    .input:focus {
+      border-bottom-color: var(--brand-primary);
+    }
+
+    .input-error {
+      border-bottom-color: var(--color-error);
+    }
+
+    .input-error-msg {
+      font-size: var(--size-xs);
+      color: var(--color-error);
+    }
+
+    /* Boxed input variant */
+    .input-boxed {
+      background-color: var(--surface-primary);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .input-boxed:focus {
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 0 3px var(--brand-primary-light);
+    }
+
+    /* ==========================================================================
+       CARDS — ref A hover + ref B radius (12px) + ref C elevation
+       ========================================================================== */
+
+    .card {
+      background-color: var(--surface-primary);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      transition: box-shadow var(--duration-normal) var(--ease-smooth),
+                  border-color var(--duration-normal) var(--ease-smooth);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--neutral-300);
+    }
+
+    .card--elevated {
+      box-shadow: var(--shadow-xl);
+      border: none;
+    }
+
+    .card--glass {
+      background: var(--surface-glass-hero);
+      backdrop-filter: blur(var(--surface-glass-hero-blur));
+      -webkit-backdrop-filter: blur(var(--surface-glass-hero-blur));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: var(--surface-primary);
+    }
+
+    .card--feature {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .card__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .card__icon--primary {
+      background-color: var(--brand-primary-light);
+      color: var(--brand-primary);
+    }
+
+    .card__icon--accent {
+      background-color: var(--brand-accent-light);
+      color: var(--brand-accent);
+    }
+
+    .card__title {
+      font-family: var(--font-heading);
+      font-size: var(--size-lg);
+      font-weight: 600;
+      color: var(--neutral-900);
+      letter-spacing: -0.025em;
+    }
+
+    .card__text {
+      font-size: var(--size-sm);
+      color: var(--neutral-500);
+      line-height: 1.625;
+    }
+
+    /* ==========================================================================
+       BADGES — from ref A (pill + animated dot)
+       ========================================================================== */
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      padding: 4px 14px 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: var(--size-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .badge--primary {
+      background-color: var(--brand-primary-light);
+      color: var(--brand-primary);
+      border: 1px solid rgba(11, 158, 206, 0.2);
+    }
+
+    .badge--accent {
+      background-color: var(--brand-accent-light);
+      color: var(--brand-accent);
+      border: 1px solid rgba(13, 148, 136, 0.2);
+    }
+
+    .badge--success {
+      background-color: var(--color-success-light);
+      color: var(--color-success);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    .badge--warning {
+      background-color: var(--color-warning-light);
+      color: var(--color-warning);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+    }
+
+    .badge--error {
+      background-color: var(--color-error-light);
+      color: var(--color-error);
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    /* Animated ping dot — from ref A */
+    .badge__dot {
+      position: relative;
+      display: flex;
+      width: 8px;
+      height: 8px;
+    }
+
+    .badge__dot::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-color: currentColor;
+      opacity: 0.75;
+      animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+
+    .badge__dot::after {
+      content: '';
+      position: relative;
+      display: block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: currentColor;
+    }
+
+    @keyframes ping {
+      75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    /* ==========================================================================
+       FAQ ACCORDION — from ref A
+       ========================================================================== */
+
+    .faq-item {
+      border-bottom: var(--border-subtle);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-lg) 0;
+      cursor: pointer;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: var(--size-lg);
+      font-weight: 500;
+      color: var(--neutral-900);
+      transition: color var(--duration-normal);
+    }
+
+    .faq-question:hover {
+      color: var(--brand-primary);
+    }
+
+    .faq-question__icon {
+      color: var(--neutral-400);
+      transition: color var(--duration-normal), transform var(--duration-normal);
+      flex-shrink: 0;
+    }
+
+    .faq-question:hover .faq-question__icon {
+      color: var(--brand-primary);
+    }
+
+    .faq-answer {
+      display: none;
+      padding-bottom: var(--space-xl);
+      color: var(--neutral-500);
+      font-weight: 300;
+      line-height: 1.625;
+      animation: revealUp var(--duration-slow) var(--ease-default);
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+    }
+
+    .faq-item.active .faq-question__icon {
+      transform: rotate(45deg);
+    }
+
+    /* ==========================================================================
+       FOOTER — from ref A (12-col grid, mono headers) + ref C (social circles)
+       ========================================================================== */
+
+    .footer {
+      background-color: var(--surface-primary);
+      border-top: var(--border-default);
+      padding-top: var(--space-5xl);
+      padding-bottom: var(--space-2xl);
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-2xl);
+    }
+
+    @media (min-width: 768px) {
+      .footer__grid {
+        grid-template-columns: 2fr 1fr 1fr 2fr;
+        gap: var(--space-xl);
+      }
+    }
+
+    .footer__heading {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-400);
+      margin-bottom: var(--space-lg);
+    }
+
+    .footer__link {
+      font-size: var(--size-sm);
+      color: var(--neutral-500);
+      transition: color var(--duration-normal);
+    }
+
+    .footer__link:hover {
+      color: var(--brand-primary);
+    }
+
+    /* Social links — from ref C (circular) */
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--neutral-200);
+      color: var(--neutral-400);
+      font-size: 1rem;
+      transition: background-color var(--duration-normal), color var(--duration-normal), border-color var(--duration-normal);
+    }
+
+    .social-link:hover {
+      background-color: var(--brand-primary);
+      color: var(--surface-primary);
+      border-color: var(--brand-primary);
+    }
+
+    /* ==========================================================================
+       ANIMATIONS — from ref A (scroll-reveal, revealUp)
+       ========================================================================== */
+
+    @keyframes revealUp {
+      0% {
+        clip-path: inset(100% 0 0 0);
+        transform: translateY(20px);
+        opacity: 0;
+      }
+      100% {
+        clip-path: inset(0 0 0 0);
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all var(--duration-reveal) var(--ease-default);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+
+
+    /* ==========================================================================
+       SHOWCASE-SPECIFIC STYLES
+       ========================================================================== */
+
+    .showcase-section {
+      padding: var(--space-5xl) 0;
+      border-top: var(--border-subtle);
+    }
+
+    .showcase-section:first-of-type {
+      border-top: none;
+    }
+
+    .showcase-header {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .showcase-header h2 {
+      font-size: var(--size-4xl);
+      margin-bottom: var(--space-sm);
+    }
+
+    .showcase-header p {
+      color: var(--neutral-500);
+      font-weight: 300;
+    }
+
+    .showcase-grid {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .showcase-grid--2 {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .showcase-grid--2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    .showcase-grid--3 {
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 768px) {
+      .showcase-grid--3 { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .showcase-grid--4 {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (min-width: 768px) {
+      .showcase-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    /* Swatch */
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: var(--border-default);
+    }
+
+    .swatch__color {
+      height: 80px;
+      display: flex;
+      align-items: flex-end;
+      padding: var(--space-sm);
+    }
+
+    .swatch__info {
+      padding: var(--space-sm) var(--space-md);
+      background: var(--surface-primary);
+    }
+
+    .swatch__name {
+      font-size: var(--size-sm);
+      font-weight: 600;
+      color: var(--neutral-900);
+    }
+
+    .swatch__value {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--neutral-400);
+    }
+
+    /* Type spec row */
+    .type-spec {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      padding: var(--space-lg) 0;
+      border-bottom: var(--border-subtle);
+    }
+
+    @media (min-width: 768px) {
+      .type-spec {
+        flex-direction: row;
+        align-items: baseline;
+        gap: var(--space-xl);
+      }
+    }
+
+    .type-spec__meta {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--neutral-400);
+      white-space: nowrap;
+      min-width: 180px;
+    }
+
+    .type-spec__preview {
+      flex: 1;
+    }
+
+    /* Component state display */
+    .state-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-md);
+      padding: var(--space-md) 0;
+    }
+
+    .state-label {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-400);
+      min-width: 80px;
+    }
+
+    /* Motion demo box */
+    .motion-demo {
+      background: var(--surface-primary);
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      padding: var(--space-xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+
+    .motion-demo__box {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--radius-md);
+      background: var(--brand-primary);
+    }
+
+    .motion-demo__label {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--neutral-400);
+      text-align: center;
+    }
+
+    /* Spacing demo */
+    .spacing-demo {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--space-sm);
+    }
+
+    .spacing-bar {
+      background: var(--brand-primary-light);
+      border: 1px solid rgba(11, 158, 206, 0.2);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: var(--space-xs);
+    }
+
+    .spacing-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--brand-primary);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+
+    /* Surface card demo */
+    .surface-demo {
+      padding: var(--space-xl);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+      min-height: 120px;
+    }
+
+    /* CTA Banner — from ref A (dark bg) + ref C (navy) */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-light));
+      border-radius: var(--radius-md);
+      padding: var(--space-xl) var(--space-2xl);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .cta-banner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(11, 158, 206, 0.15), transparent);
+      pointer-events: none;
+    }
+
+    .cta-banner h3 {
+      color: var(--surface-primary);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-banner p {
+      color: var(--neutral-400);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Stats section — from ref C */
+    .stat-card {
+      text-align: center;
+      padding: var(--space-xl);
+    }
+
+    .stat-card__number {
+      font-family: var(--font-heading);
+      font-size: var(--size-5xl);
+      font-weight: 700;
+      color: var(--brand-primary);
+      letter-spacing: -0.025em;
+      line-height: 1;
+      margin-bottom: var(--space-sm);
+    }
+
+    .stat-card__label {
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--neutral-500);
+    }
+
+    /* Hero section */
+    .hero {
+      padding: var(--space-5xl) 0 var(--space-3xl);
+      position: relative;
+    }
+
+    .hero__content {
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero__subtitle {
+      font-size: var(--size-lg);
+      font-weight: 300;
+      color: var(--neutral-500);
+      line-height: 1.625;
+      margin-bottom: var(--space-xl);
+      max-width: 600px;
+    }
+
+    .hero__badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-2xl);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    /* Icon grid for showcase */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      border: var(--border-default);
+      background: var(--surface-primary);
+      transition: border-color var(--duration-normal), box-shadow var(--duration-normal);
+    }
+
+    .icon-item:hover {
+      border-color: var(--brand-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .icon-item__glyph {
+      font-size: 1.5rem;
+      color: var(--neutral-600);
+    }
+
+    .icon-item:hover .icon-item__glyph {
+      color: var(--brand-primary);
+    }
+
+    .icon-item__name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-400);
+      text-align: center;
+      word-break: break-all;
+    }
+
+    /* Layout demo */
+    .layout-demo {
+      border: var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .layout-demo__row {
+      display: grid;
+      gap: var(--space-md);
+      padding: var(--space-md);
+    }
+
+    .layout-demo__cell {
+      background: var(--brand-primary-light);
+      border: 1px solid rgba(11, 158, 206, 0.15);
+      border-radius: var(--radius-sm);
+      padding: var(--space-md);
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--brand-primary);
+      text-align: center;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Radius showcase */
+    .radius-demo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-lg);
+    }
+
+    .radius-box {
+      width: 80px;
+      height: 80px;
+      background: var(--brand-primary-light);
+      border: 1px solid rgba(11, 158, 206, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--size-xs);
+      color: var(--brand-primary);
+    }
+
+    /* Shadow showcase */
+    .shadow-demo {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-lg);
+    }
+
+    .shadow-box {
+      width: 120px;
+      height: 80px;
+      background: var(--surface-primary);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+    }
+
+    .shadow-box__label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--neutral-400);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================================================================
+       STICKY NAV — from ref A (glassmorphism)
+       ================================================================ -->
+  <nav class="ds-nav">
+    <div class="container">
+      <a href="#hero" class="ds-nav__brand">
+        <img src="../design-system/hoftalon-logo.png" alt="Hoftalon" />
+        <span class="ds-nav__brand-text">Design System</span>
+      </a>
+      <ul class="ds-nav__links">
+        <li><a href="#typography">Tipografia</a></li>
+        <li><a href="#colors">Cores</a></li>
+        <li><a href="#components">Componentes</a></li>
+        <li><a href="#layout">Layout</a></li>
+        <li><a href="#motion">Motion</a></li>
+        <li><a href="#icons">Icones</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ================================================================
+       0) HERO — Design System Identity
+       Structure from ref A (hero layout), glassmorphism tag from ref B,
+       stats from ref C, brand colors Hoftalon
+       ================================================================ -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__content scroll-reveal">
+        <div class="hero__badges">
+          <span class="badge badge--primary">
+            <span class="badge__dot"></span>
+            Design System v1.0
+          </span>
+          <span class="badge badge--accent">
+            <span class="badge__dot"></span>
+            Acessibilidade First
+          </span>
+        </div>
+
+        <h1>
+          Hoftalon
+          <span class="text-gradient">Design System</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Sistema de design fusionado para o Hoftalon Hospital de Olhos.
+          33 anos de tradicao em oftalmologia, agora com uma identidade digital
+          profissional, acolhedora e acessivel.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#components" class="btn btn-primary">
+            Ver Componentes
+            <span class="btn__icon">
+              <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+            </span>
+          </a>
+          <a href="#colors" class="btn btn-outline">
+            Explorar Tokens
+            <span class="btn__icon">
+              <span class="iconify" data-icon="solar:palette-linear" data-width="16"></span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Stats — from ref C pattern -->
+      <div class="showcase-grid showcase-grid--4 scroll-reveal delay-200" style="margin-top: var(--space-3xl);">
+        <div class="stat-card card">
+          <div class="stat-card__number">33</div>
+          <div class="stat-card__label">Anos de Historia</div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-card__number">42&deg;</div>
+          <div class="stat-card__label">Ranking Mundial Catarata</div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-card__number">7</div>
+          <div class="stat-card__label">Unidades</div>
+        </div>
+        <div class="stat-card card">
+          <div class="stat-card__number">24h</div>
+          <div class="stat-card__label">Atendimento Urgencia</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <main class="container">
+
+    <!-- ================================================================
+         1) TYPOGRAPHY — from ref A (Plus Jakarta Sans + Inter)
+         ================================================================ -->
+    <section class="showcase-section" id="typography">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">01 / Tipografia</span>
+        <h2>Sistema Tipografico</h2>
+        <p class="text-body-light">Plus Jakarta Sans para headings, Inter para corpo de texto, Geist Mono para labels. Todos carregados via Google Fonts.</p>
+      </div>
+
+      <!-- Heading Scale -->
+      <div class="scroll-reveal">
+        <div class="type-spec">
+          <span class="type-spec__meta">H1 — 48-72px / 0.95</span>
+          <div class="type-spec__preview">
+            <h1 style="margin:0;">Hoftalon Hospital</h1>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">H2 — 36-48px / 1.05</span>
+          <div class="type-spec__preview">
+            <h2 style="margin:0;">Cuidando da sua visao</h2>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">H3 — 24px / 1.3</span>
+          <div class="type-spec__preview">
+            <h3 style="margin:0;">Exames especializados</h3>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">H4 — 20px / 1.4</span>
+          <div class="type-spec__preview">
+            <h4 style="margin:0;">Corpo clinico de excelencia</h4>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">H5 — 18px / 1.5</span>
+          <div class="type-spec__preview">
+            <h5 style="margin:0;">Agendamento online rapido</h5>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">H6 — 16px / 1.5</span>
+          <div class="type-spec__preview">
+            <h6 style="margin:0;">Mais de 33 anos de dedicacao</h6>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body Text & Special Styles -->
+      <div class="scroll-reveal delay-100" style="margin-top: var(--space-2xl);">
+        <div class="type-spec">
+          <span class="type-spec__meta">Body — 16px / 1.625</span>
+          <div class="type-spec__preview">
+            <p class="text-base">O Hoftalon Hospital de Olhos e referencia em oftalmologia no Parana, com atendimento SUS, particular e convenios. Nossa equipe esta pronta para cuidar da saude dos seus olhos.</p>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">Body Light — 16px / 300</span>
+          <div class="type-spec__preview">
+            <p class="text-body-light">Texto complementar com peso leve, ideal para descricoes longas e paragrafos secundarios que precisam de boa legibilidade sem competir com o conteudo principal.</p>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">Small — 14px / 1.5</span>
+          <div class="type-spec__preview">
+            <p class="text-sm" style="color: var(--neutral-500);">Texto pequeno para metadados, legendas, rodapes de cards e informacoes complementares.</p>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">XS — 12px / 1.5</span>
+          <div class="type-spec__preview">
+            <p class="text-xs" style="color: var(--neutral-400);">Texto extra-pequeno para badges, timestamps, e labels discretos.</p>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">Label Mono — 12px / UPPER</span>
+          <div class="type-spec__preview">
+            <span class="label-mono">Especialidades &middot; Servicos &middot; Exames</span>
+          </div>
+        </div>
+
+        <div class="type-spec">
+          <span class="type-spec__meta">Gradient Text</span>
+          <div class="type-spec__preview">
+            <span class="text-gradient" style="font-family: var(--font-heading); font-size: var(--size-3xl); font-weight: 700;">Resultados visiveis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         2) COLORS & SURFACES
+         ================================================================ -->
+    <section class="showcase-section" id="colors">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">02 / Cores & Superficies</span>
+        <h2>Paleta de Cores</h2>
+        <p class="text-body-light">Paleta baseada no azul da marca Hoftalon, complementada por teal accent e escala Slate para neutros.</p>
+      </div>
+
+      <!-- Brand Colors -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Brand</h3>
+      <div class="showcase-grid showcase-grid--3 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--brand-primary);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Primary</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--brand-primary</div>
+            <div class="swatch__value">#0B9ECE</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--brand-secondary);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Secondary</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--brand-secondary</div>
+            <div class="swatch__value">#0A2A4A</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--brand-accent);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Accent</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--brand-accent</div>
+            <div class="swatch__value">#0D9488</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Semantic Colors -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Semanticas</h3>
+      <div class="showcase-grid showcase-grid--4 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--color-success);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Success</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--color-success</div>
+            <div class="swatch__value">#10B981</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--color-warning);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Warning</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--color-warning</div>
+            <div class="swatch__value">#F59E0B</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--color-error);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Error</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--color-error</div>
+            <div class="swatch__value">#EF4444</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--color-info);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: var(--size-xs);">Info</span>
+          </div>
+          <div class="swatch__info">
+            <div class="swatch__name">--color-info</div>
+            <div class="swatch__value">#0B9ECE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Neutral Scale -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Neutrals (Slate)</h3>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-xs); margin-bottom: var(--space-2xl);" class="scroll-reveal">
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-50); border-bottom: var(--border-subtle);"></div>
+          <div class="swatch__info"><div class="swatch__name">50</div><div class="swatch__value">#F8FAFC</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-100);"></div>
+          <div class="swatch__info"><div class="swatch__name">100</div><div class="swatch__value">#F1F5F9</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-200);"></div>
+          <div class="swatch__info"><div class="swatch__name">200</div><div class="swatch__value">#E2E8F0</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-300);"></div>
+          <div class="swatch__info"><div class="swatch__name">300</div><div class="swatch__value">#CBD5E1</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-400);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">400</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">400</div><div class="swatch__value">#94A3B8</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-500);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">500</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">500</div><div class="swatch__value">#64748B</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-600);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">600</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">600</div><div class="swatch__value">#475569</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-700);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">700</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">700</div><div class="swatch__value">#334155</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-800);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">800</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">800</div><div class="swatch__value">#1E293B</div></div>
+        </div>
+        <div class="swatch">
+          <div class="swatch__color" style="background-color: var(--neutral-900);">
+            <span style="color: #fff; font-family: var(--font-mono); font-size: 10px;">900</span>
+          </div>
+          <div class="swatch__info"><div class="swatch__name">900</div><div class="swatch__value">#0F172A</div></div>
+        </div>
+      </div>
+
+      <!-- Surfaces -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Superficies</h3>
+      <div class="showcase-grid showcase-grid--3 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="surface-demo" style="background: var(--surface-page); border: var(--border-default);">
+          <span class="label-mono">Page Background</span>
+          <span style="font-family: var(--font-mono); font-size: var(--size-xs); color: var(--neutral-500);">--surface-page: #F2F9FD</span>
+          <span style="font-size: var(--size-sm); color: var(--neutral-600);">Fundo geral da pagina — from ref C</span>
+        </div>
+        <div class="surface-demo" style="background: var(--surface-primary); border: var(--border-default);">
+          <span class="label-mono">Primary Surface</span>
+          <span style="font-family: var(--font-mono); font-size: var(--size-xs); color: var(--neutral-500);">#FFFFFF</span>
+          <span style="font-size: var(--size-sm); color: var(--neutral-600);">Cards, modals, navbar</span>
+        </div>
+        <div class="surface-demo" style="background: var(--surface-secondary); border: var(--border-default);">
+          <span class="label-mono">Secondary Surface</span>
+          <span style="font-family: var(--font-mono); font-size: var(--size-xs); color: var(--neutral-500);">--neutral-50: #F8FAFC</span>
+          <span style="font-size: var(--size-sm); color: var(--neutral-600);">Secoes alternadas</span>
+        </div>
+      </div>
+
+      <div class="showcase-grid showcase-grid--2 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="surface-demo" style="background: var(--surface-glass); backdrop-filter: blur(var(--surface-glass-blur)); border: 1px solid rgba(255,255,255,0.3);">
+          <span class="label-mono">Glass Surface</span>
+          <span style="font-family: var(--font-mono); font-size: var(--size-xs); color: var(--neutral-500);">rgba(255,255,255,0.70) + blur 12px</span>
+          <span style="font-size: var(--size-sm); color: var(--neutral-600);">Navbar, overlays — from ref A</span>
+        </div>
+        <div class="surface-demo" style="background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-light));">
+          <span class="label-mono" style="color: var(--neutral-400);">Dark Surface</span>
+          <span style="font-family: var(--font-mono); font-size: var(--size-xs); color: rgba(255,255,255,0.5);">--brand-secondary gradient</span>
+          <span style="font-size: var(--size-sm); color: rgba(255,255,255,0.7);">CTA banners, hero dark — from ref C</span>
+        </div>
+      </div>
+
+      <!-- Border Radius -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Border Radius</h3>
+      <div class="radius-demo scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div style="text-align: center;">
+          <div class="radius-box" style="border-radius: var(--radius-sm);">4px</div>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">sm</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="radius-box" style="border-radius: var(--radius-md);">12px</div>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">md</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="radius-box" style="border-radius: var(--radius-lg);">16px</div>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">lg</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="radius-box" style="border-radius: var(--radius-pill); width: 120px;">50px</div>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">pill</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="radius-box" style="border-radius: var(--radius-full);">full</div>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">full</span>
+        </div>
+      </div>
+
+      <!-- Shadows -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-md);">Sombras</h3>
+      <div class="shadow-demo scroll-reveal">
+        <div class="shadow-box" style="box-shadow: var(--shadow-sm);">
+          <span class="shadow-box__label">shadow-sm</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-md);">
+          <span class="shadow-box__label">shadow-md</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-lg);">
+          <span class="shadow-box__label">shadow-lg</span>
+        </div>
+        <div class="shadow-box" style="box-shadow: var(--shadow-xl);">
+          <span class="shadow-box__label">shadow-xl</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         3) UI COMPONENTS
+         ================================================================ -->
+    <section class="showcase-section" id="components">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">03 / Componentes UI</span>
+        <h2>Componentes</h2>
+        <p class="text-body-light">Todos os componentes usam tokens CSS via var(--...). Nenhum valor hardcoded.</p>
+      </div>
+
+      <!-- BUTTONS -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Botoes</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Pill-shaped (radius 50px) — from ref C. Icone circular interno — from ref C. Hover transitions — from ref B.</p>
+
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <!-- Primary -->
+        <div class="state-row">
+          <span class="state-label">Primary</span>
+          <a href="#" class="btn btn-primary">
+            Agendar Consulta
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+          <a href="#" class="btn btn-primary disabled">
+            Desativado
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+
+        <!-- Secondary -->
+        <div class="state-row">
+          <span class="state-label">Secondary</span>
+          <a href="#" class="btn btn-secondary">
+            Saiba Mais
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+
+        <!-- Outline -->
+        <div class="state-row">
+          <span class="state-label">Outline</span>
+          <a href="#" class="btn btn-outline">
+            Ver Servicos
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+
+        <!-- Ghost -->
+        <div class="state-row">
+          <span class="state-label">Ghost</span>
+          <a href="#" class="btn btn-ghost">
+            Ver todos
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+
+        <!-- White (on dark) -->
+        <div class="state-row" style="background: var(--brand-secondary); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg);">
+          <span class="state-label" style="color: var(--neutral-400);">White</span>
+          <a href="#" class="btn btn-white">
+            Agendar Agora
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- BADGES -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Badges</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Pill com dot animado (ping) — from ref A. Cores adaptadas para a paleta Hoftalon.</p>
+      <div class="state-row scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <span class="badge badge--primary"><span class="badge__dot"></span>Newsweek 2026</span>
+        <span class="badge badge--accent"><span class="badge__dot"></span>ONA Pleno</span>
+        <span class="badge badge--success"><span class="badge__dot"></span>Disponivel</span>
+        <span class="badge badge--warning"><span class="badge__dot"></span>Em espera</span>
+        <span class="badge badge--error"><span class="badge__dot"></span>Urgente</span>
+      </div>
+
+      <!-- CARDS -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Cards</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Hover sutil de ref A + border-radius 12px de ref B + elevacao de ref C.</p>
+      <div class="showcase-grid showcase-grid--3 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="card card--feature">
+          <div class="card__icon card__icon--primary">
+            <span class="iconify" data-icon="solar:eye-linear" data-width="24"></span>
+          </div>
+          <div class="card__title">Consultas</div>
+          <div class="card__text">Avaliacao completa da saude ocular com equipamentos de ultima geracao e corpo clinico especializado.</div>
+        </div>
+        <div class="card card--feature">
+          <div class="card__icon card__icon--accent">
+            <span class="iconify" data-icon="solar:test-tube-linear" data-width="24"></span>
+          </div>
+          <div class="card__title">Exames</div>
+          <div class="card__text">Mais de 30 tipos de exames oftalmologicos, incluindo tomografia, campimetria e angiografia.</div>
+        </div>
+        <div class="card card--feature">
+          <div class="card__icon" style="background-color: var(--color-success-light); color: var(--color-success);">
+            <span class="iconify" data-icon="solar:stethoscope-linear" data-width="24"></span>
+          </div>
+          <div class="card__title">Cirurgias</div>
+          <div class="card__text">Referencia em catarata, glaucoma, transplante de cornea e cirurgias refrativas com tecnologia avancada.</div>
+        </div>
+      </div>
+
+      <!-- Glass Card -->
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <h4 style="margin-bottom: var(--space-md);">Card Glass — from ref B</h4>
+        <div style="background: linear-gradient(135deg, var(--brand-secondary), var(--brand-secondary-light)); border-radius: var(--radius-lg); padding: var(--space-2xl); display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+          <div class="card card--glass" style="flex: 1; min-width: 240px;">
+            <div class="card__title" style="color: #fff;">Atendimento 24h</div>
+            <div class="card__text" style="color: rgba(255,255,255,0.7);">Plantao oftalmologico de madrugada — diferencial raro no Brasil.</div>
+          </div>
+          <div class="card card--glass" style="flex: 1; min-width: 240px;">
+            <div class="card__title" style="color: #fff;">Membro ICO</div>
+            <div class="card__text" style="color: rgba(255,255,255,0.7);">Conselho Internacional de Oftalmologia — reconhecimento global.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Elevated Card -->
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <h4 style="margin-bottom: var(--space-md);">Card Elevado — from ref C</h4>
+        <div class="card card--elevated" style="max-width: 480px;">
+          <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+            <div class="card__icon card__icon--primary">
+              <span class="iconify" data-icon="solar:calendar-add-linear" data-width="24"></span>
+            </div>
+            <div>
+              <div class="card__title">Agendar Consulta</div>
+              <p class="text-sm" style="color: var(--neutral-400);">Escolha a unidade mais proxima</p>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" style="width: fit-content;">
+            Agendar Agora
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- INPUTS -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Inputs</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Estilo underline de ref C com focus usando brand primary. Variante boxed tambem disponivel.</p>
+
+      <div class="showcase-grid showcase-grid--2 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+          <h5>Underline (default)</h5>
+          <div class="input-group">
+            <label class="input-label">Nome completo</label>
+            <input type="text" class="input" placeholder="Digite seu nome" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">E-mail</label>
+            <input type="email" class="input" placeholder="seu@email.com" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Telefone (erro)</label>
+            <input type="tel" class="input input-error" value="123" />
+            <span class="input-error-msg">Telefone invalido. Use o formato (43) 99999-9999.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: var(--space-lg);">
+          <h5>Boxed (alternativa)</h5>
+          <div class="input-group">
+            <label class="input-label">CPF</label>
+            <input type="text" class="input input-boxed" placeholder="000.000.000-00" />
+          </div>
+          <div class="input-group">
+            <label class="input-label">Data de Nascimento</label>
+            <input type="date" class="input input-boxed" />
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">FAQ Accordion</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Padrao de ref A — toggle com icone +, hover em brand primary, reveal animado.</p>
+      <div class="scroll-reveal" style="max-width: 700px; margin-bottom: var(--space-2xl);">
+        <div class="faq-item active">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <span>Quais convenios o Hoftalon atende?</span>
+            <span class="faq-question__icon iconify" data-icon="solar:add-circle-linear" data-width="20"></span>
+          </button>
+          <div class="faq-answer">
+            O Hoftalon atende diversos convenios, alem de atendimento particular e pelo SUS. Consulte a lista completa de convenios na pagina de Pacientes ou entre em contato pelo WhatsApp.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <span>Como consultar minha posicao na fila do SUS?</span>
+            <span class="faq-question__icon iconify" data-icon="solar:add-circle-linear" data-width="20"></span>
+          </button>
+          <div class="faq-answer">
+            Acesse a area de Pacientes no site e clique em "Fila SUS". Voce precisara informar seu CPF e nome completo para consultar sua posicao na fila de espera.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+            <span>O atendimento de urgencia funciona 24 horas?</span>
+            <span class="faq-question__icon iconify" data-icon="solar:add-circle-linear" data-width="20"></span>
+          </button>
+          <div class="faq-answer">
+            Sim. A unidade Souza Naves oferece atendimento oftalmologico de urgencia 24 horas, incluindo plantao de madrugada — um diferencial raro no Brasil.
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">CTA Banner</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Dark background de ref A + navy de ref C. Gradiente sutil com brand primary overlay.</p>
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="cta-banner">
+          <div style="position: relative; z-index: 1;">
+            <h3 style="font-size: var(--size-3xl); margin-bottom: var(--space-xs);">Pronto para cuidar da sua visao?</h3>
+            <p style="font-size: var(--size-base);">Junte-se a milhares de pacientes que confiam no Hoftalon.</p>
+          </div>
+          <a href="#" class="btn btn-white" style="position: relative; z-index: 1;">
+            Agendar Consulta
+            <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Preview -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Footer</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Grid 4-col de ref A + headers mono + social circles de ref C.</p>
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="footer" style="border-radius: var(--radius-md); overflow: hidden;">
+          <div class="container">
+            <div class="footer__grid">
+              <div>
+                <img src="../design-system/hoftalon-logo.png" alt="Hoftalon" style="height: 40px; margin-bottom: var(--space-md);" />
+                <p class="text-sm" style="color: var(--neutral-500); line-height: 1.625;">Referencia em oftalmologia no Parana ha 33 anos. Atendimento SUS, particular e convenios.</p>
+              </div>
+              <div>
+                <h4 class="footer__heading">Servicos</h4>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);">
+                  <li><a href="#" class="footer__link">Consultas</a></li>
+                  <li><a href="#" class="footer__link">Exames</a></li>
+                  <li><a href="#" class="footer__link">Cirurgias</a></li>
+                  <li><a href="#" class="footer__link">Urgencia 24h</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="footer__heading">Pacientes</h4>
+                <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-sm);">
+                  <li><a href="#" class="footer__link">Portal do Paciente</a></li>
+                  <li><a href="#" class="footer__link">Agendamento</a></li>
+                  <li><a href="#" class="footer__link">Fila SUS</a></li>
+                  <li><a href="#" class="footer__link">Convenios</a></li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="footer__heading">Emergencia</h4>
+                <div class="card" style="padding: var(--space-md);">
+                  <span class="label-mono" style="display: block; margin-bottom: var(--space-xs);">Plantao 24h</span>
+                  <span style="font-family: var(--font-heading); font-size: var(--size-2xl); font-weight: 600; color: var(--neutral-900); display: block; margin-bottom: var(--space-xs);">43 3375-9500</span>
+                  <span class="text-sm" style="color: var(--neutral-500);">Unidade Souza Naves</span>
+                </div>
+                <div style="display: flex; gap: var(--space-sm); margin-top: var(--space-md);">
+                  <a href="#" class="social-link"><span class="iconify" data-icon="ri:facebook-circle-line" data-width="16"></span></a>
+                  <a href="#" class="social-link"><span class="iconify" data-icon="ri:instagram-line" data-width="16"></span></a>
+                  <a href="#" class="social-link"><span class="iconify" data-icon="ri:youtube-line" data-width="16"></span></a>
+                  <a href="#" class="social-link"><span class="iconify" data-icon="ri:whatsapp-line" data-width="16"></span></a>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-top: var(--space-xl); margin-top: var(--space-2xl); border-top: var(--border-default); flex-wrap: wrap; gap: var(--space-sm);">
+              <span class="text-xs" style="color: var(--neutral-400);">&copy; 2026 Hoftalon Hospital de Olhos. Todos os direitos reservados.</span>
+              <span class="text-xs" style="color: var(--neutral-400);">DPO: dpo@hoftalon.com.br</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         4) LAYOUT & SPACING
+         ================================================================ -->
+    <section class="showcase-section" id="layout">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">04 / Layout & Espacamento</span>
+        <h2>Layout & Spacing</h2>
+        <p class="text-body-light">Container 1280px, grids responivos, sistema de spacing com tokens. Breakpoints: 479 / 767 / 991 / 1024px.</p>
+      </div>
+
+      <!-- Spacing Scale -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Escala de Espacamento</h3>
+      <div class="spacing-demo scroll-reveal" style="margin-bottom: var(--space-2xl); align-items: flex-end;">
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 16px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">xs 4px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 32px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">sm 8px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 48px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">md 16px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 64px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">lg 24px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 80px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">xl 32px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 112px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">2xl 48px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 144px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">3xl 64px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 176px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">4xl 80px</span>
+        </div>
+        <div style="text-align: center;">
+          <div class="spacing-bar" style="width: 32px; height: 208px;"></div>
+          <span class="label-mono" style="display: block; margin-top: 4px; font-size: 10px;">5xl 96px</span>
+        </div>
+      </div>
+
+      <!-- Grid Layouts -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Grid Layouts</h3>
+
+      <div class="scroll-reveal" style="margin-bottom: var(--space-lg);">
+        <h5 style="margin-bottom: var(--space-sm);">12-Column Grid</h5>
+        <div class="layout-demo">
+          <div class="layout-demo__row" style="grid-template-columns: repeat(12, 1fr);">
+            <div class="layout-demo__cell">1</div><div class="layout-demo__cell">2</div>
+            <div class="layout-demo__cell">3</div><div class="layout-demo__cell">4</div>
+            <div class="layout-demo__cell">5</div><div class="layout-demo__cell">6</div>
+            <div class="layout-demo__cell">7</div><div class="layout-demo__cell">8</div>
+            <div class="layout-demo__cell">9</div><div class="layout-demo__cell">10</div>
+            <div class="layout-demo__cell">11</div><div class="layout-demo__cell">12</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-reveal" style="margin-bottom: var(--space-lg);">
+        <h5 style="margin-bottom: var(--space-sm);">Layout 7/5 (Conteudo + Sidebar) — from ref A</h5>
+        <div class="layout-demo">
+          <div class="layout-demo__row" style="grid-template-columns: 7fr 5fr;">
+            <div class="layout-demo__cell" style="min-height: 120px;">Conteudo Principal (7col)</div>
+            <div class="layout-demo__cell" style="min-height: 120px;">Sidebar (5col)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-reveal" style="margin-bottom: var(--space-lg);">
+        <h5 style="margin-bottom: var(--space-sm);">Grid 3-Column (Cards) — from ref C</h5>
+        <div class="layout-demo">
+          <div class="layout-demo__row" style="grid-template-columns: 1fr 1fr 1fr;">
+            <div class="layout-demo__cell" style="min-height: 100px;">Card 1</div>
+            <div class="layout-demo__cell" style="min-height: 100px;">Card 2</div>
+            <div class="layout-demo__cell" style="min-height: 100px;">Card 3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Container</h3>
+      <div class="scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="layout-demo">
+          <div style="padding: var(--space-md); background: var(--brand-primary-light); text-align: center;">
+            <span class="label-mono" style="color: var(--brand-primary);">max-width: 1280px &middot; padding: 24px</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Responsive Section Spacing -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Espacamento de Secao (Responsivo) — from ref C</h3>
+      <div class="showcase-grid showcase-grid--4 scroll-reveal">
+        <div class="card" style="text-align: center;">
+          <div class="stat-card__number" style="font-size: var(--size-3xl);">150px</div>
+          <div class="stat-card__label">Desktop</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div class="stat-card__number" style="font-size: var(--size-3xl);">100px</div>
+          <div class="stat-card__label">Tablet</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div class="stat-card__number" style="font-size: var(--size-3xl);">80px</div>
+          <div class="stat-card__label">Landscape</div>
+        </div>
+        <div class="card" style="text-align: center;">
+          <div class="stat-card__number" style="font-size: var(--size-3xl);">60px</div>
+          <div class="stat-card__label">Portrait</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         5) MOTION & INTERACTION
+         ================================================================ -->
+    <section class="showcase-section" id="motion">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">05 / Motion & Interacao</span>
+        <h2>Motion & Interaction</h2>
+        <p class="text-body-light">Animacoes de ref A (expo ease-out, scroll-reveal) + transitions de ref B/C (300ms).</p>
+      </div>
+
+      <!-- Easing Curves -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Easing Curves</h3>
+      <div class="showcase-grid showcase-grid--2 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="transition: transform 1s var(--ease-default);"
+               onmouseenter="this.style.transform='translateX(60px)'"
+               onmouseleave="this.style.transform='translateX(0)'"></div>
+          <div class="motion-demo__label">
+            --ease-default<br>
+            cubic-bezier(0.16, 1, 0.3, 1)<br>
+            <em style="color: var(--neutral-500);">Expo ease-out — from ref A</em>
+          </div>
+        </div>
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="transition: transform 1s var(--ease-smooth); background: var(--brand-accent);"
+               onmouseenter="this.style.transform='translateX(60px)'"
+               onmouseleave="this.style.transform='translateX(0)'"></div>
+          <div class="motion-demo__label">
+            --ease-smooth<br>
+            cubic-bezier(0.4, 0, 0.2, 1)<br>
+            <em style="color: var(--neutral-500);">Standard material easing</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duration Scale -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Duration Scale</h3>
+      <div class="showcase-grid showcase-grid--4 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="width: 40px; height: 40px; transition: opacity 150ms; cursor: pointer;"
+               onmouseenter="this.style.opacity='0.3'"
+               onmouseleave="this.style.opacity='1'"></div>
+          <div class="motion-demo__label">--duration-fast<br>150ms</div>
+        </div>
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="width: 40px; height: 40px; transition: transform 300ms var(--ease-smooth); cursor: pointer; background: var(--brand-primary);"
+               onmouseenter="this.style.transform='scale(1.2)'"
+               onmouseleave="this.style.transform='scale(1)'"></div>
+          <div class="motion-demo__label">--duration-normal<br>300ms</div>
+        </div>
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="width: 40px; height: 40px; transition: transform 500ms var(--ease-default); cursor: pointer; background: var(--brand-accent);"
+               onmouseenter="this.style.transform='rotate(90deg)'"
+               onmouseleave="this.style.transform='rotate(0)'"></div>
+          <div class="motion-demo__label">--duration-slow<br>500ms</div>
+        </div>
+        <div class="motion-demo">
+          <div class="motion-demo__box" style="width: 40px; height: 40px; transition: transform 1000ms var(--ease-default); cursor: pointer; background: var(--brand-secondary);"
+               onmouseenter="this.style.transform='translateY(-20px)'"
+               onmouseleave="this.style.transform='translateY(0)'"></div>
+          <div class="motion-demo__label">--duration-reveal<br>1000ms</div>
+        </div>
+      </div>
+
+      <!-- Scroll Reveal -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Scroll Reveal — from ref A</h3>
+      <p class="text-sm scroll-reveal" style="color: var(--neutral-500); margin-bottom: var(--space-lg);">Elementos com classe <code style="font-family: var(--font-mono); background: var(--neutral-100); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--size-xs);">.scroll-reveal</code> aparecem com translateY(20px) + fade-in ao entrar no viewport. Stagger com <code style="font-family: var(--font-mono); background: var(--neutral-100); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--size-xs);">.delay-100</code> ate <code style="font-family: var(--font-mono); background: var(--neutral-100); padding: 2px 6px; border-radius: var(--radius-sm); font-size: var(--size-xs);">.delay-400</code>.</p>
+
+      <!-- Hover Effects -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Hover Effects</h3>
+      <div class="showcase-grid showcase-grid--3 scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="card" style="cursor: pointer;">
+          <div class="card__title">Card Hover</div>
+          <div class="card__text">Passe o mouse — border e shadow mudam suavemente.</div>
+        </div>
+        <a href="#" class="btn btn-primary" style="justify-content: center;">
+          Button Hover
+          <span class="btn__icon"><span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span></span>
+        </a>
+        <a href="#" class="social-link" style="width: 60px; height: 60px; font-size: 1.5rem;">
+          <span class="iconify" data-icon="ri:instagram-line" data-width="24"></span>
+        </a>
+      </div>
+
+      <!-- Ping Animation -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Ping Animation (Badge Dot) — from ref A</h3>
+      <div class="state-row scroll-reveal">
+        <span class="badge badge--success" style="font-size: var(--size-sm); padding: 8px 20px 8px 14px;">
+          <span class="badge__dot"></span>
+          Online agora
+        </span>
+        <span class="badge badge--primary" style="font-size: var(--size-sm); padding: 8px 20px 8px 14px;">
+          <span class="badge__dot"></span>
+          Disponivel
+        </span>
+      </div>
+    </section>
+
+
+    <!-- ================================================================
+         6) ICONS — Solar (Iconify) from ref A
+         ================================================================ -->
+    <section class="showcase-section" id="icons">
+      <div class="showcase-header scroll-reveal">
+        <span class="label-mono">06 / Icones</span>
+        <h2>Sistema de Icones</h2>
+        <p class="text-body-light">Iconify + Solar (Linear) de ref A. Remix Icons para redes sociais. Tamanhos: 16, 20, 24, 32px.</p>
+      </div>
+
+      <!-- Medical/Ophthalmology Icons -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Icones Medicos & Oftalmologicos</h3>
+      <div class="icon-grid scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:eye-linear" data-width="24"></span>
+          <span class="icon-item__name">eye</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:stethoscope-linear" data-width="24"></span>
+          <span class="icon-item__name">stethoscope</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:test-tube-linear" data-width="24"></span>
+          <span class="icon-item__name">test-tube</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:heart-pulse-linear" data-width="24"></span>
+          <span class="icon-item__name">heart-pulse</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:document-medicine-linear" data-width="24"></span>
+          <span class="icon-item__name">document-medicine</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:shield-check-linear" data-width="24"></span>
+          <span class="icon-item__name">shield-check</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:hospital-linear" data-width="24"></span>
+          <span class="icon-item__name">hospital</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:monitor-camera-linear" data-width="24"></span>
+          <span class="icon-item__name">monitor-camera</span>
+        </div>
+      </div>
+
+      <!-- UI Icons -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Icones de Interface</h3>
+      <div class="icon-grid scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:arrow-right-linear" data-width="24"></span>
+          <span class="icon-item__name">arrow-right</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:calendar-add-linear" data-width="24"></span>
+          <span class="icon-item__name">calendar-add</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:user-check-linear" data-width="24"></span>
+          <span class="icon-item__name">user-check</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:phone-calling-linear" data-width="24"></span>
+          <span class="icon-item__name">phone-calling</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:map-point-linear" data-width="24"></span>
+          <span class="icon-item__name">map-point</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:clock-circle-linear" data-width="24"></span>
+          <span class="icon-item__name">clock-circle</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:magnifer-linear" data-width="24"></span>
+          <span class="icon-item__name">magnifer</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:add-circle-linear" data-width="24"></span>
+          <span class="icon-item__name">add-circle</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:close-circle-linear" data-width="24"></span>
+          <span class="icon-item__name">close-circle</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:hamburger-menu-linear" data-width="24"></span>
+          <span class="icon-item__name">hamburger-menu</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:star-bold" data-width="24"></span>
+          <span class="icon-item__name">star</span>
+        </div>
+        <div class="icon-item">
+          <span class="icon-item__glyph iconify" data-icon="solar:graph-up-linear" data-width="24"></span>
+          <span class="icon-item__name">graph-up</span>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Icones Sociais (Remix Icons)</h3>
+      <div class="state-row scroll-reveal" style="margin-bottom: var(--space-2xl);">
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:facebook-circle-line" data-width="18"></span></a>
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:instagram-line" data-width="18"></span></a>
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:youtube-line" data-width="18"></span></a>
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:whatsapp-line" data-width="18"></span></a>
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:twitter-x-line" data-width="18"></span></a>
+        <a href="#" class="social-link"><span class="iconify" data-icon="ri:linkedin-line" data-width="18"></span></a>
+      </div>
+
+      <!-- Icon Sizes -->
+      <h3 class="scroll-reveal" style="margin-bottom: var(--space-lg);">Tamanhos</h3>
+      <div class="state-row scroll-reveal">
+        <div style="text-align: center;">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="16" style="color: var(--neutral-600);"></span>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">16px</span>
+        </div>
+        <div style="text-align: center;">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="20" style="color: var(--neutral-600);"></span>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">20px</span>
+        </div>
+        <div style="text-align: center;">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="24" style="color: var(--neutral-600);"></span>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">24px</span>
+        </div>
+        <div style="text-align: center;">
+          <span class="iconify" data-icon="solar:eye-linear" data-width="32" style="color: var(--neutral-600);"></span>
+          <span class="label-mono" style="display: block; margin-top: var(--space-xs);">32px</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Scroll Reveal Observer — from ref A -->
+  <script>
+    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
