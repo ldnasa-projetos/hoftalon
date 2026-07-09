@@ -4,11 +4,24 @@
    Referenciar tokens via var(--...) de design_system/tokens.css. Zero magic numbers.
    ========================================================================== */
 
+/* Rolagem suave para links ancora (#secao). Desligada em reduced-motion abaixo. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa o header sticky ao rolar ate uma secao ancorada. */
+section[id] {
+  scroll-margin-top: var(--space-5xl); /* 96px - altura aprox. do header */
+}
+
 /* Respeita usuarios que preferem menos movimento (acessibilidade). */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html {
     scroll-behavior: auto !important;
   }
 }
@@ -22,14 +35,17 @@
   display: none;
 }
 
-/* Scroll-reveal base (ativado por js/main.js via IntersectionObserver). */
-.reveal {
+/* Scroll-reveal (fade + rise). Ativado por js/main.js via IntersectionObserver.
+   O estado escondido so vale quando o JS marca <html class="reveal-ready">, entao
+   sem JS (ou se ele falhar) o conteudo permanece visivel - resiliencia/acessibilidade. */
+html.reveal-ready .reveal {
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.25rem);
   transition: opacity var(--duration-reveal) ease,
               transform var(--duration-reveal) ease;
+  will-change: opacity, transform;
 }
-.reveal.is-visible {
+html.reveal-ready .reveal.is-visible {
   opacity: 1;
   transform: none;
 }

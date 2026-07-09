@@ -6,14 +6,59 @@
 (function () {
   'use strict';
 
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Primeiro filho "de fluxo" de uma secao (ignora camadas de fundo absolutas/fixas),
+  // para o fade subir o CONTEUDO sem mover o background da faixa.
+  function firstFlowChild(section) {
+    var kids = section.children;
+    for (var i = 0; i < kids.length; i++) {
+      var pos = window.getComputedStyle(kids[i]).position;
+      if (pos !== 'absolute' && pos !== 'fixed') return kids[i];
+    }
+    return null;
+  }
+
+  // Coleta alvos de reveal: qualquer .reveal manual + auto-tag do conteudo de cada
+  // secao (pulando o hero e secoes que ja tenham reveal manual dentro).
+  function collectRevealTargets() {
+    var targets = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+    var sections = document.querySelectorAll('main > section, body > section');
+    Array.prototype.slice.call(sections).slice(1).forEach(function (section) {
+      if (section.querySelector('.reveal')) return; // ja controlado manualmente
+      var child = firstFlowChild(section);
+      if (child && targets.indexOf(child) === -1) {
+        child.classList.add('reveal');
+        targets.push(child);
+      }
+    });
+    return targets;
+  }
+
+  function inViewport(el) {
+    var rect = el.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    return rect.top < vh * 0.92 && rect.bottom > 0;
+  }
+
   // --- Scroll-reveal via IntersectionObserver ---
   function initScrollReveal() {
-    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var targets = document.querySelectorAll('.reveal');
-    if (reduced || !('IntersectionObserver' in window)) {
+    var targets = collectRevealTargets();
+    if (!targets.length) return;
+
+    // Reduced-motion ou sem IntersectionObserver: mostra tudo, sem animar.
+    if (prefersReduced || !('IntersectionObserver' in window)) {
       targets.forEach(function (el) { el.classList.add('is-visible'); });
       return;
     }
+
+    // Habilita o estado escondido so agora (com JS garantido).
+    document.documentElement.classList.add('reveal-ready');
+    // Elementos ja visiveis no load aparecem imediatamente (sem flash).
+    targets.forEach(function (el) {
+      if (inViewport(el)) el.classList.add('is-visible');
+    });
+
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -22,7 +67,53 @@
         }
       });
     }, { threshold: 0.15 });
-    targets.forEach(function (el) { observer.observe(el); });
+    targets.forEach(function (el) {
+      if (!el.classList.contains('is-visible')) observer.observe(el);
+    });
+  }
+
+  // --- Number tickers ([data-ticker]) ---
+  // Anima a contagem do numero mantendo prefixo/sufixo do texto original
+  // (ex.: "150mil+" -> conta 0..150 e preserva "mil+"). Opt-in por atributo.
+  function animateCounter(el) {
+    var raw = el.getAttribute('data-ticker-raw');
+    if (raw === null) { raw = el.textContent.trim(); el.setAttribute('data-ticker-raw', raw); }
+    var m = raw.match(/^(\D*)(\d[\d.]*)(.*)$/);
+    if (!m) return;
+    var prefix = m[1] || '';
+    var target = parseInt(m[2].replace(/\./g, ''), 10);
+    var suffix = m[3] || '';
+    if (!isFinite(target)) return;
+
+    var duration = 1200, startTs = null;
+    function frame(ts) {
+      if (startTs === null) startTs = ts;
+      var p = Math.min((ts - startTs) / duration, 1);
+      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+      if (p < 1) {
+        el.textContent = prefix + Math.round(eased * target) + suffix;
+        requestAnimationFrame(frame);
+      } else {
+        el.textContent = raw; // valor final exato, formatacao original
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function initCounters() {
+    var els = document.querySelectorAll('[data-ticker]');
+    if (!els.length) return;
+    if (prefersReduced || !('IntersectionObserver' in window)) return; // ja mostram o final
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    els.forEach(function (el) { observer.observe(el); });
   }
 
   // --- Carrossel de especialidades (setas prev/next) ---
@@ -218,6 +309,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
+    initCounters();
     initCarousels();
     initUnitFilters();
     initGalleryFilters();
