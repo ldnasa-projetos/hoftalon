@@ -1,1538 +1,743 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hoftalon Hospital de Olhos — Referência Internacional em Oftalmologia</title>
-  <meta name="description" content="Hoftalon Hospital de Olhos — referência internacional em oftalmologia. Mais de 130 oftalmologistas, 150 mil atendimentos e 11 mil cirurgias por ano. Londrina, PR.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hoftalon Hospital de Olhos - Referencia internacional em oftalmologia</title>
+  <meta name="description" content="Hoftalon Hospital de Olhos, Londrina-PR. 33 anos de oftalmologia, atendimento 24h, SUS, convenios e particular. Da consulta a cirurgia, todas as especialidades em um so lugar." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="design_system/tokens.css" />
+  <link rel="stylesheet" href="css/custom.css" />
 
+  <!-- Fonts: Inter (UI/corpo) + Plus Jakarta Sans (headlines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    /* ===== DESIGN TOKENS ===== */
-    :root {
-      --brand-primary: #0B9ECE;
-      --brand-primary-light: #E6F6FC;
-      --brand-primary-hover: #0889B5;
-      --brand-secondary: #0A2A4A;
-      --brand-secondary-light: #143A5E;
-      --brand-accent: #0D9488;
-      --brand-accent-light: #CCFBF1;
-      --brand-accent-hover: #0F766E;
+  <!-- Tailwind (CDN no build; trocado por CSS buildado no Passo E) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#0B9ECE', hover: '#0889B5', light: '#E6F6FC' },
+            ink: '#1E293B',
+            herobg: '#D3D9E0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          maxWidth: { site: '1440px' },
+        },
+      },
+    };
+  </script>
 
-      --color-success: #10B981;
-      --color-success-light: #ECFDF5;
-      --color-warning: #F59E0B;
-      --color-warning-light: #FFFBEB;
-
-      --neutral-50: #F8FAFC;
-      --neutral-100: #F1F5F9;
-      --neutral-200: #E2E8F0;
-      --neutral-300: #CBD5E1;
-      --neutral-400: #94A3B8;
-      --neutral-500: #64748B;
-      --neutral-600: #475569;
-      --neutral-700: #334155;
-      --neutral-800: #1E293B;
-      --neutral-900: #0F172A;
-
-      --font-heading: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'Inter', sans-serif;
-
-      --radius-sm: 4px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-pill: 50px;
-      --radius-full: 9999px;
-
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.05);
-      --shadow-xl: 0 20px 40px rgba(0,0,0,0.05);
-
-      --surface-page: #F2F9FD;
-      --surface-primary: #FFFFFF;
-      --surface-glass: rgba(255,255,255,0.70);
-      --surface-glass-blur: 12px;
-
-      --ease-default: cubic-bezier(0.16,1,0.3,1);
-      --ease-smooth: cubic-bezier(0.4,0,0.2,1);
-      --duration-fast: 150ms;
-      --duration-normal: 300ms;
-      --duration-slow: 500ms;
-      --duration-reveal: 800ms;
-
-      --border-default: 1px solid var(--neutral-200);
-      --container-max: 1280px;
-      --container-padding: 1.5rem;
-    }
-
-    /* ===== RESET ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.625;
-      color: var(--neutral-700);
-      background-color: var(--surface-page);
-    }
-    ::selection { background-color: var(--brand-primary-light); color: var(--brand-secondary); }
-    img { max-width: 100%; display: block; }
-    a { color: var(--brand-primary); text-decoration: none; transition: color var(--duration-normal); }
-    a:hover { color: var(--brand-primary-hover); }
-    h1,h2,h3,h4,h5,h6 {
-      font-family: var(--font-heading);
-      color: var(--neutral-900);
-      letter-spacing: -0.025em;
-      font-weight: 600;
-    }
-    ul { list-style: none; }
-
-    .container { width: 100%; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--container-padding); }
-
-    /* ===== UTILITY BAR ===== */
-    .utility-bar {
-      background: var(--brand-secondary);
-      color: var(--neutral-400);
-      font-size: 0.8rem;
-      padding: 8px 0;
-    }
-    .utility-bar .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .utility-bar__left { display: flex; gap: 20px; align-items: center; }
-    .utility-bar__left a {
-      color: var(--neutral-400);
-      font-size: 0.75rem;
-      font-weight: 500;
-      transition: color var(--duration-normal);
-    }
-    .utility-bar__left a:hover { color: #fff; }
-    .utility-bar__right { display: flex; gap: 8px; }
-    .utility-bar__portal {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius-pill);
-      color: var(--neutral-300);
-      font-size: 0.7rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--duration-normal);
-    }
-    .utility-bar__portal:hover { background: rgba(255,255,255,0.15); color: #fff; }
-
-    /* ===== NAVBAR ===== */
-    .navbar {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--surface-glass);
-      backdrop-filter: blur(var(--surface-glass-blur));
-      -webkit-backdrop-filter: blur(var(--surface-glass-blur));
-      border-bottom: var(--border-default);
-      padding: 0;
-    }
-    .navbar .container {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 14px; padding-bottom: 14px; gap: 24px;
-    }
-    .navbar__brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .navbar__logo {
-      width: 40px; height: 40px;
-      background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
-      border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-family: var(--font-heading); font-weight: 800; font-size: 1.1rem;
-    }
-    .navbar__brand-text {
-      font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;
-      color: var(--neutral-900); letter-spacing: -0.02em;
-    }
-    .navbar__brand-sub {
-      display: block; font-size: 0.65rem; font-weight: 500;
-      color: var(--neutral-400); letter-spacing: 0.03em;
-    }
-    .navbar__links { display: flex; gap: 4px; align-items: center; }
-    .navbar__links a {
-      padding: 8px 14px; font-size: 0.875rem; font-weight: 500;
-      color: var(--neutral-600); border-radius: 8px;
-      transition: all var(--duration-normal);
-    }
-    .navbar__links a:hover { color: var(--neutral-900); background: var(--neutral-100); }
-    .navbar__cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--brand-primary); color: #fff;
-      padding: 6px 6px 6px 20px;
-      border-radius: var(--radius-pill); border: none;
-      font-family: var(--font-body); font-size: 0.875rem; font-weight: 600;
-      cursor: pointer; transition: background var(--duration-normal);
-      text-decoration: none;
-    }
-    .navbar__cta:hover { background: var(--brand-primary-hover); color: #fff; }
-    .navbar__cta-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 32px; height: 32px; border-radius: 50%;
-      background: #fff; color: var(--brand-primary);
-      transition: transform var(--duration-normal) var(--ease-default);
-    }
-    .navbar__cta:hover .navbar__cta-icon { transform: scale(1.1); }
-    .navbar__hamburger {
-      display: none; cursor: pointer; background: none; border: none;
-      width: 40px; height: 40px; border-radius: 8px;
-      align-items: center; justify-content: center;
-    }
-    .navbar__hamburger span {
-      display: block; width: 22px; height: 2px;
-      background: var(--neutral-700); margin: 5px auto;
-      transition: all var(--duration-normal);
-    }
-
-    /* ===== HERO ===== */
-    .hero {
-      background: linear-gradient(135deg, var(--brand-secondary) 0%, #0E3B63 50%, var(--brand-primary) 100%);
-      position: relative; overflow: hidden;
-      padding: 100px 0 80px;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E");
-    }
-    .hero .container { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    .hero__kicker {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 6px 16px 6px 10px;
-      background: rgba(255,255,255,0.1);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--radius-full);
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--brand-primary-light);
-      margin-bottom: 24px;
-    }
-    .hero__kicker-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--brand-primary);
-      animation: pulse-dot 2s ease-in-out infinite;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.3); }
-    }
-    .hero h1 {
-      font-size: 3.25rem; font-weight: 800; line-height: 1.05;
-      color: #fff; margin-bottom: 20px;
-    }
-    .hero h1 span { color: var(--brand-primary-light); opacity: 0.5; }
-    .hero__subtitle {
-      font-size: 1.125rem; font-weight: 300; line-height: 1.7;
-      color: rgba(255,255,255,0.7); margin-bottom: 36px;
-      max-width: 520px;
-    }
-    .hero__ctas { display: flex; gap: 12px; margin-bottom: 48px; flex-wrap: wrap; }
-    .hero__btn-primary {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--brand-primary); color: #fff;
-      padding: 6px 6px 6px 24px;
-      border-radius: var(--radius-pill); border: none;
-      font-family: var(--font-body); font-size: 1rem; font-weight: 600;
-      cursor: pointer; transition: all var(--duration-normal);
-      text-decoration: none;
-    }
-    .hero__btn-primary:hover { background: var(--brand-primary-hover); color: #fff; }
-    .hero__btn-primary .btn-icon {
-      display: flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: #fff; color: var(--brand-primary);
-      transition: transform var(--duration-normal) var(--ease-default);
-    }
-    .hero__btn-primary:hover .btn-icon { transform: scale(1.1); }
-    .hero__btn-outline {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: transparent; color: #fff;
-      padding: 14px 28px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255,255,255,0.3);
-      font-family: var(--font-body); font-size: 1rem; font-weight: 500;
-      cursor: pointer; transition: all var(--duration-normal);
-      text-decoration: none;
-    }
-    .hero__btn-outline:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.5); color: #fff; }
-
-    .hero__stats { display: flex; gap: 40px; flex-wrap: wrap; }
-    .hero__stat { text-align: left; }
-    .hero__stat-value {
-      font-family: var(--font-heading); font-size: 2rem; font-weight: 800;
-      color: #fff; letter-spacing: -0.03em; line-height: 1;
-    }
-    .hero__stat-label {
-      font-size: 0.8rem; color: rgba(255,255,255,0.5);
-      margin-top: 4px;
-    }
-
-    .hero__visual {
-      position: relative; display: flex; align-items: center; justify-content: center;
-    }
-    .hero__image-main {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.3); font-size: 0.9rem;
-      overflow: hidden;
-    }
-    .hero__floating-card {
-      position: absolute;
-      background: var(--surface-glass);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: var(--radius-md);
-      padding: 16px 20px;
-      box-shadow: var(--shadow-lg);
-    }
-    .hero__floating-card--top {
-      top: -16px; right: -16px;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .hero__floating-card--bottom {
-      bottom: 24px; left: -24px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .hero__floating-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem;
-    }
-    .hero__floating-text strong { display: block; font-size: 0.85rem; color: var(--neutral-900); font-weight: 700; }
-    .hero__floating-text span { font-size: 0.75rem; color: var(--neutral-500); }
-
-    /* ===== QUICK ACCESS ===== */
-    .quick-access {
-      position: relative; z-index: 10; margin-top: -40px;
-      padding-bottom: 48px;
-    }
-    .quick-access__grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
-    }
-    .quick-access__card {
-      background: var(--surface-primary);
-      border: var(--border-default);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      text-align: center;
-      cursor: pointer;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      text-decoration: none;
-      display: block;
-    }
-    .quick-access__card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--brand-primary);
-    }
-    .quick-access__icon {
-      width: 48px; height: 48px;
-      background: var(--brand-primary-light);
-      border-radius: var(--radius-md);
-      margin: 0 auto 12px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; color: var(--brand-primary);
-      transition: all var(--duration-normal);
-    }
-    .quick-access__card:hover .quick-access__icon {
-      background: var(--brand-primary);
-      color: #fff;
-    }
-    .quick-access__label {
-      font-family: var(--font-heading);
-      font-size: 0.875rem; font-weight: 600;
-      color: var(--neutral-800);
-    }
-
-    /* ===== TRUST BAR ===== */
-    .trust-bar {
-      background: var(--surface-primary);
-      border-top: var(--border-default);
-      border-bottom: var(--border-default);
-      padding: 40px 0;
-    }
-    .trust-bar__label {
-      text-align: center;
-      font-size: 0.7rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.15em;
-      color: var(--neutral-400);
-      margin-bottom: 24px;
-    }
-    .trust-bar__logos {
-      display: flex; align-items: center; justify-content: center;
-      gap: 32px; flex-wrap: wrap;
-    }
-    .trust-bar__item {
-      display: flex; align-items: center; gap: 8px;
-      padding: 10px 20px;
-      background: var(--neutral-50);
-      border-radius: var(--radius-pill);
-      font-size: 0.8rem; font-weight: 700;
-      color: var(--neutral-600);
-      letter-spacing: 0.02em;
-      transition: all var(--duration-normal);
-    }
-    .trust-bar__item:hover { background: var(--brand-primary-light); color: var(--brand-primary); }
-    .trust-bar__item-icon { font-size: 1.1rem; }
-
-    /* ===== SECTIONS ===== */
-    .section { padding: 96px 0; }
-    .section--alt { background: var(--surface-primary); }
-    .section__header { text-align: center; margin-bottom: 56px; }
-    .section__header h2 { font-size: 2.25rem; font-weight: 700; margin-bottom: 12px; }
-    .section__header p { font-size: 1.0625rem; color: var(--neutral-500); max-width: 560px; margin: 0 auto; font-weight: 300; }
-    .section__label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.75rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--brand-primary);
-      margin-bottom: 16px;
-    }
-
-    /* ===== SPECIALTIES GRID ===== */
-    .specialties__grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
-    }
-    .specialty-card {
-      background: var(--surface-primary);
-      border: var(--border-default);
-      border-radius: var(--radius-md);
-      padding: 28px 24px;
-      cursor: pointer;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      text-decoration: none; display: block;
-    }
-    .specialty-card:hover {
-      border-color: var(--brand-primary);
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-    .specialty-card__icon {
-      width: 48px; height: 48px;
-      background: var(--brand-primary-light);
-      border-radius: var(--radius-md);
-      margin-bottom: 16px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; color: var(--brand-primary);
-    }
-    .specialty-card h3 {
-      font-size: 1.0625rem; font-weight: 600; margin-bottom: 8px;
-      color: var(--neutral-900);
-    }
-    .specialty-card p {
-      font-size: 0.85rem; color: var(--neutral-500); line-height: 1.6;
-    }
-    .specialty-card--featured {
-      grid-column: span 2;
-      background: var(--brand-secondary);
-      border-color: var(--brand-secondary);
-      display: flex; align-items: center; gap: 24px;
-    }
-    .specialty-card--featured:hover {
-      background: var(--brand-secondary-light);
-      border-color: var(--brand-secondary-light);
-      transform: translateY(-2px);
-    }
-    .specialty-card--featured .specialty-card__icon {
-      background: rgba(255,255,255,0.1); color: var(--brand-primary-light);
-      flex-shrink: 0;
-    }
-    .specialty-card--featured h3 { color: #fff; font-size: 1.25rem; }
-    .specialty-card--featured p { color: rgba(255,255,255,0.6); }
-
-    /* ===== NUMBERS ===== */
-    .numbers {
-      background: var(--brand-secondary);
-      position: relative; overflow: hidden;
-      padding: 80px 0;
-    }
-    .numbers::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='20' cy='20' r='1' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
-    }
-    .numbers .container { position: relative; z-index: 1; }
-    .numbers .section__header h2 { color: #fff; }
-    .numbers .section__header p { color: rgba(255,255,255,0.5); }
-    .numbers__grid {
-      display: grid; grid-template-columns: repeat(5, 1fr); gap: 32px;
-      text-align: center;
-    }
-    .numbers__item {}
-    .numbers__value {
-      font-family: var(--font-heading);
-      font-size: 2.75rem; font-weight: 800;
-      color: #fff; letter-spacing: -0.03em; line-height: 1;
-    }
-    .numbers__label {
-      font-size: 0.85rem; color: var(--neutral-400);
-      margin-top: 8px;
-    }
-
-    /* ===== UNITS ===== */
-    .units__filters {
-      display: flex; gap: 8px; justify-content: center;
-      margin-bottom: 32px; flex-wrap: wrap;
-    }
-    .units__filter {
-      padding: 8px 20px;
-      border-radius: var(--radius-pill);
-      font-size: 0.85rem; font-weight: 500;
-      cursor: pointer;
-      border: 1px solid var(--neutral-300);
-      background: var(--surface-primary);
-      color: var(--neutral-600);
-      transition: all var(--duration-normal);
-    }
-    .units__filter:hover, .units__filter.active {
-      background: var(--brand-primary);
-      color: #fff; border-color: var(--brand-primary);
-    }
-    .units__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
-    }
-    .unit-card {
-      background: var(--surface-primary);
-      border: var(--border-default);
-      border-radius: var(--radius-md);
-      padding: 24px;
-      transition: all var(--duration-normal);
-    }
-    .unit-card:hover { border-color: var(--brand-primary); box-shadow: var(--shadow-md); }
-    .unit-card__name {
-      font-family: var(--font-heading);
-      font-size: 1rem; font-weight: 700;
-      color: var(--neutral-900); margin-bottom: 6px;
-    }
-    .unit-card__address {
-      font-size: 0.85rem; color: var(--neutral-500); margin-bottom: 8px;
-      display: flex; align-items: flex-start; gap: 6px;
-    }
-    .unit-card__hours {
-      font-size: 0.8rem; color: var(--neutral-400); margin-bottom: 12px;
-      display: flex; align-items: center; gap: 6px;
-    }
-    .unit-card__tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
-    .tag {
-      display: inline-flex; padding: 3px 10px;
-      border-radius: var(--radius-full);
-      font-size: 0.68rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.04em;
-    }
-    .tag--sus { background: var(--color-success-light); color: var(--color-success); }
-    .tag--conv { background: var(--brand-primary-light); color: var(--brand-primary); }
-    .tag--part { background: var(--color-warning-light); color: var(--color-warning); }
-    .tag--24h { background: #FEE2E2; color: #DC2626; }
-    .unit-card__phone {
-      font-size: 0.8rem; color: var(--neutral-500);
-      display: flex; align-items: center; gap: 6px;
-    }
-
-    /* ===== BLOG ===== */
-    .blog__grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    }
-    .blog-card {
-      background: var(--surface-primary);
-      border: var(--border-default);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      cursor: pointer;
-      transition: all var(--duration-normal) var(--ease-smooth);
-      text-decoration: none; display: block;
-    }
-    .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    .blog-card__thumb {
-      height: 200px;
-      background: linear-gradient(135deg, var(--neutral-100), var(--neutral-200));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--neutral-400); font-size: 0.85rem;
-      position: relative; overflow: hidden;
-    }
-    .blog-card__thumb::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.05));
-    }
-    .blog-card__body { padding: 24px; }
-    .blog-card__tag {
-      display: inline-flex; padding: 3px 10px;
-      background: var(--brand-primary-light);
-      border-radius: var(--radius-sm);
-      font-size: 0.65rem; font-weight: 700;
-      color: var(--brand-primary);
-      text-transform: uppercase; letter-spacing: 0.05em;
-      margin-bottom: 10px;
-    }
-    .blog-card__body h3 {
-      font-size: 1rem; font-weight: 600;
-      color: var(--neutral-900); margin-bottom: 8px;
-      line-height: 1.4;
-    }
-    .blog-card__body p { font-size: 0.8rem; color: var(--neutral-500); }
-
-    /* ===== WORK CTA ===== */
-    .work-cta {
-      padding: 96px 0;
-    }
-    .work-cta__inner {
-      background: linear-gradient(135deg, var(--neutral-50), var(--brand-primary-light));
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 360px;
-      border: var(--border-default);
-    }
-    .work-cta__content {
-      padding: 56px 48px;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .work-cta__badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 4px 14px 4px 10px;
-      background: var(--color-success-light);
-      border: 1px solid rgba(16,185,129,0.2);
-      border-radius: var(--radius-full);
-      font-size: 0.7rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--color-success);
-      margin-bottom: 20px; width: fit-content;
-    }
-    .work-cta__badge-dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: var(--color-success);
-    }
-    .work-cta__content h2 {
-      font-size: 2rem; font-weight: 700;
-      margin-bottom: 12px; line-height: 1.15;
-    }
-    .work-cta__content p {
-      font-size: 1rem; color: var(--neutral-500);
-      margin-bottom: 28px; max-width: 400px;
-      font-weight: 300; line-height: 1.7;
-    }
-    .work-cta__visual {
-      position: relative;
-      background: linear-gradient(135deg, var(--brand-primary-light), var(--brand-accent-light));
-      display: flex; align-items: center; justify-content: center;
-      color: var(--neutral-400); font-size: 0.85rem;
-    }
-
-    /* ===== CTA FINAL ===== */
-    .cta-final {
-      background: var(--brand-secondary);
-      position: relative; overflow: hidden;
-      padding: 96px 0;
-      text-align: center;
-    }
-    .cta-final::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(11,158,206,0.15) 0%, transparent 70%);
-    }
-    .cta-final .container { position: relative; z-index: 1; }
-    .cta-final h2 {
-      font-size: 2.5rem; font-weight: 800;
-      color: #fff; margin-bottom: 12px;
-    }
-    .cta-final p {
-      font-size: 1.0625rem; color: rgba(255,255,255,0.5);
-      margin-bottom: 36px; max-width: 480px;
-      margin-left: auto; margin-right: auto;
-      font-weight: 300;
-    }
-    .cta-final__buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-
-    /* ===== FOOTER ===== */
-    .footer {
-      background: var(--surface-primary);
-      border-top: var(--border-default);
-      padding: 80px 0 32px;
-    }
-    .footer__grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.5fr;
-      gap: 48px;
-      margin-bottom: 48px;
-    }
-    .footer__heading {
-      font-size: 0.7rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--neutral-400);
-      margin-bottom: 20px;
-    }
-    .footer__brand-text {
-      font-size: 0.9rem; color: var(--neutral-500);
-      line-height: 1.7; margin-bottom: 20px;
-    }
-    .footer__social { display: flex; gap: 8px; }
-    .footer__social-link {
-      display: inline-flex; align-items: center; justify-content: center;
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid var(--neutral-200);
-      color: var(--neutral-400); font-size: 1rem;
-      transition: all var(--duration-normal);
-    }
-    .footer__social-link:hover {
-      background: var(--brand-primary); color: #fff;
-      border-color: var(--brand-primary);
-    }
-    .footer__links { display: flex; flex-direction: column; gap: 10px; }
-    .footer__links a {
-      font-size: 0.875rem; color: var(--neutral-500);
-      transition: color var(--duration-normal);
-    }
-    .footer__links a:hover { color: var(--brand-primary); }
-    .footer__contact-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      font-size: 0.85rem; color: var(--neutral-500);
-      margin-bottom: 12px;
-    }
-    .footer__contact-icon { color: var(--brand-primary); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
-    .footer__bottom {
-      border-top: var(--border-default);
-      padding-top: 24px;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px;
-    }
-    .footer__bottom p { font-size: 0.8rem; color: var(--neutral-400); }
-    .footer__bottom-seals { display: flex; gap: 8px; }
-    .footer__seal {
-      padding: 4px 12px;
-      background: var(--neutral-50);
-      border-radius: var(--radius-sm);
-      font-size: 0.65rem; font-weight: 700;
-      color: var(--neutral-500); letter-spacing: 0.03em;
-    }
-
-    /* ===== WHATSAPP FAB ===== */
-    .whatsapp-fab {
-      position: fixed; bottom: 24px; right: 24px;
-      width: 56px; height: 56px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 1.6rem;
-      cursor: pointer; z-index: 200;
-      box-shadow: 0 4px 16px rgba(37,211,102,0.4);
-      transition: transform var(--duration-normal);
-      text-decoration: none;
-    }
-    .whatsapp-fab:hover { transform: scale(1.1); color: #fff; }
-
-    /* ===== SCROLL REVEAL ===== */
-    .scroll-reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: all var(--duration-reveal) var(--ease-default);
-    }
-    .scroll-reveal.is-visible {
-      opacity: 1; transform: translateY(0);
-    }
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
-    .delay-300 { transition-delay: 300ms; }
-    .delay-400 { transition-delay: 400ms; }
-
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 1024px) {
-      .hero .container { grid-template-columns: 1fr; }
-      .hero__visual { display: none; }
-      .hero h1 { font-size: 2.5rem; }
-      .specialties__grid { grid-template-columns: repeat(2, 1fr); }
-      .specialty-card--featured { grid-column: span 2; }
-      .numbers__grid { grid-template-columns: repeat(3, 1fr); }
-      .units__grid { grid-template-columns: repeat(2, 1fr); }
-      .footer__grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 768px) {
-      .utility-bar { display: none; }
-      .navbar__links { display: none; }
-      .navbar__cta.desktop-only { display: none; }
-      .navbar__hamburger { display: flex; }
-      .navbar__links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 100%; left: 0; right: 0;
-        background: var(--surface-primary);
-        border-bottom: var(--border-default);
-        padding: 16px 24px; gap: 4px;
-        box-shadow: var(--shadow-lg);
-      }
-      .navbar__links.open a { padding: 12px 16px; width: 100%; }
-      .hero { padding: 64px 0 56px; }
-      .hero h1 { font-size: 2rem; }
-      .hero__stats { gap: 24px; }
-      .quick-access { margin-top: -24px; }
-      .quick-access__grid { grid-template-columns: repeat(2, 1fr); }
-      .quick-access__grid > :last-child { grid-column: span 2; }
-      .section { padding: 64px 0; }
-      .section__header h2 { font-size: 1.75rem; }
-      .specialties__grid { grid-template-columns: 1fr; }
-      .specialty-card--featured { grid-column: span 1; flex-direction: column; }
-      .numbers__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-      .units__grid { grid-template-columns: 1fr; }
-      .blog__grid { grid-template-columns: 1fr; }
-      .work-cta__inner { grid-template-columns: 1fr; }
-      .work-cta__visual { height: 200px; }
-      .work-cta__content { padding: 40px 24px; }
-      .cta-final h2 { font-size: 1.75rem; }
-      .footer__grid { grid-template-columns: 1fr; gap: 32px; }
-      .footer__bottom { flex-direction: column; text-align: center; }
-    }
-
-    @media (max-width: 480px) {
-      .hero h1 { font-size: 1.75rem; }
-      .quick-access__grid { grid-template-columns: 1fr 1fr; }
-      .hero__stat-value { font-size: 1.5rem; }
-      .numbers__value { font-size: 2rem; }
-    }
-  </style>
+  <link rel="icon" href="assets/brand/hoftalon-logo.svg" type="image/svg+xml" />
 </head>
-<body>
 
-<!-- UTILITY BAR -->
-<div class="utility-bar">
-  <div class="container">
-    <div class="utility-bar__left">
-      <a href="#">Institucional</a>
-      <a href="#">Ensino e Pesquisa</a>
-      <a href="#">Responsabilidade Social</a>
-      <a href="#">Transparencia</a>
-    </div>
-    <div class="utility-bar__right">
-      <span class="utility-bar__portal">
-        <span class="iconify" data-icon="solar:user-circle-linear" data-width="14"></span>
-        Portal do Paciente
-      </span>
-      <span class="utility-bar__portal">
-        <span class="iconify" data-icon="solar:stethoscope-linear" data-width="14"></span>
-        Portal do Medico
-      </span>
-    </div>
-  </div>
-</div>
+<body class="font-sans text-ink antialiased" style="background-color: var(--surface-page);">
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="container">
-    <a href="#" class="navbar__brand">
-      <div class="navbar__logo">H</div>
-      <div>
-        <div class="navbar__brand-text">HOFTALON</div>
-        <span class="navbar__brand-sub">Hospital de Olhos</span>
-      </div>
-    </a>
+  <!-- ============================ HEADER ============================ -->
+  <header class="sticky top-0 z-50 w-full">
+    <div class="hidden w-full items-stretch lg:flex">
 
-    <div class="navbar__links" id="navLinks">
-      <a href="#">O Hospital</a>
-      <a href="#">Especialidades</a>
-      <a href="#">Hoftalon Clinic</a>
-      <a href="#">Quero Ajudar</a>
-      <a href="#">Blog</a>
-      <a href="#">Fale Conosco</a>
-    </div>
-
-    <a href="#" class="navbar__cta desktop-only">
-      Agende sua Consulta
-      <span class="navbar__cta-icon">
-        <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
-      </span>
-    </a>
-
-    <button class="navbar__hamburger" id="hamburgerBtn" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div>
-      <div class="hero__kicker">
-        <span class="hero__kicker-dot"></span>
-        Referencia Internacional em Oftalmologia
-      </div>
-      <h1>
-        Seu olhar merece<br>
-        um dos melhores<br>
-        hospitais de olhos<br>
-        <span>da America Latina</span>
-      </h1>
-      <p class="hero__subtitle">
-        Da consulta a cirurgia, todas as especialidades oftalmologicas em um so lugar — com tecnologia de ponta e o maior corpo clinico do Brasil no segmento.
-      </p>
-      <div class="hero__ctas">
-        <a href="#" class="hero__btn-primary">
-          Agende sua Consulta
-          <span class="btn-icon">
-            <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
-          </span>
+      <!-- Logo panel -->
+      <div class="relative flex w-[325px] shrink-0 items-center justify-center bg-slate-50">
+        <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos"
+               class="h-[70px] w-auto" width="154" height="70" />
         </a>
-        <a href="#" class="hero__btn-outline">
-          <span class="iconify" data-icon="solar:eye-linear" data-width="20"></span>
-          Conheca as Especialidades
-        </a>
-      </div>
-      <div class="hero__stats">
-        <div class="hero__stat">
-          <div class="hero__stat-value">33</div>
-          <div class="hero__stat-label">anos de historia</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-value">130+</div>
-          <div class="hero__stat-label">oftalmologistas</div>
-        </div>
-        <div class="hero__stat">
-          <div class="hero__stat-value">WAEH</div>
-          <div class="hero__stat-label">Full Member</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hero__visual">
-      <div class="hero__image-main">[ Foto real do hospital / equipe ]</div>
-      <div class="hero__floating-card hero__floating-card--top">
-        <div class="hero__floating-icon" style="background:var(--color-success-light);color:var(--color-success);">
-          <span class="iconify" data-icon="solar:verified-check-bold" data-width="20"></span>
-        </div>
-        <div class="hero__floating-text">
-          <strong>ONA Pleno</strong>
-          <span>Acreditado</span>
-        </div>
-      </div>
-      <div class="hero__floating-card hero__floating-card--bottom">
-        <div class="hero__floating-icon" style="background:var(--brand-primary-light);color:var(--brand-primary);">
-          <span class="iconify" data-icon="solar:ranking-bold" data-width="20"></span>
-        </div>
-        <div class="hero__floating-text">
-          <strong>42a America Latina</strong>
-          <span>Cirurgia de Catarata</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUICK ACCESS -->
-<div class="quick-access">
-  <div class="container">
-    <div class="quick-access__grid scroll-reveal">
-      <a href="#" class="quick-access__card">
-        <div class="quick-access__icon">
-          <span class="iconify" data-icon="solar:calendar-mark-linear" data-width="22"></span>
-        </div>
-        <div class="quick-access__label">Agendar Consulta</div>
-      </a>
-      <a href="#" class="quick-access__card">
-        <div class="quick-access__icon">
-          <span class="iconify" data-icon="solar:document-text-linear" data-width="22"></span>
-        </div>
-        <div class="quick-access__label">Resultados de Exames</div>
-      </a>
-      <a href="#" class="quick-access__card">
-        <div class="quick-access__icon">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="22"></span>
-        </div>
-        <div class="quick-access__label">Posicao na Fila SUS</div>
-      </a>
-      <a href="#" class="quick-access__card">
-        <div class="quick-access__icon">
-          <span class="iconify" data-icon="solar:card-linear" data-width="22"></span>
-        </div>
-        <div class="quick-access__label">Convenios Aceitos</div>
-      </a>
-      <a href="#" class="quick-access__card">
-        <div class="quick-access__icon">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="22"></span>
-        </div>
-        <div class="quick-access__label">Nossas Unidades</div>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- TRUST BAR -->
-<div class="trust-bar scroll-reveal">
-  <div class="container">
-    <div class="trust-bar__label">Reconhecido por quem entende de saude no mundo</div>
-    <div class="trust-bar__logos">
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:global-linear" data-width="18"></span>
-        WAEH
-      </div>
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:verified-check-linear" data-width="18"></span>
-        ONA Pleno
-      </div>
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:star-linear" data-width="18"></span>
-        Newsweek
-      </div>
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:heart-linear" data-width="18"></span>
-        GPTW
-      </div>
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:diploma-linear" data-width="18"></span>
-        CBO / MEC
-      </div>
-      <div class="trust-bar__item">
-        <span class="trust-bar__item-icon iconify" data-icon="solar:shield-check-linear" data-width="18"></span>
-        CEBAS
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- SPECIALTIES -->
-<section class="section">
-  <div class="container">
-    <div class="section__header scroll-reveal">
-      <div class="section__label">
-        <span class="iconify" data-icon="solar:eye-linear" data-width="16"></span>
-        Especialidades
-      </div>
-      <h2>Todas as especialidades da oftalmologia.<br>Um so hospital.</h2>
-      <p>Do diagnostico a cirurgia, sem precisar sair daqui.</p>
-    </div>
-
-    <div class="specialties__grid">
-      <a href="#" class="specialty-card specialty-card--featured scroll-reveal">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:test-tube-linear" data-width="22"></span>
-        </div>
-        <div>
-          <h3>Exames Oftalmologicos</h3>
-          <p>13+ exames com tecnologia de ponta — OCT, campimetria, topografia, retinografia e mais. Tudo no mesmo hospital.</p>
-        </div>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-100">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:eye-scan-linear" data-width="22"></span>
-        </div>
-        <h3>Catarata</h3>
-        <p>42a posicao na America Latina. Mais de 11 mil cirurgias por ano.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-200">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:chart-2-linear" data-width="22"></span>
-        </div>
-        <h3>Glaucoma</h3>
-        <p>Diagnostico precoce com equipamentos de ultima geracao.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:eye-linear" data-width="22"></span>
-        </div>
-        <h3>Retina e Vitreo</h3>
-        <p>Tratamento de doencas da retina, incluindo retinopatia diabetica.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-100">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:atom-linear" data-width="22"></span>
-        </div>
-        <h3>Cornea</h3>
-        <p>Transplantes, ceratocone e doencas de superficie.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-200">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:minimalistic-magnifer-linear" data-width="22"></span>
-        </div>
-        <h3>Cirurgia Refrativa</h3>
-        <p>Correcao de miopia, hipermetropia e astigmatismo.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-300">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:magic-stick-3-linear" data-width="22"></span>
-        </div>
-        <h3>Plastica Ocular</h3>
-        <p>Procedimentos esteticos e reconstrutivos.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:baby-linear" data-width="22"></span>
-        </div>
-        <h3>Oftalmopediatria</h3>
-        <p>Cuidado com a visao das criancas desde os primeiros meses.</p>
-      </a>
-      <a href="#" class="specialty-card scroll-reveal delay-100">
-        <div class="specialty-card__icon">
-          <span class="iconify" data-icon="solar:target-linear" data-width="22"></span>
-        </div>
-        <h3>Estrabismo</h3>
-        <p>Tratamento clinico e cirurgico para alinhamento ocular.</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- NUMBERS -->
-<section class="numbers">
-  <div class="container">
-    <div class="section__header scroll-reveal" style="margin-bottom:48px;">
-      <div class="section__label" style="color:rgba(255,255,255,0.4);">
-        <span class="iconify" data-icon="solar:graph-up-linear" data-width="16"></span>
-        Nossos Numeros
-      </div>
-      <h2>Numeros que falam por nos</h2>
-    </div>
-    <div class="numbers__grid scroll-reveal">
-      <div class="numbers__item">
-        <div class="numbers__value" data-count="33">0</div>
-        <div class="numbers__label">anos de historia</div>
-      </div>
-      <div class="numbers__item">
-        <div class="numbers__value" data-count="130">0</div>
-        <div class="numbers__label">oftalmologistas</div>
-      </div>
-      <div class="numbers__item">
-        <div class="numbers__value" data-count="150">0</div>
-        <div class="numbers__label">mil atendimentos/ano</div>
-      </div>
-      <div class="numbers__item">
-        <div class="numbers__value" data-count="11">0</div>
-        <div class="numbers__label">mil cirurgias/ano</div>
-      </div>
-      <div class="numbers__item">
-        <div class="numbers__value" data-count="120">0</div>
-        <div class="numbers__label">municipios (SUS)</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- UNITS -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="section__header scroll-reveal">
-      <div class="section__label">
-        <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-        Unidades
-      </div>
-      <h2>Encontre a unidade mais proxima</h2>
-      <p>Atendemos pacientes de mais de 120 municipios. Veja as unidades disponiveis.</p>
-    </div>
-
-    <div class="units__filters scroll-reveal">
-      <button class="units__filter active" data-filter="all">Todas</button>
-      <button class="units__filter" data-filter="sus">SUS</button>
-      <button class="units__filter" data-filter="conv">Convenio</button>
-      <button class="units__filter" data-filter="part">Particular</button>
-    </div>
-
-    <div class="units__grid" id="unitsGrid">
-      <div class="unit-card scroll-reveal" data-type="sus 24h">
-        <div class="unit-card__name">Unidade Souza Naves (Hospital)</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          R. Senador Souza Naves, 648 — Londrina
-        </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Aberto 24h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--24h">24h</span>
-          <span class="tag tag--sus">SUS</span>
-        </div>
-        <div class="unit-card__phone">
-          <span class="iconify" data-icon="solar:phone-linear" data-width="14"></span>
-          (43) 3375-9500
-        </div>
+        <!-- Seam wedge (Rectangle 15) -->
+        <div class="absolute right-0 top-0 h-full w-[36px] -skew-x-[9deg] translate-x-[18px] bg-slate-50"></div>
       </div>
 
-      <div class="unit-card scroll-reveal delay-100" data-type="sus">
-        <div class="unit-card__name">Unidade Cambara (Hospital)</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          Rua Cambara, 714 — Londrina
-        </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Seg-Sex: 7h as 19h | Sab: 7h as 12h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--sus">SUS</span>
-        </div>
-      </div>
+      <!-- Navigation (two tiers) -->
+      <nav class="flex min-w-0 flex-1 flex-col justify-end">
 
-      <div class="unit-card scroll-reveal delay-200" data-type="sus">
-        <div class="unit-card__name">Unidade Fernando de Noronha</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          Rua Fernando de Noronha, 225 — Londrina
+        <!-- Tier 1: utility bar -->
+        <div class="flex items-center justify-end gap-12 bg-slate-200 px-[121px] py-3">
+          <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
+            <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+            <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+            <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+          </ul>
+          <div class="flex items-center gap-2">
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              Portal do Paciente
+            </a>
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+              Portal do Medico
+            </a>
+          </div>
         </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Seg-Sex: 7h as 18h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--sus">SUS</span>
-        </div>
-      </div>
 
-      <div class="unit-card scroll-reveal" data-type="conv part">
-        <div class="unit-card__name">Clinic Souza Naves</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          R. Senador Souza Naves, 626 — Londrina
-        </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Seg-Sex: 8h as 18h | Sab: 8h as 12h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--conv">Convenio</span>
-          <span class="tag tag--part">Particular</span>
-        </div>
-        <div class="unit-card__phone">
-          <span class="iconify" data-icon="solar:phone-linear" data-width="14"></span>
-          (43) 99173-5250
-        </div>
-      </div>
-
-      <div class="unit-card scroll-reveal delay-100" data-type="conv">
-        <div class="unit-card__name">Clinic Hospitalar</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          R. Antonio Amado Noivo, 394 — Londrina
-        </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Seg-Sex: 8h as 18h | Sab: 8h as 12h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--conv">Plano Hospitalar</span>
-        </div>
-        <div class="unit-card__phone">
-          <span class="iconify" data-icon="solar:phone-linear" data-width="14"></span>
-          (43) 99919-0532
-        </div>
-      </div>
-
-      <div class="unit-card scroll-reveal delay-200" data-type="conv part">
-        <div class="unit-card__name">Clinic Ayrton Senna</div>
-        <div class="unit-card__address">
-          <span class="iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          Av. Ayrton Senna da Silva, 900 — Londrina
-        </div>
-        <div class="unit-card__hours">
-          <span class="iconify" data-icon="solar:clock-circle-linear" data-width="14"></span>
-          Seg-Sex: 8h as 18h | Sab: 8h as 12h
-        </div>
-        <div class="unit-card__tags">
-          <span class="tag tag--conv">Convenio</span>
-          <span class="tag tag--part">Particular</span>
-        </div>
-        <div class="unit-card__phone">
-          <span class="iconify" data-icon="solar:phone-linear" data-width="14"></span>
-          (43) 99173-5250
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align:center;margin-top:32px;" class="scroll-reveal">
-      <a href="#" class="hero__btn-outline" style="color:var(--neutral-900);border-color:var(--neutral-300);">
-        <span class="iconify" data-icon="solar:map-linear" data-width="18"></span>
-        Ver todas as unidades no mapa
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- BLOG -->
-<section class="section">
-  <div class="container">
-    <div class="section__header scroll-reveal">
-      <div class="section__label">
-        <span class="iconify" data-icon="solar:pen-new-square-linear" data-width="16"></span>
-        Blog
-      </div>
-      <h2>Hoftalon em Foco</h2>
-      <p>Novidades, conquistas e conteudos sobre saude ocular.</p>
-    </div>
-
-    <div class="blog__grid">
-      <a href="#" class="blog-card scroll-reveal">
-        <div class="blog-card__thumb">[ Thumbnail ]</div>
-        <div class="blog-card__body">
-          <div class="blog-card__tag">Noticias</div>
-          <h3>Hoftalon e destaque entre os melhores hospitais da America Latina</h3>
-          <p>Janeiro 2026</p>
-        </div>
-      </a>
-      <a href="#" class="blog-card scroll-reveal delay-100">
-        <div class="blog-card__thumb">[ Thumbnail ]</div>
-        <div class="blog-card__body">
-          <div class="blog-card__tag">Institucional</div>
-          <h3>Hoftalon recebe doacao de terrenos para hospital 100% SUS</h3>
-          <p>Novembro 2025</p>
-        </div>
-      </a>
-      <a href="#" class="blog-card scroll-reveal delay-200">
-        <div class="blog-card__thumb">[ Thumbnail ]</div>
-        <div class="blog-card__body">
-          <div class="blog-card__tag">Campanhas</div>
-          <h3>Maior campanha de cirurgias de catarata da nossa historia</h3>
-          <p>Abril 2025</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- WORK CTA -->
-<section class="work-cta">
-  <div class="container">
-    <div class="work-cta__inner scroll-reveal">
-      <div class="work-cta__content">
-        <div class="work-cta__badge">
-          <span class="work-cta__badge-dot"></span>
-          GPTW — Melhores Hospitais
-        </div>
-        <h2>Trabalhe no<br>Hoftalon</h2>
-        <p>Junte-se ao time que transforma a saude ocular de milhares de pessoas. Um dos melhores hospitais para trabalhar no Brasil.</p>
-        <div>
-          <a href="#" class="hero__btn-primary" style="display:inline-flex;">
-            Ver Vagas
-            <span class="btn-icon">
-              <span class="iconify" data-icon="solar:arrow-right-linear" data-width="16"></span>
+        <!-- Tier 2: main menu -->
+        <div class="flex items-center justify-end gap-[51px] border-b border-slate-100 bg-slate-50/80 px-[120px] py-3 backdrop-blur-[12px]">
+          <ul class="flex items-center gap-1 whitespace-nowrap text-[14px] font-medium leading-[22.75px] text-slate-600">
+            <li><a href="o-hospital.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">O Hospital</a></li>
+            <li><a href="especialidades.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
+            <li><a href="hoftalon-clinic.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
+            <li><a href="quero-ajudar.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Quero Ajudar</a></li>
+            <li><a href="blog.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Blog</a></li>
+            <li><a href="fale-conosco.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
+          </ul>
+          <a href="#agendar" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary px-6 py-1.5 text-[14px] font-semibold text-slate-50 transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-8 items-center justify-center rounded-full bg-white/15">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
             </span>
           </a>
         </div>
+      </nav>
+    </div>
+
+    <!-- Mobile bar (simplificado; nav completa mobile fica pro Passo D) -->
+    <div class="flex items-center justify-between bg-slate-50 px-5 py-3 lg:hidden">
+      <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-11 w-auto" />
+      <button type="button" aria-label="Abrir menu" class="rounded-lg p-2 text-slate-700">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="relative overflow-hidden bg-herobg">
+    <div class="relative w-full">
+      <!-- Video background (right), faded left-to-right via gradient mask -->
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <video
+          class="absolute right-0 top-0 h-full w-full object-cover lg:w-[72%]"
+          autoplay muted loop playsinline preload="metadata"
+          poster="assets/images/hero-poster.webp">
+          <source src="assets/videos/video-hero.webm" type="video/webm" />
+          <source src="assets/videos/video-hero.mp4" type="video/mp4" />
+        </video>
+        <!-- Gradient mask desktop: 100% opaco cobrindo a divisoria esquerda do video (28%) -> transparente a direita -->
+        <div class="absolute inset-0 hidden lg:block" style="background: linear-gradient(90deg, #D3D9E0 0%, #D3D9E0 34%, rgba(211,217,224,0) 70%);"></div>
+        <!-- Scrim mobile/tablet: legibilidade do texto sobre o video -->
+        <div class="absolute inset-0 bg-herobg/[0.72] lg:hidden"></div>
       </div>
-      <div class="work-cta__visual">[ Fotos da equipe ]</div>
-    </div>
-  </div>
-</section>
 
-<!-- CTA FINAL -->
-<section class="cta-final">
-  <div class="container scroll-reveal">
-    <h2>Sua visao nao pode esperar.</h2>
-    <p>Agende sua consulta com um dos melhores hospitais de olhos da America Latina.</p>
-    <div class="cta-final__buttons">
-      <a href="#" class="hero__btn-primary" style="font-size:1.05rem;padding:8px 8px 8px 28px;">
-        Agende sua Consulta
-        <span class="btn-icon" style="width:40px;height:40px;">
-          <span class="iconify" data-icon="solar:arrow-right-linear" data-width="18"></span>
-        </span>
-      </a>
-      <a href="tel:4333759500" class="hero__btn-outline">
-        <span class="iconify" data-icon="solar:phone-linear" data-width="18"></span>
-        Ligue: (43) 3375-9500
-      </a>
-    </div>
-  </div>
-</section>
+      <!-- Content (container centralizado, video/bg full-bleed atras) -->
+      <div class="relative z-10 mx-auto flex min-h-[674px] max-w-site flex-col justify-center px-6 py-16 md:px-12 md:py-[98px] lg:min-h-[716px] lg:px-[140px] lg:pb-[140px]">
+        <div class="flex w-full max-w-[640px] flex-col gap-8">
+          <div class="flex flex-col gap-6">
+            <div class="flex flex-col gap-4">
+              <!-- Badge -->
+              <span class="inline-flex w-fit items-center gap-[7px] rounded-full border border-primary/15 bg-primary/10 px-4 py-2">
+                <span class="size-[10px] rounded-[2px] bg-primary/50"></span>
+                <span class="text-[12px] font-bold uppercase leading-[19.5px] tracking-[0.96px] text-primary">Referencia Internacional em Oftalmologia</span>
+              </span>
+              <!-- Headline -->
+              <h1 class="font-display text-[40px] font-bold leading-[1.16] tracking-[-1.3px] text-ink md:text-[48px] md:leading-[56px]">
+                Seu olhar merece um dos melhores hospitais de olhos
+                <span class="text-primary">da America Latina</span>
+              </h1>
+            </div>
+            <!-- Paragraph -->
+            <p class="max-w-[484px] text-[18px] leading-[28px] text-slate-600">
+              Da consulta a cirurgia, todas as especialidades oftalmológicas em um so lugar. Com tecnologia de ponta e o maior corpo clinico do Brasil no segmento.
+            </p>
+          </div>
 
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer__grid">
-      <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-          <div class="navbar__logo" style="width:36px;height:36px;font-size:1rem;">H</div>
-          <div>
-            <div style="font-family:var(--font-heading);font-weight:700;font-size:1rem;color:var(--neutral-900);">HOFTALON</div>
-            <span style="font-size:0.65rem;color:var(--neutral-400);">Hospital de Olhos</span>
+          <!-- CTAs -->
+          <div class="flex flex-col gap-3 sm:flex-row sm:gap-[11px]">
+            <a href="#agendar" class="flex items-center justify-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-slate-100 transition-colors hover:bg-primary-hover">
+              Agende sua Consulta
+              <span class="flex size-9 items-center justify-center rounded-full bg-slate-50">
+                <svg class="size-5 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </a>
+            <a href="#especialidades" class="flex items-center justify-center gap-2 rounded-lg border border-[#13172d] px-6 py-4 text-[16px] font-medium text-ink transition-colors hover:bg-ink hover:text-white">
+              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+              Conheca as Especialidades
+            </a>
           </div>
         </div>
-        <p class="footer__brand-text">
-          Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.
-        </p>
-        <div class="footer__social">
-          <a href="#" class="footer__social-link" aria-label="Facebook">
-            <span class="iconify" data-icon="mdi:facebook" data-width="18"></span>
-          </a>
-          <a href="#" class="footer__social-link" aria-label="Instagram">
-            <span class="iconify" data-icon="mdi:instagram" data-width="18"></span>
-          </a>
-          <a href="#" class="footer__social-link" aria-label="YouTube">
-            <span class="iconify" data-icon="mdi:youtube" data-width="18"></span>
-          </a>
-          <a href="#" class="footer__social-link" aria-label="LinkedIn">
-            <span class="iconify" data-icon="mdi:linkedin" data-width="18"></span>
-          </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= QUICK ACTIONS ======================= -->
+  <section aria-label="Acoes rapidas" class="relative z-20 flow-root bg-slate-200">
+    <div class="mx-auto -mt-[60px] grid max-w-site grid-cols-2 gap-4 px-6 sm:grid-cols-3 md:px-12 lg:-mt-[92px] lg:flex lg:px-[120px]">
+      <!-- Agendar Consulta -->
+      <a href="#agendar" class="group flex flex-1 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-[21px] py-[25px] transition-colors hover:border-primary hover:bg-primary">
+        <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-white">
+          <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+        </span>
+        <span class="font-display text-[14px] font-semibold text-slate-600 transition-colors group-hover:text-white">Agendar Consulta</span>
+      </a>
+      <!-- Resultados de Exames -->
+      <a href="#resultados" class="group flex flex-1 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-[21px] py-[25px] transition-colors hover:border-primary hover:bg-primary">
+        <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-white">
+          <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+        </span>
+        <span class="font-display text-[14px] font-semibold text-slate-600 transition-colors group-hover:text-white">Resultados de Exames</span>
+      </a>
+      <!-- Posicao na Fila SUS -->
+      <a href="#fila-sus" class="group flex flex-1 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-[21px] py-[25px] transition-colors hover:border-primary hover:bg-primary">
+        <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-white">
+          <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <span class="font-display text-[14px] font-semibold text-slate-600 transition-colors group-hover:text-white">Posicao na Fila SUS</span>
+      </a>
+      <!-- Convenios Aceitos -->
+      <a href="#convenios" class="group flex flex-1 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-[21px] py-[25px] transition-colors hover:border-primary hover:bg-primary">
+        <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-white">
+          <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+        </span>
+        <span class="font-display text-[14px] font-semibold text-slate-600 transition-colors group-hover:text-white">Convenios Aceitos</span>
+      </a>
+      <!-- Nossas Unidades -->
+      <a href="#unidades" class="group flex flex-1 flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-[21px] py-[25px] transition-colors hover:border-primary hover:bg-primary">
+        <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary transition-colors group-hover:bg-white">
+          <svg class="size-[22px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+        </span>
+        <span class="font-display text-[14px] font-semibold text-slate-600 transition-colors group-hover:text-white">Nossas Unidades</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== ESPECIALIDADES (carrossel) ==================== -->
+  <section id="especialidades" aria-labelledby="especialidades-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 lg:px-[120px]">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex max-w-[550px] flex-col gap-4">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Especialidades
+          </span>
+          <h2 id="especialidades-title" class="font-display text-[32px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[44px] lg:leading-[48.4px]">
+            Oftalmologia<br />completa. <span class="text-primary">Um só hospital.</span>
+          </h2>
+        </div>
+        <!-- Setas -->
+        <div class="flex shrink-0 items-center gap-4">
+          <button type="button" data-carousel-prev="spec-carousel" aria-label="Especialidade anterior" class="flex size-9 items-center justify-center rounded-full bg-white/50 text-slate-700 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          </button>
+          <button type="button" data-carousel-next="spec-carousel" aria-label="Proxima especialidade" class="flex size-9 items-center justify-center rounded-full bg-white text-primary shadow-sm transition hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
         </div>
       </div>
 
-      <div>
-        <div class="footer__heading">Institucional</div>
-        <div class="footer__links">
-          <a href="#">O Hospital</a>
-          <a href="#">Nossa Historia</a>
-          <a href="#">Ensino e Pesquisa</a>
-          <a href="#">Responsabilidade Social</a>
-          <a href="#">Trabalhe Conosco</a>
-          <a href="#">Transparencia</a>
-        </div>
-      </div>
+      <!-- Carrossel -->
+      <div id="spec-carousel" data-carousel class="scrollbar-hide mt-10 cursor-grab select-none snap-x snap-proximity scroll-smooth overflow-x-auto">
+        <div class="flex items-end gap-[18px] pb-2">
 
-      <div>
-        <div class="footer__heading">Servicos</div>
-        <div class="footer__links">
-          <a href="#">Especialidades</a>
-          <a href="#">Exames</a>
-          <a href="#">Hoftalon Clinic</a>
-          <a href="#">Convenios</a>
-          <a href="#">SUS</a>
-          <a href="#">Quero Ajudar</a>
-        </div>
-      </div>
+          <!-- Card ativo (destaque azul) -->
+          <article data-carousel-item class="group relative flex h-[362px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);">
+            <img src="assets/images/specialties/exames.webp" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] mix-blend-screen transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[162px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-50">Exames Oftalmológicos</h3>
+                <p class="text-[14px] leading-5 text-slate-300">13+ exames com tecnologia de ponta: OCT, campimetria, topografia, retinografia e mais. Tudo no mesmo hospital.</p>
+              </div>
+              <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-primary">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
 
-      <div>
-        <div class="footer__heading">Contato</div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-icon iconify" data-icon="solar:phone-linear" data-width="16"></span>
-          <span>(43) 3375-9500</span>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-icon iconify" data-icon="solar:chat-round-dots-linear" data-width="16"></span>
-          <span>WhatsApp: (43) 99173-5250</span>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-icon iconify" data-icon="solar:map-point-linear" data-width="16"></span>
-          <span>R. Senador Souza Naves, 648<br>Londrina — PR, 86015-430</span>
-        </div>
-        <div class="footer__contact-item">
-          <span class="footer__contact-icon iconify" data-icon="solar:clock-circle-linear" data-width="16"></span>
-          <span>Hospital: 24h<br>Clinicas: Seg-Sex 8h-18h</span>
+          <!-- Cards inativos (foto expande + opacidade no hover) -->
+          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <img src="assets/images/specialties/glaucoma.webp" alt="Exame de glaucoma no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[162px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Glaucoma</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Diagnostico precoce com equipamentos de ultima geração.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <img src="assets/images/specialties/oftalmopediatria.webp" alt="Oftalmopediatria no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[162px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Oftalmopediatria</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Tratamento clinico e cirúrgico para alinhamento ocular.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <img src="assets/images/specialties/estrabismo.webp" alt="Tratamento de estrabismo no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[162px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Estrabismo</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Tratamento clinico e cirúrgico para alinhamento ocular.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
+          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <img src="assets/images/specialties/catarata.webp" alt="Cirurgia de catarata no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[162px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Catarata</h3>
+                <p class="text-[14px] leading-5 text-slate-600">42° posição na América Latina. Mais de 11 mil cirurgias por ano.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer__bottom">
-      <p>&copy; 2026 Hoftalon Hospital de Olhos. Todos os direitos reservados. | CNPJ: XX.XXX.XXX/XXXX-XX | Responsavel Tecnico: Dr. XXXX — CRM/PR XXXXX</p>
-      <div class="footer__bottom-seals">
-        <span class="footer__seal">WAEH</span>
-        <span class="footer__seal">ONA</span>
-        <span class="footer__seal">GPTW</span>
-        <span class="footer__seal">CEBAS</span>
+  <!-- ==================== RECONHECIMENTOS + NUMEROS ==================== -->
+  <section aria-labelledby="ack-title" class="relative overflow-hidden">
+    <!-- Background (foto) + overlay navy -->
+    <img src="assets/images/background-img-acknowledgements.webp" alt="" class="absolute inset-0 h-full w-full object-cover" />
+    <div class="absolute inset-0" style="background-color: rgba(10,42,74,0.48);"></div>
+
+    <div class="relative">
+      <!-- Titulo (alinhado a direita no desktop) -->
+      <div class="mx-auto flex max-w-site justify-start px-6 pb-10 pt-16 md:px-12 lg:justify-end lg:px-[120px] lg:pb-[52px] lg:pt-[143px]">
+        <div class="flex w-full max-w-[526px] flex-col items-start gap-4">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Reconhecimentos e Premiações
+          </span>
+          <h2 id="ack-title" class="font-display text-[30px] font-bold leading-[1.15] tracking-[-1.3px] text-white lg:text-[40px] lg:leading-[48px]">
+            Reconhecido por quem entende de saúde no mundo
+          </h2>
+        </div>
+      </div>
+
+      <!-- Barra glass com os 3 selos -->
+      <div class="border-t backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.24); border-color: rgba(229,237,241,0.64);">
+        <div class="mx-auto flex max-w-site flex-col gap-8 px-6 py-10 md:px-12 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:px-[120px] lg:py-[49px]">
+          <div class="flex items-center gap-6">
+            <img src="assets/images/acknowledgements/waeh.svg" alt="WAEH - World Association of Eye Hospitals" class="h-[65px] w-[131px] shrink-0 object-contain" />
+            <p class="max-w-[210px] text-[16px] leading-5 text-slate-50">Membro ativo da Associação Mundial de Hospitais de Olhos (WAEH).</p>
+          </div>
+          <div class="flex items-center gap-5">
+            <img src="assets/images/acknowledgements/ona.webp" alt="ONA - Acreditado Pleno" class="h-[121px] w-[98px] shrink-0 object-contain" />
+            <p class="max-w-[198px] text-[16px] leading-5 text-slate-50">Acreditado Pleno ONA 2, focado na melhoria contínua e segurança.</p>
+          </div>
+          <div class="flex items-center gap-5">
+            <img src="assets/images/acknowledgements/newsweek.svg" alt="Newsweek" class="size-[74px] shrink-0 object-contain" />
+            <p class="max-w-[286px] text-[16px] leading-5 text-slate-50">Reconhecido como um dos melhores hospitais oftalmológicos da América Latina em 2025 pela Newsweek.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<!-- WHATSAPP FAB -->
-<a href="https://wa.me/5543991735250" target="_blank" class="whatsapp-fab" aria-label="WhatsApp">
-  <span class="iconify" data-icon="mdi:whatsapp" data-width="28"></span>
-</a>
+  <!-- Estatisticas -->
+  <section aria-label="Numeros do Hoftalon" style="background-image: linear-gradient(78.45deg, #0A2A4A 61%, #13518F 100%);">
+    <div class="mx-auto flex max-w-site flex-wrap items-center justify-center gap-y-10 px-6 py-14 md:px-12 lg:flex-nowrap lg:px-[120px]">
 
-<script>
-  // ===== HAMBURGER MENU =====
-  document.getElementById('hamburgerBtn').addEventListener('click', function() {
-    document.getElementById('navLinks').classList.toggle('open');
-  });
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">33</span>
+        <span class="mt-2 text-[18px] text-slate-400">anos de historia</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
 
-  // ===== SCROLL REVEAL =====
-  const revealElements = document.querySelectorAll('.scroll-reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">130+</span>
+        <span class="mt-2 text-[18px] text-slate-400">oftalmologistas</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
 
-  revealElements.forEach(el => revealObserver.observe(el));
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">150mil+</span>
+        <span class="mt-2 text-[18px] text-slate-400">atendimentos/ano</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
 
-  // ===== COUNTER ANIMATION =====
-  const counterElements = document.querySelectorAll('[data-count]');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.count);
-        const duration = 2000;
-        const start = performance.now();
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">11 mil+</span>
+        <span class="mt-2 text-[18px] text-slate-400">cirurgias/ano</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
 
-        function update(now) {
-          const elapsed = now - start;
-          const progress = Math.min(elapsed / duration, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.round(target * eased);
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">120</span>
+        <span class="mt-2 text-[18px] text-slate-400">municipios (SUS)</span>
+      </div>
 
-          if (target > 100) {
-            el.textContent = current + (target === 130 ? '+' : (target === 150 ? ' mil+' : ''));
-          } else if (target === 11) {
-            el.textContent = current + ' mil+';
-          } else {
-            el.textContent = current + (target === 130 ? '+' : '');
-          }
+    </div>
+  </section>
 
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            // final value
-            if (target === 33) el.textContent = '33';
-            else if (target === 130) el.textContent = '130+';
-            else if (target === 150) el.textContent = '150 mil+';
-            else if (target === 11) el.textContent = '11 mil+';
-            else if (target === 120) el.textContent = '120';
-          }
-        }
+  <!-- ==================== UNIDADES ==================== -->
+  <section id="unidades" aria-labelledby="unidades-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-[1172px] px-6 py-16 lg:py-24">
 
-        requestAnimationFrame(update);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
+      <!-- Header -->
+      <div class="flex flex-col gap-2">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Unidades
+        </span>
+        <h2 id="unidades-title" class="font-display text-[30px] font-bold leading-[1.15] tracking-[-1.32px] text-slate-900 lg:text-[44px] lg:leading-[48.4px]">
+          Encontre a unidade <span class="text-primary">mais próxima</span>
+        </h2>
+      </div>
 
-  counterElements.forEach(el => counterObserver.observe(el));
+      <!-- Filtros -->
+      <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <button type="button" class="flex w-full items-center justify-between rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary sm:w-[222px]">
+          Selecione sua Cidade
+          <svg class="size-4 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <div class="flex flex-wrap gap-2" data-unit-filters>
+          <button type="button" data-filter="all" class="rounded-lg border border-primary bg-primary px-[21px] py-[9px] text-[13.6px] font-medium text-slate-50 transition-colors">Todas</button>
+          <button type="button" data-filter="sus" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">SUS</button>
+          <button type="button" data-filter="convenio" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Convenio</button>
+          <button type="button" data-filter="particular" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Particular</button>
+        </div>
+      </div>
 
-  // ===== UNIT FILTERS =====
-  document.querySelectorAll('.units__filter').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.units__filter').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      const filter = this.dataset.filter;
-      document.querySelectorAll('.unit-card').forEach(card => {
-        if (filter === 'all') {
-          card.style.display = '';
-        } else {
-          card.style.display = card.dataset.type.includes(filter) ? '' : 'none';
-        }
-      });
-    });
-  });
+      <!-- Grid de unidades -->
+      <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-unit-grid>
 
-  // ===== NAVBAR SCROLL EFFECT =====
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrollY = window.scrollY;
-    if (scrollY > 100) {
-      navbar.style.boxShadow = 'var(--shadow-md)';
-    } else {
-      navbar.style.boxShadow = 'none';
-    }
-    lastScroll = scrollY;
-  });
-</script>
+        <!-- Souza Naves (Hospital) -->
+        <article data-categories="sus" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#FEE2E2] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#DC2626]">24h</span>
+              <span class="rounded-full bg-[#DCFCE7] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#16A34A]">SUS</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Unidade Souza Naves (Hospital)</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[14px] leading-[18px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Senador Souza Naves, 648 — Londrina</span></p>
+            <p class="flex items-center gap-1.5"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 3375-9500</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Aberto 24h</span></p>
+          </div>
+        </article>
 
+        <!-- Cambara (Hospital) -->
+        <article data-categories="sus" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#DCFCE7] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#16A34A]">SUS</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Unidade Cambara (Hospital)</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[14px] leading-[18px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Rua Cambara, 714 — Londrina</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 7h as 19h | Sab: 7h as 12h</span></p>
+          </div>
+        </article>
+
+        <!-- Fernando de Noronha (Hospital) -->
+        <article data-categories="sus" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#DCFCE7] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#16A34A]">SUS</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Unidade Fernando de Noronha</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[14px] leading-[18px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Rua Fernando de Noronha, 225 — Londrina</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 7h as 18h</span></p>
+          </div>
+        </article>
+
+        <!-- Clinic Souza Naves -->
+        <article data-categories="convenio particular" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convenio</span>
+              <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Clinic Souza Naves</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[13.6px] leading-[20px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Senador Souza Naves, 626 — Londrina</span></p>
+            <p class="flex items-center gap-1.5"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 99173-5250</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h as 18h | Sab: 8h as 12h</span></p>
+          </div>
+        </article>
+
+        <!-- Clinic Hospitalar -->
+        <article data-categories="convenio" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Plano Hospitalar</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Clinic Hospitalar</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[13.6px] leading-[20px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Antonio Amado Noivo, 394 — Londrina</span></p>
+            <p class="flex items-center gap-1.5"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 99919-0532</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h as 18h | Sab: 8h as 12h</span></p>
+          </div>
+        </article>
+
+        <!-- Clinic Ayrton Senna -->
+        <article data-categories="convenio particular" class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <div class="flex flex-col gap-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convenio</span>
+              <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+            </div>
+            <h3 class="font-display text-[16px] font-bold leading-[26px] text-slate-900">Clinic Ayrton Senna</h3>
+          </div>
+          <div class="flex flex-col gap-2 text-[13.6px] leading-[20px] text-slate-500">
+            <p class="flex items-start gap-1.5"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Ayrton Senna da Silva, 900 — Londrina</span></p>
+            <p class="flex items-center gap-1.5"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 99173-5250</span></p>
+            <p class="flex items-center gap-1.5 text-slate-400"><svg class="size-[14px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h as 18h | Sab: 8h as 12h</span></p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG ==================== -->
+  <section id="blog" aria-labelledby="blog-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-[1172px] px-6 py-16 lg:py-24">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+              <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+              Blog
+            </span>
+            <h2 id="blog-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[44px] lg:leading-[48.4px]">Hoftalon em Foco</h2>
+          </div>
+          <p class="text-[16px] font-light leading-[25.6px] text-slate-500">Novidades, conquistas e conteudos sobre saude ocular.</p>
+        </div>
+        <a href="#" class="flex shrink-0 items-center gap-1.5 text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">
+          Ver todos os posts
+          <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Posts -->
+      <div class="mt-8 grid gap-4 lg:h-[466px] lg:grid-cols-2">
+        <!-- Featured -->
+        <a href="#" class="group flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50 p-4 lg:h-full">
+          <div class="relative min-h-[240px] flex-1 overflow-hidden rounded-md">
+            <img src="assets/images/blog/featured.webp" alt="Hoftalon em congresso internacional de oftalmologia" class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+          </div>
+          <div class="flex flex-col gap-4 px-4 pb-4 pt-6">
+            <span class="inline-flex w-fit rounded bg-[#E6F6FC] px-3 py-1 text-[9.92px] font-bold uppercase tracking-[0.595px] text-primary">Noticias</span>
+            <h3 class="font-display text-[24px] font-bold leading-[28px] tracking-[-0.648px] text-slate-900">Hoftalon e destaque entre os melhores hospitais da America Latina</h3>
+          </div>
+        </a>
+
+        <!-- Right column -->
+        <div class="flex flex-col gap-4 lg:h-full">
+          <a href="#" class="group flex flex-1 items-center gap-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 p-4 pr-8">
+            <div class="h-full min-h-[150px] w-[45%] shrink-0 overflow-hidden rounded-xl">
+              <img src="assets/images/blog/post1.webp" alt="Equipe médica do Hoftalon" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="flex flex-1 flex-col gap-2">
+              <span class="inline-flex w-fit rounded bg-[#E6F6FC] px-3 py-1 text-[9.92px] font-bold uppercase tracking-[0.595px] text-primary">Institucional</span>
+              <h3 class="font-display text-[20px] font-bold leading-[28px] tracking-[-0.48px] text-slate-900">Hoftalon recebe doação de terrenos para hospital 100% SUS</h3>
+            </div>
+          </a>
+          <a href="#" class="group flex flex-1 items-center gap-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 p-4 pr-8">
+            <div class="h-full min-h-[150px] w-[45%] shrink-0 overflow-hidden rounded-xl">
+              <img src="assets/images/blog/post2.webp" alt="Campanha de cirurgias de catarata do Hoftalon" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
+            <div class="flex flex-1 flex-col gap-2">
+              <span class="inline-flex w-fit rounded bg-[#E6F6FC] px-3 py-1 text-[9.92px] font-bold uppercase tracking-[0.595px] text-primary">Campanhas</span>
+              <h3 class="font-display text-[20px] font-bold leading-[28px] tracking-[-0.48px] text-slate-900">Maior campanha de cirurgias de catarata da nossa historia</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CTA (Trabalhe no Hoftalon) - full bleed ==================== -->
+  <section aria-labelledby="cta-title" class="relative w-full bg-[#13518F]">
+    <!-- Formas decorativas nas extremidades (proporcao preservada, clipadas ao background) -->
+    <div class="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <!-- shape menor (esquerda no mobile / grande esquerda no desktop) -->
+      <img src="assets/images/decor/cta-shape2.svg" alt="" aria-hidden="true" class="absolute bottom-0 left-0 h-[42%] w-auto -translate-x-[25%] opacity-[0.24] lg:h-[130%] lg:-translate-x-[30%] lg:translate-y-[20%]" />
+      <!-- shape maior (direita no mobile e no desktop) -->
+      <img src="assets/images/decor/cta-shape1.svg" alt="" aria-hidden="true" class="absolute bottom-0 right-0 h-[82%] w-auto translate-x-[28%] opacity-[0.24] lg:bottom-auto lg:top-1/2 lg:h-[180%] lg:-translate-y-1/2 lg:translate-x-[25%]" />
+    </div>
+
+    <!-- ===== Desktop ===== -->
+    <div class="relative z-10 mx-auto hidden max-w-site items-stretch justify-between px-[80px] lg:flex lg:min-h-[345px] xl:px-[120px]">
+      <!-- Foto (base junto ao fundo do bg, topo transborda) + card glass atras/direita -->
+      <div class="relative w-[360px] shrink-0">
+        <div class="absolute bottom-[86px] left-[280px] z-0 w-[400px] border-r py-[18px] pl-[110px] pr-4 backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.24); border-color: rgba(229,237,241,0.64);">
+          <p class="text-[14px] leading-[18px] text-slate-100">Certificado GPTW - que reconhece as melhores empresas para trabalhar no Brasil.</p>
+        </div>
+        <img src="assets/images/photo-people.webp" alt="Equipe médica do Hoftalon - Great Place To Work" class="absolute bottom-0 left-0 z-10 h-[440px] w-auto" />
+      </div>
+      <!-- Texto -->
+      <div class="flex w-[406px] shrink-0 flex-col justify-center gap-6 py-16">
+        <div class="flex flex-col gap-4">
+          <h2 id="cta-title" class="font-display text-[40px] font-bold leading-[56px] tracking-[-0.72px] text-white">Trabalhe no Hoftalon</h2>
+          <p class="text-[18px] leading-[23.5px] text-slate-400">Junte-se ao time que transforma a saude ocular de milhares de pessoas. Um dos melhores hospitais para trabalhar no Brasil.</p>
+        </div>
+        <a href="#" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Ver vagas
+          <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== Mobile (centralizado: texto -> card glass -> foto) ===== -->
+    <div class="relative z-10 flex flex-col items-center gap-12 px-6 pt-11 lg:hidden">
+      <div class="flex w-full max-w-[302px] flex-col items-center gap-6 text-center">
+        <div class="flex flex-col gap-4">
+          <h2 class="font-display text-[32px] font-bold leading-[1.15] tracking-[-0.72px] text-white">Trabalhe no Hoftalon</h2>
+          <p class="text-[18px] leading-[23.5px] text-slate-400">Junte-se ao time que transforma a saude ocular de milhares de pessoas. Um dos melhores hospitais para trabalhar no Brasil.</p>
+        </div>
+        <a href="#" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Ver vagas
+          <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </span>
+        </a>
+      </div>
+      <div class="flex w-full flex-col items-center">
+        <div class="relative z-0 w-full max-w-[300px] border-b py-6 text-center backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.24); border-color: rgba(229,237,241,0.64);">
+          <p class="mx-auto w-[190px] text-[16px] leading-[18px] text-slate-100">Certificado GPTW - que reconhece as melhores empresas para trabalhar no Brasil.</p>
+        </div>
+        <img src="assets/images/photo-people.webp" alt="Equipe médica do Hoftalon - Great Place To Work" class="relative z-10 -mt-[96px] block h-[472px] w-auto" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto flex max-w-site flex-col gap-6 px-6 py-16 lg:px-[120px] lg:py-24">
+
+      <!-- Topo: CTA agendar -->
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex flex-col gap-2">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Agendar Consulta
+          </span>
+          <h2 class="font-display text-[28px] font-bold leading-[1.15] tracking-[-1.32px] text-slate-900 lg:text-[36px] lg:leading-[48.4px]">Sua visão não pode esperar.</h2>
+          <p class="text-[16px] font-light leading-[25.6px] text-slate-500">Agende sua consulta com um dos melhores hospitais de olhos da América Latina.</p>
+        </div>
+        <div class="flex w-full flex-col gap-2 sm:max-w-[266px]">
+          <a href="#agendar" class="flex h-[58px] items-center justify-center gap-4 rounded-lg bg-primary px-6 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="tel:+554333759500" class="flex h-[58px] items-center justify-center rounded-lg border border-[rgba(15,23,42,0.3)] px-6 text-[16px] font-medium text-ink transition-colors hover:border-ink">Ligue: (43) 3375-9500</a>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <!-- Meio: sobre + colunas de links -->
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
+        <!-- Sobre -->
+        <div class="flex shrink-0 flex-col items-center gap-4 text-center lg:w-[275px]">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-[100px] w-auto" />
+          <p class="text-[14px] leading-[18px] text-slate-600">Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.</p>
+          <p class="text-[13.6px] leading-[22px] text-slate-600">CNPJ: 00.000.000/0001-00</p>
+          <div class="flex items-center gap-6">
+            <img src="assets/images/footer/waeh.webp" alt="WAEH" class="h-[41px] w-auto object-contain" />
+            <img src="assets/images/footer/gptw.webp" alt="Great Place To Work" class="h-[63px] w-auto object-contain" />
+            <img src="assets/images/footer/ona.webp" alt="ONA Acreditado Pleno" class="h-[79px] w-auto object-contain" />
+          </div>
+        </div>
+
+        <!-- Divisor vertical (desktop) -->
+        <div class="hidden w-px self-stretch bg-slate-300 lg:block"></div>
+
+        <!-- Colunas -->
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:flex-1 lg:gap-12 lg:pl-4">
+          <!-- Institucional -->
+          <nav class="flex flex-col gap-5" aria-label="Institucional">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Institucional</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="#" class="transition-colors hover:text-primary">O Hospital</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Nossa Historia</a></li>
+              <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+              <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+            </ul>
+          </nav>
+          <!-- Servicos -->
+          <nav class="flex flex-col gap-5" aria-label="Servicos">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Servicos</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="#especialidades" class="transition-colors hover:text-primary">Especialidades</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Convênios</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">SUS</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
+            </ul>
+          </nav>
+          <!-- Contato -->
+          <div class="col-span-2 flex flex-col gap-5 sm:col-span-1">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Contato</p>
+            <ul class="flex flex-col gap-3 text-[13.6px] leading-[18px] text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(43) 3375-9500</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+                <span>WhatsApp: (43) 99173-5250</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Hospital: 24h<br />Clinicas: Seg-Sex 8h-18h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <!-- Copyright -->
+      <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p class="text-[16px] text-slate-400">© Hoftalon. Todos os direitos reservados.</p>
+        <a href="https://ldna.com.br" target="_blank" rel="noopener" class="opacity-80 transition-opacity hover:opacity-100" aria-label="LDNA S/A - Agência Digital">
+          <img src="assets/brand/logo-ldnasa.svg" alt="LDNA S/A - Agência Digital" class="h-[26px] w-auto" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=8" defer></script>
 </body>
 </html>

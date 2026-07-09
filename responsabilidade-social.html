@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsabilidade Social - Hoftalon Hospital de Olhos</title>
+  <meta name="description" content="O Hoftalon é uma instituição filantrópica que atende o SUS em mais de 120 municípios do Paraná. Conheça os projetos sociais: hospital 100% SUS, Hoftalon nas Escolas, Projeto Glaucoma e mais." />
+
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="design_system/tokens.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Fonts: Inter (UI/corpo) + Plus Jakarta Sans (headlines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN no build; trocado por CSS buildado no Passo E) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#0B9ECE', hover: '#0889B5', light: '#E6F6FC' },
+            ink: '#1E293B',
+            herobg: '#D3D9E0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          maxWidth: { site: '1440px' },
+        },
+      },
+    };
+  </script>
+
+  <link rel="icon" href="assets/brand/hoftalon-logo.svg" type="image/svg+xml" />
+</head>
+
+<body class="font-sans text-ink antialiased" style="background-color: var(--surface-page);">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="sticky top-0 z-50 w-full">
+    <div class="hidden w-full items-stretch lg:flex">
+
+      <!-- Logo panel -->
+      <div class="relative flex w-[325px] shrink-0 items-center justify-center bg-slate-50">
+        <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos"
+               class="h-[70px] w-auto" width="154" height="70" />
+        </a>
+        <div class="absolute right-0 top-0 h-full w-[36px] -skew-x-[9deg] translate-x-[18px] bg-slate-50"></div>
+      </div>
+
+      <!-- Navigation (two tiers) -->
+      <nav class="flex min-w-0 flex-1 flex-col justify-end">
+
+        <!-- Tier 1: utility bar -->
+        <div class="flex items-center justify-end gap-12 bg-slate-200 px-[121px] py-3">
+          <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
+            <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+            <li><a href="responsabilidade-social.html" aria-current="page" class="text-primary transition-colors">Responsabilidade Social</a></li>
+            <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+          </ul>
+          <div class="flex items-center gap-2">
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              Portal do Paciente
+            </a>
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+              Portal do Medico
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: main menu -->
+        <div class="flex items-center justify-end gap-[51px] border-b border-slate-100 bg-slate-50/80 px-[120px] py-3 backdrop-blur-[12px]">
+          <ul class="flex items-center gap-1 whitespace-nowrap text-[14px] font-medium leading-[22.75px] text-slate-600">
+            <li><a href="o-hospital.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">O Hospital</a></li>
+            <li><a href="especialidades.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
+            <li><a href="hoftalon-clinic.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
+            <li><a href="quero-ajudar.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Quero Ajudar</a></li>
+            <li><a href="blog.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Blog</a></li>
+            <li><a href="fale-conosco.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
+          </ul>
+          <a href="quero-ajudar.html" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary px-6 py-1.5 text-[14px] font-semibold text-slate-50 transition-colors hover:bg-primary-hover">
+            Quero Ajudar
+            <span class="flex size-8 items-center justify-center rounded-full bg-white/15">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile bar -->
+    <div class="flex items-center justify-between bg-slate-50 px-5 py-3 lg:hidden">
+      <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+        <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-11 w-auto" />
+      </a>
+      <button type="button" aria-label="Abrir menu" class="rounded-lg p-2 text-slate-700">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="relative overflow-hidden">
+    <img src="assets/images/background-img-acknowledgements.webp" alt="" class="absolute inset-0 h-full w-full -scale-x-100 object-cover" aria-hidden="true" />
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(10,42,74,0.94) 0%, rgba(10,42,74,0.82) 48%, rgba(19,81,143,0.62) 100%);" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto flex max-w-site flex-col gap-6 px-6 py-14 md:px-12 lg:px-[120px] lg:py-[88px]">
+      <nav aria-label="Trilha de navegacao" class="text-[12px] leading-none text-slate-300">
+        <a href="index.html" class="transition-colors hover:text-white">Inicio</a>
+        <span class="mx-1.5 text-slate-400">/</span>
+        <span class="text-white">Responsabilidade Social</span>
+      </nav>
+
+      <div class="flex max-w-[720px] flex-col gap-5">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Responsabilidade Social
+        </span>
+        <h1 class="font-display text-[34px] font-bold leading-[1.12] tracking-[-1.2px] text-white md:text-[46px] md:leading-[52px]">
+          Existimos para cuidar de todos. <span class="text-primary">Sem exceção.</span>
+        </h1>
+        <p class="max-w-[580px] text-[18px] leading-[28px] text-slate-300">
+          Somos uma instituição filantrópica, sem fins lucrativos. Nosso principal foco é o atendimento de pacientes do SUS em mais de 120 municípios do Paraná.
+        </p>
+      </div>
+
+      <div class="mt-2 flex flex-wrap gap-x-8 gap-y-3">
+        <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>Instituição filantrópica</div>
+        <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>SUS em mais de 120 municípios</div>
+        <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>Maior transplantador do Paraná</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROJETOS ==================== -->
+  <section aria-labelledby="projetos-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+
+      <div class="flex max-w-[680px] flex-col gap-4">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Projetos Sociais
+        </span>
+        <h2 id="projetos-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Cuidado que vai <span class="text-primary">além do hospital</span>
+        </h2>
+        <p class="text-[16px] leading-[25px] text-slate-500">Iniciativas que levam prevenção, diagnóstico e cirurgia a quem mais precisa, em toda a comunidade.</p>
+      </div>
+
+      <!-- Destaque: Hospital 100% SUS -->
+      <article class="relative mt-10 flex flex-col gap-6 overflow-hidden rounded-lg p-8 md:p-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);">
+        <img src="assets/images/decor/cta-shape1.svg" alt="" aria-hidden="true" class="pointer-events-none absolute -right-16 top-1/2 h-[200%] w-auto -translate-y-1/2 opacity-[0.14]" />
+        <div class="relative flex max-w-[640px] flex-col gap-4">
+          <span class="w-fit rounded-full bg-primary/20 px-3 py-1 text-[11px] font-bold uppercase tracking-[0.6px] text-primary">Marco histórico</span>
+          <h3 class="font-display text-[24px] font-bold leading-[1.15] tracking-[-0.6px] text-white lg:text-[30px]">Hospital 100% SUS</h3>
+          <p class="text-[16px] leading-[25px] text-slate-300">O Hoftalon recebeu doação de terrenos da União para a construção de um hospital de olhos 100% SUS em Londrina, um marco para a saúde pública oftalmológica do Paraná.</p>
+        </div>
+        <a href="quero-ajudar.html" class="relative flex w-fit shrink-0 items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Apoiar o projeto
+          <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </article>
+
+      <!-- Demais projetos -->
+      <div class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Hoftalon nas Escolas</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Exames gratuitos e doação de óculos para crianças de 0 a 10 anos em escolas de Londrina.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Projeto Glaucoma</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Desde 2007, campanhas anuais de prevenção com exames gratuitos para a comunidade.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 14h1a2 2 0 0 0 2-2 2 2 0 0 0-2-2h-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h2"/><path d="M11 14v3"/><path d="M11 5V3"/><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Projeto Gentileza</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Consultas oftalmológicas gratuitas para colaboradores e familiares.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-6">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Olhar Solidário</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Fortalecimento e ampliação das ações sociais na comunidade.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== IMPACTO (numeros) ==================== -->
+  <section aria-label="Números do impacto social" style="background-image: linear-gradient(78.45deg, #0A2A4A 61%, #13518F 100%);">
+    <div class="mx-auto flex max-w-site flex-wrap items-center justify-center gap-y-10 px-6 py-14 md:px-12 lg:flex-nowrap lg:px-[120px]">
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">120+</span>
+        <span class="mt-2 text-[18px] text-slate-400">municípios atendidos</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">11 mil+</span>
+        <span class="mt-2 text-[18px] text-slate-400">cirurgias/ano</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">1º</span>
+        <span class="mt-2 text-[18px] text-slate-400">transplantador do PR</span>
+      </div>
+      <div class="hidden h-[82px] w-px shrink-0 bg-white/15 lg:block"></div>
+      <div class="flex min-w-[45%] flex-1 flex-col items-center px-6 py-2 text-center sm:min-w-[30%] lg:min-w-0 lg:px-10 lg:py-4">
+        <span class="font-display text-[44px] font-bold leading-none tracking-[-2px] text-slate-100 lg:text-[48px]">2007</span>
+        <span class="mt-2 text-[18px] text-slate-400">exames gratuitos desde</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA QUERO AJUDAR ==================== -->
+  <section aria-labelledby="ajudar-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+      <div class="flex flex-col items-center gap-6 rounded-lg border border-slate-200 bg-slate-50 px-6 py-12 text-center lg:py-16">
+        <span class="flex size-14 items-center justify-center rounded-full bg-primary-light text-primary">
+          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </span>
+        <div class="flex max-w-[540px] flex-col gap-3">
+          <h2 id="ajudar-title" class="font-display text-[26px] font-bold leading-[1.15] tracking-[-0.8px] text-slate-900 lg:text-[32px]">Sua ajuda transforma olhares</h2>
+          <p class="text-[16px] leading-[25px] text-slate-500">Cada doação mantém os projetos sociais e o atendimento gratuito de milhares de pessoas pelo SUS. Descubra como você pode fazer parte.</p>
+        </div>
+        <a href="quero-ajudar.html" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-7 py-3 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Quero Ajudar
+          <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full bg-slate-200">
+    <div class="mx-auto flex max-w-site flex-col gap-6 px-6 py-16 lg:px-[120px] lg:py-24">
+
+      <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex flex-col gap-2">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Agendar Consulta
+          </span>
+          <h2 class="font-display text-[28px] font-bold leading-[1.15] tracking-[-1.32px] text-slate-900 lg:text-[36px] lg:leading-[48.4px]">Sua visão não pode esperar.</h2>
+          <p class="text-[16px] font-light leading-[25.6px] text-slate-500">Agende sua consulta com um dos melhores hospitais de olhos da América Latina.</p>
+        </div>
+        <div class="flex w-full flex-col gap-2 sm:max-w-[266px]">
+          <a href="fale-conosco.html#form" class="flex h-[58px] items-center justify-center gap-4 rounded-lg bg-primary px-6 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="tel:+554333759500" class="flex h-[58px] items-center justify-center rounded-lg border border-[rgba(15,23,42,0.3)] px-6 text-[16px] font-medium text-ink transition-colors hover:border-ink">Ligue: (43) 3375-9500</a>
+        </div>
+      </div>
+
+      <hr class="border-slate-300" />
+
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
+        <div class="flex shrink-0 flex-col items-center gap-4 text-center lg:w-[275px]">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-[100px] w-auto" />
+          <p class="text-[14px] leading-[18px] text-slate-600">Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.</p>
+          <p class="text-[13.6px] leading-[22px] text-slate-600">CNPJ: 00.000.000/0001-00</p>
+          <div class="flex items-center gap-6">
+            <img src="assets/images/footer/waeh.webp" alt="WAEH" class="h-[41px] w-auto object-contain" />
+            <img src="assets/images/footer/gptw.webp" alt="Great Place To Work" class="h-[63px] w-auto object-contain" />
+            <img src="assets/images/footer/ona.webp" alt="ONA Acreditado Pleno" class="h-[79px] w-auto object-contain" />
+          </div>
+        </div>
+
+        <div class="hidden w-px self-stretch bg-slate-300 lg:block"></div>
+
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:flex-1 lg:gap-12 lg:pl-4">
+          <nav class="flex flex-col gap-5" aria-label="Institucional">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Institucional</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="o-hospital.html" class="transition-colors hover:text-primary">O Hospital</a></li>
+              <li><a href="o-hospital.html#historia-title" class="transition-colors hover:text-primary">Nossa Historia</a></li>
+              <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+              <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+            </ul>
+          </nav>
+          <nav class="flex flex-col gap-5" aria-label="Servicos">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Servicos</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="especialidades.html" class="transition-colors hover:text-primary">Especialidades</a></li>
+              <li><a href="especialidades.html" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="hoftalon-clinic.html" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
+              <li><a href="hoftalon-clinic.html#convenios-title" class="transition-colors hover:text-primary">Convênios</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">SUS</a></li>
+              <li><a href="quero-ajudar.html" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
+            </ul>
+          </nav>
+          <div class="col-span-2 flex flex-col gap-5 sm:col-span-1">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Contato</p>
+            <ul class="flex flex-col gap-3 text-[13.6px] leading-[18px] text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(43) 3375-9500</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+                <span>WhatsApp: (43) 99173-5250</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Hospital: 24h<br />Clinicas: Seg-Sex 8h-18h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-slate-300" />
+
+      <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p class="text-[16px] text-slate-400">© Hoftalon. Todos os direitos reservados.</p>
+        <a href="https://ldna.com.br" target="_blank" rel="noopener" class="opacity-80 transition-opacity hover:opacity-100" aria-label="LDNA S/A - Agência Digital">
+          <img src="assets/brand/logo-ldnasa.svg" alt="LDNA S/A - Agência Digital" class="h-[26px] w-auto" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=8" defer></script>
+</body>
+</html>

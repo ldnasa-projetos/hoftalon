@@ -1,0 +1,228 @@
+// ============================================================================
+// Hoftalon - main.js (vanilla)
+// Interacoes do site. Preenchido no Passo D conforme a secao de motion do DS.
+// ============================================================================
+
+(function () {
+  'use strict';
+
+  // --- Scroll-reveal via IntersectionObserver ---
+  function initScrollReveal() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      targets.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    targets.forEach(function (el) { observer.observe(el); });
+  }
+
+  // --- Carrossel de especialidades (setas prev/next) ---
+  function initCarousels() {
+    document.querySelectorAll('[data-carousel]').forEach(function (track) {
+      var prev = document.querySelector('[data-carousel-prev="' + track.id + '"]');
+      var next = document.querySelector('[data-carousel-next="' + track.id + '"]');
+      var step = function () {
+        var card = track.querySelector('[data-carousel-item]');
+        var gap = 18;
+        return card ? card.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+      };
+      var update = function () {
+        var maxScroll = track.scrollWidth - track.clientWidth - 1;
+        if (prev) prev.disabled = track.scrollLeft <= 0;
+        if (next) next.disabled = track.scrollLeft >= maxScroll;
+      };
+      if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+      if (next) next.addEventListener('click', function () { track.scrollBy({ left: step(), behavior: 'smooth' }); });
+      track.addEventListener('scroll', update, { passive: true });
+
+      // Arrastar com o mouse (drag-to-scroll), alem das setas / swipe touch.
+      var isDown = false, startX = 0, startScroll = 0, moved = false;
+      track.addEventListener('mousedown', function (e) {
+        isDown = true;
+        moved = false;
+        startX = e.pageX;
+        startScroll = track.scrollLeft;
+        track.style.cursor = 'grabbing';
+        track.style.scrollBehavior = 'auto'; // sem smooth durante o arrasto
+      });
+      window.addEventListener('mouseup', function () {
+        if (!isDown) return;
+        isDown = false;
+        track.style.cursor = '';
+        track.style.scrollBehavior = '';
+      });
+      track.addEventListener('mousemove', function (e) {
+        if (!isDown) return;
+        e.preventDefault();
+        var dx = e.pageX - startX;
+        if (Math.abs(dx) > 4) moved = true;
+        track.scrollLeft = startScroll - dx;
+      });
+      // Impede que um arrasto dispare cliques nos cards/links.
+      track.addEventListener('click', function (e) {
+        if (moved) { e.preventDefault(); e.stopPropagation(); }
+      }, true);
+
+      update();
+    });
+  }
+
+  // --- Filtro de unidades (tabs por categoria) ---
+  function initUnitFilters() {
+    var filterBar = document.querySelector('[data-unit-filters]');
+    var grid = document.querySelector('[data-unit-grid]');
+    if (!filterBar || !grid) return;
+    var buttons = filterBar.querySelectorAll('[data-filter]');
+    var cards = grid.querySelectorAll('[data-categories]');
+    var activeCls = ['border-primary', 'bg-primary', 'text-slate-50'];
+    var idleCls = ['border-slate-300', 'bg-slate-50', 'text-slate-600', 'hover:border-primary'];
+    function setActive(btn) {
+      buttons.forEach(function (b) {
+        var on = b === btn;
+        activeCls.forEach(function (c) { b.classList.toggle(c, on); });
+        idleCls.forEach(function (c) { b.classList.toggle(c, !on); });
+      });
+    }
+    filterBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-filter]');
+      if (!btn) return;
+      var f = btn.getAttribute('data-filter');
+      setActive(btn);
+      cards.forEach(function (card) {
+        var cats = card.getAttribute('data-categories') || '';
+        var show = f === 'all' || cats.split(' ').indexOf(f) !== -1;
+        card.classList.toggle('hidden', !show);
+      });
+    });
+  }
+
+  // --- Filtro generico de galeria (tabs por categoria) ---
+  // Usado em "O Hospital" (Nossa Estrutura). Nao interfere no filtro de unidades.
+  function initGalleryFilters() {
+    var filterBar = document.querySelector('[data-gallery-filters]');
+    var grid = document.querySelector('[data-gallery-grid]');
+    if (!filterBar || !grid) return;
+    var buttons = filterBar.querySelectorAll('[data-gallery-filter]');
+    var items = grid.querySelectorAll('[data-gallery-cat]');
+    var activeCls = ['border-primary', 'bg-primary', 'text-slate-50'];
+    var idleCls = ['border-slate-300', 'bg-slate-50', 'text-slate-600', 'hover:border-primary'];
+    function setActive(btn) {
+      buttons.forEach(function (b) {
+        var on = b === btn;
+        activeCls.forEach(function (c) { b.classList.toggle(c, on); });
+        idleCls.forEach(function (c) { b.classList.toggle(c, !on); });
+      });
+    }
+    filterBar.addEventListener('click', function (e) {
+      var btn = e.target.closest('[data-gallery-filter]');
+      if (!btn) return;
+      var f = btn.getAttribute('data-gallery-filter');
+      setActive(btn);
+      items.forEach(function (item) {
+        var cats = item.getAttribute('data-gallery-cat') || '';
+        var show = f === 'all' || cats.split(' ').indexOf(f) !== -1;
+        item.classList.toggle('hidden', !show);
+      });
+    });
+  }
+
+  // --- Abas de especialidades (sidebar -> painel) ---
+  function initSpecTabs() {
+    var group = document.querySelector('[data-spec-tabs]');
+    if (!group) return;
+    var tabs = group.querySelectorAll('[data-spec-tab]');
+    var panels = document.querySelectorAll('[data-spec-panel]');
+    var activeCls = ['bg-primary', 'text-white', 'shadow-sm'];
+    var idleCls = ['text-slate-600', 'hover:bg-white'];
+    function activate(key, focusTab) {
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-spec-tab') === key;
+        activeCls.forEach(function (c) { t.classList.toggle(c, on); });
+        idleCls.forEach(function (c) { t.classList.toggle(c, !on); });
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        if (on && focusTab) t.scrollIntoView({ block: 'nearest', inline: 'center' });
+      });
+      panels.forEach(function (p) {
+        p.classList.toggle('hidden', p.getAttribute('data-spec-panel') !== key);
+      });
+    }
+    group.addEventListener('click', function (e) {
+      var tab = e.target.closest('[data-spec-tab]');
+      if (!tab) return;
+      activate(tab.getAttribute('data-spec-tab'), true);
+      var panelTop = document.querySelector('[data-spec-panels]');
+      if (panelTop && window.matchMedia('(max-width: 1023px)').matches) {
+        panelTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  }
+
+  // --- Busca de convenios (Hoftalon Clinic) ---
+  function initConvenioSearch() {
+    var input = document.querySelector('[data-convenio-search]');
+    var grid = document.querySelector('[data-convenio-grid]');
+    if (!input || !grid) return;
+    var items = grid.querySelectorAll('[data-convenio-item]');
+    var groups = grid.querySelectorAll('[data-convenio-group]');
+    var empty = document.querySelector('[data-convenio-empty]');
+    function norm(s) {
+      return (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+    input.addEventListener('input', function () {
+      var q = norm(input.value.trim());
+      var visible = 0;
+      items.forEach(function (item) {
+        var match = q === '' || norm(item.textContent).indexOf(q) !== -1;
+        item.classList.toggle('hidden', !match);
+        if (match) visible++;
+      });
+      // Esconde grupos que ficaram sem itens visiveis.
+      groups.forEach(function (g) {
+        var any = g.querySelector('[data-convenio-item]:not(.hidden)');
+        g.classList.toggle('hidden', !any);
+      });
+      if (empty) empty.classList.toggle('hidden', visible !== 0);
+    });
+  }
+
+  // --- Copiar link (compartilhamento de post) ---
+  function initCopyLink() {
+    var btns = document.querySelectorAll('[data-copy-link]');
+    if (!btns.length) return;
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var label = btn.querySelector('[data-copy-label]');
+        var feedback = function () {
+          if (!label) return;
+          var prev = label.textContent;
+          label.textContent = 'Link copiado!';
+          setTimeout(function () { label.textContent = prev; }, 2000);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(window.location.href).then(feedback, feedback);
+        } else {
+          feedback();
+        }
+      });
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    initScrollReveal();
+    initCarousels();
+    initUnitFilters();
+    initGalleryFilters();
+    initSpecTabs();
+    initConvenioSearch();
+    initCopyLink();
+  });
+})();

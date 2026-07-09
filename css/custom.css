@@ -1,0 +1,35 @@
+/* ==========================================================================
+   Hoftalon - CSS custom
+   Apenas o que as utilities do Tailwind nao expressam bem.
+   Referenciar tokens via var(--...) de design_system/tokens.css. Zero magic numbers.
+   ========================================================================== */
+
+/* Respeita usuarios que preferem menos movimento (acessibilidade). */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Esconde a scrollbar do carrossel (mantendo o scroll funcional). */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll-reveal base (ativado por js/main.js via IntersectionObserver). */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity var(--duration-reveal) ease,
+              transform var(--duration-reveal) ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}

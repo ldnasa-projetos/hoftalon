@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O Hospital - Hoftalon Hospital de Olhos</title>
+  <meta name="description" content="Conheca o Hoftalon Hospital de Olhos: 33 anos de historia, do fundador a maior centro oftalmologico do Parana. Missao, linha do tempo, estrutura e reconhecimentos internacionais." />
+
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="design_system/tokens.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Fonts: Inter (UI/corpo) + Plus Jakarta Sans (headlines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN no build; trocado por CSS buildado no Passo E) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#0B9ECE', hover: '#0889B5', light: '#E6F6FC' },
+            ink: '#1E293B',
+            herobg: '#D3D9E0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          maxWidth: { site: '1440px' },
+        },
+      },
+    };
+  </script>
+
+  <link rel="icon" href="assets/brand/hoftalon-logo.svg" type="image/svg+xml" />
+</head>
+
+<body class="font-sans text-ink antialiased" style="background-color: var(--surface-page);">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="sticky top-0 z-50 w-full">
+    <div class="hidden w-full items-stretch lg:flex">
+
+      <!-- Logo panel -->
+      <div class="relative flex w-[325px] shrink-0 items-center justify-center bg-slate-50">
+        <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos"
+               class="h-[70px] w-auto" width="154" height="70" />
+        </a>
+        <!-- Seam wedge (Rectangle 15) -->
+        <div class="absolute right-0 top-0 h-full w-[36px] -skew-x-[9deg] translate-x-[18px] bg-slate-50"></div>
+      </div>
+
+      <!-- Navigation (two tiers) -->
+      <nav class="flex min-w-0 flex-1 flex-col justify-end">
+
+        <!-- Tier 1: utility bar -->
+        <div class="flex items-center justify-end gap-12 bg-slate-200 px-[121px] py-3">
+          <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
+            <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+            <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+            <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+          </ul>
+          <div class="flex items-center gap-2">
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              Portal do Paciente
+            </a>
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+              Portal do Medico
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: main menu -->
+        <div class="flex items-center justify-end gap-[51px] border-b border-slate-100 bg-slate-50/80 px-[120px] py-3 backdrop-blur-[12px]">
+          <ul class="flex items-center gap-1 whitespace-nowrap text-[14px] font-medium leading-[22.75px] text-slate-600">
+            <li><a href="o-hospital.html" aria-current="page" class="rounded-lg bg-primary/5 px-3.5 py-2 text-primary transition-colors">O Hospital</a></li>
+            <li><a href="especialidades.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
+            <li><a href="hoftalon-clinic.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
+            <li><a href="quero-ajudar.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Quero Ajudar</a></li>
+            <li><a href="blog.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Blog</a></li>
+            <li><a href="fale-conosco.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
+          </ul>
+          <a href="#agendar" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary px-6 py-1.5 text-[14px] font-semibold text-slate-50 transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-8 items-center justify-center rounded-full bg-white/15">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile bar (simplificado; nav completa mobile fica pro Passo D) -->
+    <div class="flex items-center justify-between bg-slate-50 px-5 py-3 lg:hidden">
+      <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+        <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-11 w-auto" />
+      </a>
+      <button type="button" aria-label="Abrir menu" class="rounded-lg p-2 text-slate-700">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="relative overflow-hidden">
+    <img src="assets/images/background-img-acknowledgements.webp" alt="" class="absolute inset-0 h-full w-full -scale-x-100 object-cover" aria-hidden="true" />
+    <!-- Overlay navy (mais escuro a esquerda para legibilidade do texto) -->
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(10,42,74,0.94) 0%, rgba(10,42,74,0.82) 48%, rgba(19,81,143,0.62) 100%);" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto flex max-w-site flex-col gap-10 px-6 pb-0 pt-12 md:px-12 lg:px-[120px] lg:pt-16">
+      <!-- Breadcrumb -->
+      <nav aria-label="Trilha de navegacao" class="text-[12px] leading-none text-slate-300">
+        <a href="index.html" class="transition-colors hover:text-white">Inicio</a>
+        <span class="mx-1.5 text-slate-400">/</span>
+        <span class="text-white">O Hospital</span>
+      </nav>
+
+      <!-- Titulo -->
+      <div class="flex max-w-[720px] flex-col gap-5 pb-14 lg:pb-[72px]">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          O Hospital
+        </span>
+        <h1 class="font-display text-[34px] font-bold leading-[1.12] tracking-[-1.2px] text-white md:text-[48px] md:leading-[54px]">
+          Uma herança que virou cuidado <span class="text-primary">para milhares de pessoas</span>
+        </h1>
+        <p class="max-w-[560px] text-[18px] leading-[28px] text-slate-300">
+          Desde 1992, o Hoftalon cresceu de 4 medicos a mais de 130 oftalmologistas, sem nunca perder o que nos move: transformar vidas atraves de novos olhares.
+        </p>
+      </div>
+    </div>
+
+    <!-- Barra glass com numeros-chave -->
+    <div class="relative z-10 border-t backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.16); border-color: rgba(229,237,241,0.5);">
+      <div class="mx-auto grid max-w-site grid-cols-2 gap-y-8 px-6 py-8 md:px-12 lg:grid-cols-4 lg:gap-6 lg:px-[120px] lg:py-9">
+        <div class="flex flex-col items-center gap-1 border-white/15 text-center lg:border-r lg:last:border-r-0">
+          <span class="font-display text-[32px] font-bold leading-none tracking-[-1px] text-white lg:text-[38px]">33</span>
+          <span class="text-[14px] text-slate-300">anos de historia</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 border-white/15 text-center lg:border-r lg:last:border-r-0">
+          <span class="font-display text-[32px] font-bold leading-none tracking-[-1px] text-white lg:text-[38px]">130+</span>
+          <span class="text-[14px] text-slate-300">oftalmologistas</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 border-white/15 text-center lg:border-r lg:last:border-r-0">
+          <span class="font-display text-[32px] font-bold leading-none tracking-[-1px] text-white lg:text-[38px]">150 mil+</span>
+          <span class="text-[14px] text-slate-300">atendimentos/ano</span>
+        </div>
+        <div class="flex flex-col items-center gap-1 border-white/15 text-center lg:border-r lg:last:border-r-0">
+          <span class="font-display text-[32px] font-bold leading-none tracking-[-1px] text-white lg:text-[38px]">11 mil+</span>
+          <span class="text-[14px] text-slate-300">cirurgias/ano</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOSSA HISTORIA ==================== -->
+  <section aria-labelledby="historia-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+
+        <!-- Texto -->
+        <div class="flex flex-col gap-6">
+          <div class="flex flex-col gap-4">
+            <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+              <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+              Nossa Historia
+            </span>
+            <h2 id="historia-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.2px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+              Começou com uma herança. <span class="text-primary">Virou referência.</span>
+            </h2>
+          </div>
+          <div class="flex flex-col gap-4 text-[16px] leading-[26px] text-slate-600">
+            <p>O Hoftalon nasceu em abril de 1992. O Dr. Nobuaqui Hasegawa e Ana Regina Sato usaram a herança que receberam de seus pais para construir e equipar o hospital.</p>
+            <p>O que começou com 9 funcionários e 4 médicos hoje é o maior centro oftalmológico do Paraná: quase 200 colaboradores, mais de 130 oftalmologistas, 150 mil atendimentos e 11 mil cirurgias por ano.</p>
+          </div>
+
+          <!-- Pull quote do fundador -->
+          <figure class="mt-2 rounded-lg border-l-[3px] border-primary bg-primary-light/50 px-6 py-5">
+            <blockquote class="font-display text-[18px] font-semibold leading-[27px] tracking-[-0.3px] text-slate-800">
+              "Fizemos o que de melhor se pode fazer com uma herança: nossos pais ajudaram a realizar um sonho dos filhos, gerando benefícios públicos duradouros."
+            </blockquote>
+            <figcaption class="mt-3 text-[13.6px] font-medium text-slate-500">Dr. Nobuaqui Hasegawa <span class="text-slate-400">— fundador do Hoftalon</span></figcaption>
+          </figure>
+
+          <!-- De / Para -->
+          <div class="mt-2 grid grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1 rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <div class="flex items-baseline gap-2">
+                <span class="text-[15px] font-medium text-slate-400 line-through decoration-slate-300">4</span>
+                <svg class="size-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <span class="font-display text-[28px] font-bold leading-none tracking-[-1px] text-slate-900">130+</span>
+              </div>
+              <span class="text-[13.6px] text-slate-500">médicos, em 33 anos</span>
+            </div>
+            <div class="flex flex-col gap-1 rounded-lg border border-slate-200 bg-slate-50 p-5">
+              <div class="flex items-baseline gap-2">
+                <span class="text-[15px] font-medium text-slate-400 line-through decoration-slate-300">9</span>
+                <svg class="size-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <span class="font-display text-[28px] font-bold leading-none tracking-[-1px] text-slate-900">200</span>
+              </div>
+              <span class="text-[13.6px] text-slate-500">colaboradores hoje</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagens -->
+        <div class="relative">
+          <div class="overflow-hidden rounded-lg border border-slate-200">
+            <img src="assets/images/hero-poster.webp" alt="Atendimento oftalmológico no Hoftalon" class="h-[320px] w-full object-cover lg:h-[440px]" loading="lazy" />
+          </div>
+          <!-- Card flutuante -->
+          <div class="mt-4 flex items-center gap-4 rounded-lg border border-slate-200 bg-slate-50 p-5 lg:absolute lg:-bottom-8 lg:-left-8 lg:mt-0 lg:max-w-[280px] lg:shadow-[0_20px_40px_-16px_rgba(10,42,74,0.35)]">
+            <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary-light text-primary">
+              <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+            </span>
+            <div class="flex flex-col">
+              <span class="font-display text-[16px] font-bold leading-tight text-slate-900">Abril de 1992</span>
+              <span class="text-[13.6px] leading-[18px] text-slate-500">O primeiro atendimento que deu origem a tudo.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== LINHA DO TEMPO ==================== -->
+  <section aria-labelledby="timeline-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 lg:px-[120px]">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex max-w-[550px] flex-col gap-4">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Linha do Tempo
+          </span>
+          <h2 id="timeline-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+            33 anos de <span class="text-primary">conquistas</span>
+          </h2>
+        </div>
+        <!-- Setas -->
+        <div class="flex shrink-0 items-center gap-4">
+          <button type="button" data-carousel-prev="timeline-carousel" aria-label="Marco anterior" class="flex size-9 items-center justify-center rounded-full bg-white/50 text-slate-700 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          </button>
+          <button type="button" data-carousel-next="timeline-carousel" aria-label="Proximo marco" class="flex size-9 items-center justify-center rounded-full bg-white text-primary shadow-sm transition hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Trilho -->
+      <div id="timeline-carousel" data-carousel class="scrollbar-hide mt-10 cursor-grab select-none overflow-x-auto scroll-smooth">
+        <div class="flex flex-col gap-0">
+          <!-- Cards -->
+          <div class="flex items-stretch gap-4 pb-6">
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">1992</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Fundação do Hoftalon, em Londrina.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">1993</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Início do atendimento pelo SUS.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2004</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Residência Médica credenciada pelo MEC.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2008</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Consolidação como referência no Paraná.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2012</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Acreditação ONA Nível 2 — 1º do Sul.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2016</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">1º hospital brasileiro membro da WAEH.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2017</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Acreditação ONA Nível 3 — Excelência.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2019</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">GPTW — 7º melhor hospital para trabalhar.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2020</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">GPTW — 3º melhor hospital para trabalhar.</p>
+            </article>
+            <article data-carousel-item class="flex w-[220px] shrink-0 flex-col gap-2 rounded-lg border border-slate-300/70 bg-slate-50 p-5">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-primary">2025</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-600">Newsweek — Best Eye Hospitals.</p>
+            </article>
+            <article data-carousel-item class="relative flex w-[220px] shrink-0 flex-col gap-2 overflow-hidden rounded-lg p-5" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);">
+              <span class="font-display text-[24px] font-bold leading-none tracking-[-1px] text-white">2026</span>
+              <p class="text-[13.6px] leading-[19px] text-slate-200">42ª posição na América Latina em catarata.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MISSAO / VISAO / VALORES ==================== -->
+  <section aria-labelledby="mvv-title" class="relative overflow-hidden" style="background-image: linear-gradient(78.45deg, #0A2A4A 61%, #13518F 100%);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+
+      <div class="flex max-w-[560px] flex-col gap-4">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Missão, Visão e Valores
+        </span>
+        <h2 id="mvv-title" class="font-display text-[30px] font-bold leading-[1.12] tracking-[-1.2px] text-white lg:text-[40px] lg:leading-[46px]">
+          O que nos move todos os dias
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:mt-14 lg:grid-cols-3 lg:gap-6">
+        <!-- Missao -->
+        <article class="flex flex-col gap-4 rounded-lg border p-8 backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.1); border-color: rgba(229,237,241,0.28);">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary text-white">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-[12px] font-bold uppercase tracking-[1px] text-primary">Missão</h3>
+            <p class="text-[17px] leading-[25px] text-slate-100">Transformar a vida das pessoas através de novos olhares.</p>
+          </div>
+        </article>
+        <!-- Visao -->
+        <article class="flex flex-col gap-4 rounded-lg border p-8 backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.1); border-color: rgba(229,237,241,0.28);">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary text-white">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="text-[12px] font-bold uppercase tracking-[1px] text-primary">Visão</h3>
+            <p class="text-[17px] leading-[25px] text-slate-100">Ser referência internacional em qualidade, geração de conhecimento e sustentabilidade.</p>
+          </div>
+        </article>
+        <!-- Valores -->
+        <article class="flex flex-col gap-4 rounded-lg border p-8 backdrop-blur-[12px]" style="background-color: rgba(229,237,241,0.1); border-color: rgba(229,237,241,0.28);">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary text-white">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          </span>
+          <div class="flex flex-col gap-3">
+            <h3 class="text-[12px] font-bold uppercase tracking-[1px] text-primary">Valores</h3>
+            <ul class="flex flex-wrap gap-2">
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Ética</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Integridade</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Transparência</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Equidade</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Responsabilidade Social</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Excelência</li>
+              <li class="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[12.8px] font-medium text-slate-100">Conhecimento</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== NOSSA ESTRUTURA (galeria) ==================== -->
+  <section aria-labelledby="estrutura-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+        <div class="flex flex-col gap-4">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Nossa Estrutura
+          </span>
+          <div class="flex flex-col gap-3 lg:max-w-[640px]">
+            <h2 id="estrutura-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+              Espaços pensados para o seu <span class="text-primary">conforto</span>
+            </h2>
+            <p class="text-[16px] leading-[25px] text-slate-500">Da recepção ao centro cirúrgico, cada ambiente é projetado para oferecer segurança e tecnologia em cada etapa do atendimento.</p>
+          </div>
+        </div>
+        <!-- Setas -->
+        <div class="flex shrink-0 items-center gap-4">
+          <button type="button" data-carousel-prev="estrutura-carousel" aria-label="Ambiente anterior" class="flex size-9 items-center justify-center rounded-full bg-white/50 text-slate-700 transition hover:bg-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          </button>
+          <button type="button" data-carousel-next="estrutura-carousel" aria-label="Proximo ambiente" class="flex size-9 items-center justify-center rounded-full bg-white text-primary shadow-sm transition hover:bg-primary hover:text-white disabled:cursor-not-allowed disabled:opacity-40">
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filtros -->
+      <div class="mt-8 flex flex-wrap gap-2" data-gallery-filters>
+        <button type="button" data-gallery-filter="all" class="rounded-lg border border-primary bg-primary px-[21px] py-[9px] text-[13.6px] font-medium text-slate-50 transition-colors">Todos</button>
+        <button type="button" data-gallery-filter="recepcao" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Recepção</button>
+        <button type="button" data-gallery-filter="consultorio" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Consultórios</button>
+        <button type="button" data-gallery-filter="exames" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Centro de Exames</button>
+        <button type="button" data-gallery-filter="cirurgico" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Centro Cirúrgico</button>
+        <button type="button" data-gallery-filter="internacao" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Internação</button>
+        <button type="button" data-gallery-filter="fachada" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Fachadas</button>
+      </div>
+
+      <!-- Carrossel (placeholders branded ate as fotos reais entrarem) -->
+      <div id="estrutura-carousel" data-carousel class="scrollbar-hide mt-8 cursor-grab select-none overflow-x-auto scroll-smooth">
+        <div class="flex items-stretch gap-4 pb-2" data-gallery-grid>
+
+        <figure data-gallery-cat="recepcao" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0A2A4A 0%, #13518F 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Recepção</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Recepção — Unidade Souza Naves</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="recepcao" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #13518F 0%, #0B9ECE 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Recepção</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Sala de Espera — Clinic Souza Naves</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="consultorio" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0A2A4A 0%, #0D9488 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Consultório</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Consultório Oftalmológico</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="consultorio" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #13518F 0%, #0A2A4A 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Consultório</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Consultório — Oftalmopediatria</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="exames" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0D9488 0%, #13518F 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Exames</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Centro de Diagnóstico — OCT</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="exames" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0B9ECE 0%, #0A2A4A 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Exames</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Campimetria Computadorizada</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="cirurgico" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0A2A4A 0%, #13518F 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Centro Cirúrgico</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Centro Cirúrgico — Sala Principal</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="internacao" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #13518F 0%, #0D9488 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Internação</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Sala de Recuperação Pós-Operatória</span></figcaption>
+        </figure>
+
+        <figure data-gallery-cat="fachada" data-carousel-item class="group relative aspect-[4/3] w-[80vw] shrink-0 snap-start overflow-hidden rounded-lg border border-slate-200 sm:w-[360px] lg:w-[389px]" style="background-image: linear-gradient(135deg, #0B9ECE 0%, #13518F 100%);">
+          <svg class="absolute right-4 top-4 size-16 text-white/10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+          <span class="absolute left-4 top-4 rounded-full bg-white/15 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.4px] text-white backdrop-blur-sm">Fachada</span>
+          <figcaption class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 to-transparent p-4"><span class="text-[13.6px] font-medium text-white">Fachada — Unidade Souza Naves</span></figcaption>
+        </figure>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RECONHECIMENTOS ==================== -->
+  <section aria-labelledby="rec-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
+
+      <!-- Header -->
+      <div class="flex flex-col gap-4 lg:max-w-[640px]">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Reconhecimentos
+        </span>
+        <h2 id="rec-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Certificações que comprovam nosso <span class="text-primary">compromisso</span>
+        </h2>
+      </div>
+
+      <!-- Cards -->
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex h-[64px] items-center self-start rounded-lg px-5" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);"><img src="assets/images/acknowledgements/waeh.svg" alt="WAEH" class="h-[40px] w-[81px]" loading="lazy" /></span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">WAEH</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Primeiro hospital brasileiro na associação que reúne os centros oftalmológicos mais renomados do mundo.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex h-[64px] items-center self-start rounded-lg px-5" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);"><img src="assets/images/acknowledgements/newsweek.svg" alt="Newsweek" class="size-[44px]" loading="lazy" /></span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">Newsweek</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">42ª posição em cirurgia de catarata na América Latina. Único do interior do Brasil na lista.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <img src="assets/images/footer/ona.webp" alt="ONA - Acreditado Pleno" class="h-[52px] w-auto self-start object-contain" loading="lazy" />
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">ONA</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Acreditado Pleno. Primeiro hospital de olhos do Sul do país a receber a certificação.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <img src="assets/images/footer/gptw.webp" alt="Great Place To Work" class="h-[52px] w-auto self-start object-contain" loading="lazy" />
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">GPTW</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Entre os melhores hospitais para se trabalhar no Brasil, segundo o Great Place To Work.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">CBO / MEC</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Programa de Residência Médica em Oftalmologia credenciado pelo MEC desde 2004.</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-12 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[18px] font-bold tracking-[-0.3px] text-slate-900">CEBAS</h3>
+            <p class="text-[14px] leading-[21px] text-slate-500">Certificado como Entidade Beneficente de Assistência Social na área da Saúde.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== RESPONSABILIDADE SOCIAL (band) ==================== -->
+  <section aria-labelledby="social-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+      <div class="relative overflow-hidden rounded-lg" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);">
+        <img src="assets/images/decor/cta-shape1.svg" alt="" aria-hidden="true" class="pointer-events-none absolute -right-16 top-1/2 h-[180%] w-auto -translate-y-1/2 opacity-[0.16]" />
+        <div class="relative flex flex-col gap-8 p-8 md:p-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-14">
+          <div class="flex max-w-[620px] flex-col gap-4">
+            <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+              <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+              Responsabilidade Social
+            </span>
+            <h2 id="social-title" class="font-display text-[26px] font-bold leading-[1.15] tracking-[-0.8px] text-white lg:text-[34px] lg:leading-[40px]">
+              Cuidar de quem mais precisa também é a nossa missão
+            </h2>
+            <p class="text-[16px] leading-[25px] text-slate-300">
+              Do projeto "De Olho nos Olhinhos" ao maior programa de transplantes do Paraná, levamos saúde ocular a quem depende do SUS em mais de 120 municípios.
+            </p>
+          </div>
+          <a href="#" class="flex w-fit shrink-0 items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+            Conhecer o projeto
+            <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto flex max-w-site flex-col gap-6 px-6 py-16 lg:px-[120px] lg:py-24">
+
+      <!-- Topo: CTA agendar -->
+      <div id="agendar" class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex flex-col gap-2">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Agendar Consulta
+          </span>
+          <h2 class="font-display text-[28px] font-bold leading-[1.15] tracking-[-1.32px] text-slate-900 lg:text-[36px] lg:leading-[48.4px]">Sua visão não pode esperar.</h2>
+          <p class="text-[16px] font-light leading-[25.6px] text-slate-500">Agende sua consulta com um dos melhores hospitais de olhos da América Latina.</p>
+        </div>
+        <div class="flex w-full flex-col gap-2 sm:max-w-[266px]">
+          <a href="#agendar" class="flex h-[58px] items-center justify-center gap-4 rounded-lg bg-primary px-6 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="tel:+554333759500" class="flex h-[58px] items-center justify-center rounded-lg border border-[rgba(15,23,42,0.3)] px-6 text-[16px] font-medium text-ink transition-colors hover:border-ink">Ligue: (43) 3375-9500</a>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <!-- Meio: sobre + colunas de links -->
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
+        <!-- Sobre -->
+        <div class="flex shrink-0 flex-col items-center gap-4 text-center lg:w-[275px]">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-[100px] w-auto" />
+          <p class="text-[14px] leading-[18px] text-slate-600">Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.</p>
+          <p class="text-[13.6px] leading-[22px] text-slate-600">CNPJ: 00.000.000/0001-00</p>
+          <div class="flex items-center gap-6">
+            <img src="assets/images/footer/waeh.webp" alt="WAEH" class="h-[41px] w-auto object-contain" />
+            <img src="assets/images/footer/gptw.webp" alt="Great Place To Work" class="h-[63px] w-auto object-contain" />
+            <img src="assets/images/footer/ona.webp" alt="ONA Acreditado Pleno" class="h-[79px] w-auto object-contain" />
+          </div>
+        </div>
+
+        <!-- Divisor vertical (desktop) -->
+        <div class="hidden w-px self-stretch bg-slate-300 lg:block"></div>
+
+        <!-- Colunas -->
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:flex-1 lg:gap-12 lg:pl-4">
+          <!-- Institucional -->
+          <nav class="flex flex-col gap-5" aria-label="Institucional">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Institucional</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="o-hospital.html" class="transition-colors hover:text-primary">O Hospital</a></li>
+              <li><a href="o-hospital.html#historia-title" class="transition-colors hover:text-primary">Nossa Historia</a></li>
+              <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+              <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+            </ul>
+          </nav>
+          <!-- Servicos -->
+          <nav class="flex flex-col gap-5" aria-label="Servicos">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Servicos</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="#" class="transition-colors hover:text-primary">Especialidades</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Convênios</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">SUS</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
+            </ul>
+          </nav>
+          <!-- Contato -->
+          <div class="col-span-2 flex flex-col gap-5 sm:col-span-1">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Contato</p>
+            <ul class="flex flex-col gap-3 text-[13.6px] leading-[18px] text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(43) 3375-9500</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+                <span>WhatsApp: (43) 99173-5250</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Hospital: 24h<br />Clinicas: Seg-Sex 8h-18h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <!-- Copyright -->
+      <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p class="text-[16px] text-slate-400">© Hoftalon. Todos os direitos reservados.</p>
+        <a href="https://ldna.com.br" target="_blank" rel="noopener" class="opacity-80 transition-opacity hover:opacity-100" aria-label="LDNA S/A - Agência Digital">
+          <img src="assets/brand/logo-ldnasa.svg" alt="LDNA S/A - Agência Digital" class="h-[26px] w-auto" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=8" defer></script>
+</body>
+</html>

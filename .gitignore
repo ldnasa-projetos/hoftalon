@@ -1,34 +1,32 @@
-
-
-# Environment & Secrets (AIOS)
+# Environment & Secrets
 .env
+.env*
 .env.local
 .env.*.local
 *.key
 *.pem
 
-# Dependencies (AIOS)
+# Dependencies
 node_modules/
-node_modules
 
-# Build & Logs (AIOS)
+# Build & Logs
 dist/
 build/
 *.log
 logs/
+.next/
+.vercel/
 
-# IDE & OS (AIOS)
+# IDE & OS
 .DS_Store
 Thumbs.db
 .idea/
 *.swp
 
-# AIOS Local (AIOS)
-.aios-core/local/
+# Local settings
 .claude/settings.local.json
-.aios/install-log.txt
 
-# --- snapshot additions (2026-07-02) ---
-.env*
-.next/
-.vercel/
+# web-build working dirs & design references (not part of the deliverable)
+screenshots/
+_archive/
+refs/

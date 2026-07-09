@@ -1,0 +1,93 @@
+/* ==========================================================================
+   Hoftalon Design System - CSS Custom Properties
+   Gerado a partir de design_system/tokens.json (DTCG). Fonte canonica: Figma.
+   Uso: referenciar sempre via var(--...). Zero magic numbers no CSS de componentes.
+   ========================================================================== */
+
+:root {
+  /* --- Brand --- */
+  --brand-primary: #0B9ECE;        /* Azul-ciano do logo */
+  --brand-primary-light: #E6F6FC;  /* Superficie tingida */
+  --brand-primary-hover: #0889B5;  /* Hover */
+  --brand-secondary: #0A2A4A;      /* Navy escuro */
+  --brand-secondary-light: #143A5E;
+  --brand-accent: #0D9488;         /* Teal */
+  --brand-accent-light: #CCFBF1;
+  --brand-accent-hover: #0F766E;
+
+  /* --- Semantic --- */
+  --success: #10B981;
+  --success-light: #ECFDF5;
+  --warning: #F59E0B;
+  --warning-light: #FFFBEB;
+  --error: #EF4444;
+  --error-light: #FEF2F2;
+  --info: #0B9ECE;
+
+  /* --- Neutral (slate) --- */
+  --neutral-50: #F8FAFC;
+  --neutral-100: #F1F5F9;
+  --neutral-200: #E2E8F0;
+  --neutral-300: #CBD5E1;
+  --neutral-400: #94A3B8;
+  --neutral-500: #64748B;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1E293B;
+  --neutral-900: #0F172A;
+
+  /* --- Surfaces --- */
+  --surface-page: #F2F9FD;         /* Fundo de pagina azul-claro */
+  --surface-primary: #FFFFFF;
+  --surface-secondary: #F8FAFC;
+
+  /* --- Font size --- */
+  --fs-xs: 0.75rem;    /* 12 */
+  --fs-sm: 0.875rem;   /* 14 */
+  --fs-base: 1rem;     /* 16 */
+  --fs-lg: 1.125rem;   /* 18 */
+  --fs-xl: 1.25rem;    /* 20 */
+  --fs-2xl: 1.5rem;    /* 24 */
+  --fs-3xl: 1.875rem;  /* 30 */
+  --fs-4xl: 2.25rem;   /* 36 */
+  --fs-5xl: 3rem;      /* 48 */
+  --fs-6xl: 3.75rem;   /* 60 */
+  --fs-7xl: 4.5rem;    /* 72 */
+
+  /* --- Line height --- */
+  --lh-xs: 1.5;
+  --lh-sm: 1.5;
+  --lh-base: 1.625;
+  --lh-lg: 1.5;
+  --lh-xl: 1.4;
+  --lh-2xl: 1.3;
+  --lh-3xl: 1.25;
+  --lh-4xl: 1.15;
+  --lh-5xl: 1.05;
+  --lh-6xl: 1.0;
+  --lh-7xl: 0.95;
+
+  /* --- Spacing --- */
+  --space-xs: 0.25rem;  /* 4 */
+  --space-sm: 0.5rem;   /* 8 */
+  --space-md: 1rem;     /* 16 */
+  --space-lg: 1.5rem;   /* 24 */
+  --space-xl: 2rem;     /* 32 */
+  --space-2xl: 3rem;    /* 48 */
+  --space-3xl: 4rem;    /* 64 */
+  --space-4xl: 5rem;    /* 80 */
+  --space-5xl: 6rem;    /* 96 */
+
+  /* --- Radius --- */
+  --radius-sm: 4px;     /* Botoes, elementos pequenos */
+  --radius-md: 12px;    /* Cards */
+  --radius-lg: 16px;    /* Cards grandes, modais */
+  --radius-pill: 50px;  /* Botoes pill */
+  --radius-full: 9999px;
+
+  /* --- Motion --- */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-reveal: 1000ms;
+}

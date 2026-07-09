@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Transparência - Hoftalon Hospital de Olhos</title>
+  <meta name="description" content="Como entidade filantrópica certificada (CEBAS), o Hoftalon mantém total transparência. Relatórios financeiros, de sustentabilidade e igualdade salarial, e informações institucionais." />
+
+  <!-- Design tokens -->
+  <link rel="stylesheet" href="design_system/tokens.css" />
+  <link rel="stylesheet" href="css/custom.css" />
+
+  <!-- Fonts: Inter (UI/corpo) + Plus Jakarta Sans (headlines) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (CDN no build; trocado por CSS buildado no Passo E) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#0B9ECE', hover: '#0889B5', light: '#E6F6FC' },
+            ink: '#1E293B',
+            herobg: '#D3D9E0',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+          },
+          maxWidth: { site: '1440px' },
+        },
+      },
+    };
+  </script>
+
+  <link rel="icon" href="assets/brand/hoftalon-logo.svg" type="image/svg+xml" />
+</head>
+
+<body class="font-sans text-ink antialiased" style="background-color: var(--surface-page);">
+
+  <!-- ============================ HEADER ============================ -->
+  <header class="sticky top-0 z-50 w-full">
+    <div class="hidden w-full items-stretch lg:flex">
+
+      <!-- Logo panel -->
+      <div class="relative flex w-[325px] shrink-0 items-center justify-center bg-slate-50">
+        <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos"
+               class="h-[70px] w-auto" width="154" height="70" />
+        </a>
+        <div class="absolute right-0 top-0 h-full w-[36px] -skew-x-[9deg] translate-x-[18px] bg-slate-50"></div>
+      </div>
+
+      <!-- Navigation (two tiers) -->
+      <nav class="flex min-w-0 flex-1 flex-col justify-end">
+
+        <!-- Tier 1: utility bar -->
+        <div class="flex items-center justify-end gap-12 bg-slate-200 px-[121px] py-3">
+          <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
+            <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+            <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+            <li><a href="transparencia.html" aria-current="page" class="text-primary transition-colors">Transparência</a></li>
+          </ul>
+          <div class="flex items-center gap-2">
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+              Portal do Paciente
+            </a>
+            <a href="#" class="flex items-center gap-1.5 rounded-lg border border-primary/[0.12] bg-primary/[0.08] px-3 py-1 text-[11.2px] font-semibold text-primary transition-colors hover:bg-primary/[0.14]">
+              <svg class="size-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 2v2"/><path d="M5 2v2"/><path d="M5 3H4a2 2 0 0 0-2 2v4a6 6 0 0 0 12 0V5a2 2 0 0 0-2-2h-1"/><path d="M8 15a6 6 0 0 0 12 0v-3"/><circle cx="20" cy="10" r="2"/></svg>
+              Portal do Medico
+            </a>
+          </div>
+        </div>
+
+        <!-- Tier 2: main menu -->
+        <div class="flex items-center justify-end gap-[51px] border-b border-slate-100 bg-slate-50/80 px-[120px] py-3 backdrop-blur-[12px]">
+          <ul class="flex items-center gap-1 whitespace-nowrap text-[14px] font-medium leading-[22.75px] text-slate-600">
+            <li><a href="o-hospital.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">O Hospital</a></li>
+            <li><a href="especialidades.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
+            <li><a href="hoftalon-clinic.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
+            <li><a href="quero-ajudar.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Quero Ajudar</a></li>
+            <li><a href="blog.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Blog</a></li>
+            <li><a href="fale-conosco.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
+          </ul>
+          <a href="#agendar" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary px-6 py-1.5 text-[14px] font-semibold text-slate-50 transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-8 items-center justify-center rounded-full bg-white/15">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/></svg>
+            </span>
+          </a>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile bar -->
+    <div class="flex items-center justify-between bg-slate-50 px-5 py-3 lg:hidden">
+      <a href="index.html" aria-label="Hoftalon Hospital de Olhos - pagina inicial">
+        <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-11 w-auto" />
+      </a>
+      <button type="button" aria-label="Abrir menu" class="rounded-lg p-2 text-slate-700">
+        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="relative overflow-hidden">
+    <img src="assets/images/background-img-acknowledgements.webp" alt="" class="absolute inset-0 h-full w-full -scale-x-100 object-cover" aria-hidden="true" />
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(10,42,74,0.94) 0%, rgba(10,42,74,0.82) 48%, rgba(19,81,143,0.62) 100%);" aria-hidden="true"></div>
+
+    <div class="relative z-10 mx-auto flex max-w-site flex-col gap-6 px-6 py-14 md:px-12 lg:px-[120px] lg:py-[88px]">
+      <nav aria-label="Trilha de navegacao" class="text-[12px] leading-none text-slate-300">
+        <a href="index.html" class="transition-colors hover:text-white">Inicio</a>
+        <span class="mx-1.5 text-slate-400">/</span>
+        <span class="text-white">Transparência</span>
+      </nav>
+
+      <div class="flex max-w-[720px] flex-col gap-5">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Transparência
+        </span>
+        <h1 class="font-display text-[34px] font-bold leading-[1.12] tracking-[-1.2px] text-white md:text-[46px] md:leading-[52px]">
+          Prestação de contas <span class="text-primary">aberta e acessível</span>
+        </h1>
+        <p class="max-w-[580px] text-[18px] leading-[28px] text-slate-300">
+          Como entidade filantrópica certificada (CEBAS), o Hoftalon mantém total transparência sobre suas atividades, finanças e impacto social.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PORTAL + RELATORIOS ==================== -->
+  <section aria-labelledby="relatorios-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+
+      <p class="max-w-[760px] text-[16px] leading-[26px] text-slate-600">Aqui você encontra os relatórios, demonstrativos e documentos públicos da instituição, além do acesso ao Portal do Paciente.</p>
+
+      <!-- Portal do Paciente -->
+      <div class="mt-8 flex flex-col gap-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 p-8 sm:flex-row sm:items-center sm:justify-between md:p-10">
+        <div class="flex items-center gap-5">
+          <span class="flex size-14 shrink-0 items-center justify-center rounded-xl bg-primary-light text-primary">
+            <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <div class="flex flex-col gap-1">
+            <h2 class="font-display text-[18px] font-bold text-slate-900">Portal do Paciente</h2>
+            <p class="max-w-[420px] text-[14px] leading-[20px] text-slate-500">Acesse seus dados, resultados de exames e informações do seu atendimento de forma segura e digital.</p>
+          </div>
+        </div>
+        <a href="#" class="flex w-fit shrink-0 items-center gap-3 rounded-lg bg-primary px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Acessar Portal do Paciente
+          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Relatorios -->
+      <div class="mt-14 flex flex-col gap-2">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Documentos Públicos
+        </span>
+        <h2 id="relatorios-title" class="font-display text-[26px] font-bold leading-[1.15] tracking-[-0.8px] text-slate-900 lg:text-[34px]">Relatórios e Demonstrativos</h2>
+      </div>
+
+      <!-- Filtros -->
+      <div class="mt-6 flex flex-wrap gap-2" data-gallery-filters>
+        <button type="button" data-gallery-filter="all" class="rounded-lg border border-primary bg-primary px-[21px] py-[9px] text-[13.6px] font-medium text-slate-50 transition-colors">Todos</button>
+        <button type="button" data-gallery-filter="financeiro" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Financeiro</button>
+        <button type="button" data-gallery-filter="sustentabilidade" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Sustentabilidade</button>
+        <button type="button" data-gallery-filter="igualdade" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Igualdade Salarial</button>
+        <button type="button" data-gallery-filter="outros" class="rounded-lg border border-slate-300 bg-slate-50 px-[21px] py-[9px] text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Outros</button>
+      </div>
+
+      <!-- Tabela -->
+      <div class="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+        <!-- Header (desktop) -->
+        <div class="hidden grid-cols-[1fr_150px_80px_120px] gap-4 border-b border-slate-200 bg-slate-100 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.5px] text-slate-500 sm:grid">
+          <span>Documento</span><span>Categoria</span><span>Ano</span><span class="text-right">Ação</span>
+        </div>
+
+        <div data-gallery-grid>
+          <div data-gallery-cat="igualdade" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Relatório de Transparência e Igualdade Salarial</strong><span class="text-[12px] text-slate-400">Mulheres e Homens — 2º Semestre</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#F3E8FF;color:#7C3AED;">Igualdade</span></span>
+            <span class="text-[13px] text-slate-500">2025</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>Baixar PDF</a>
+          </div>
+
+          <div data-gallery-cat="financeiro" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Demonstrações Financeiras e Parecer da Auditoria</strong><span class="text-[12px] text-slate-400">Exercício fiscal completo</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DBEAFE;color:#1D4ED8;">Financeiro</span></span>
+            <span class="text-[13px] text-slate-500">2024</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="sustentabilidade" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Relatório de Sustentabilidade</strong><span class="text-[12px] text-slate-400">Impacto social, ambiental e governança</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DCFCE7;color:#166534;">Sustentab.</span></span>
+            <span class="text-[13px] text-slate-500">2024</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="financeiro" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Instrumentos e Valores Recebidos</strong><span class="text-[12px] text-slate-400">Período de 2020 a 2024</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DBEAFE;color:#1D4ED8;">Financeiro</span></span>
+            <span class="text-[13px] text-slate-500">2024</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="financeiro" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Demonstrações Financeiras e Parecer da Auditoria</strong><span class="text-[12px] text-slate-400">Exercício fiscal completo</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DBEAFE;color:#1D4ED8;">Financeiro</span></span>
+            <span class="text-[13px] text-slate-500">2023</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="sustentabilidade" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Relatório de Sustentabilidade</strong><span class="text-[12px] text-slate-400">Impacto social, ambiental e governança</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DCFCE7;color:#166534;">Sustentab.</span></span>
+            <span class="text-[13px] text-slate-500">2023</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="financeiro" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Demonstrações Financeiras e Parecer da Auditoria</strong><span class="text-[12px] text-slate-400">Exercício fiscal completo</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DBEAFE;color:#1D4ED8;">Financeiro</span></span>
+            <span class="text-[13px] text-slate-500">2022</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="sustentabilidade" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Relatório de Sustentabilidade</strong><span class="text-[12px] text-slate-400">Impacto social, ambiental e governança</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DCFCE7;color:#166534;">Sustentab.</span></span>
+            <span class="text-[13px] text-slate-500">2022</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="sustentabilidade" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Relatório de Sustentabilidade</strong><span class="text-[12px] text-slate-400">Impacto social, ambiental e governança</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DCFCE7;color:#166534;">Sustentab.</span></span>
+            <span class="text-[13px] text-slate-500">2021</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="financeiro" class="flex flex-col gap-3 border-b border-slate-100 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Demonstrações Financeiras e Parecer da Auditoria</strong><span class="text-[12px] text-slate-400">Exercício fiscal completo</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#DBEAFE;color:#1D4ED8;">Financeiro</span></span>
+            <span class="text-[13px] text-slate-500">2021</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+
+          <div data-gallery-cat="outros" class="flex flex-col gap-3 px-6 py-4 sm:grid sm:grid-cols-[1fr_150px_80px_120px] sm:items-center sm:gap-4">
+            <div class="min-w-0"><strong class="block text-[14px] font-semibold text-slate-800">Prestação de Contas Covid-19</strong><span class="text-[12px] text-slate-400">Recursos emergenciais da pandemia</span></div>
+            <span><span class="inline-block rounded-full px-2.5 py-1 text-[11px] font-semibold" style="background:#FEF3C7;color:#92400E;">Outros</span></span>
+            <span class="text-[13px] text-slate-500">2020</span>
+            <a href="#" class="flex w-fit items-center justify-center gap-1.5 rounded-lg border border-slate-300 px-4 py-1.5 text-[13px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary sm:justify-self-end"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>Ver PDF</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INFORMACOES INSTITUCIONAIS ==================== -->
+  <section aria-labelledby="info-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
+
+      <div class="flex flex-col gap-2">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Institucional
+        </span>
+        <h2 id="info-title" class="font-display text-[26px] font-bold leading-[1.15] tracking-[-0.8px] text-slate-900 lg:text-[34px]">Informações Institucionais</h2>
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-6">
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-xl bg-primary-light text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9h.01"/><path d="M9 12h.01"/><path d="M9 15h.01"/></svg></span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[16px] font-bold text-slate-900">Dados da Entidade</h3>
+            <p class="text-[14px] leading-[24px] text-slate-500">Hoftalon — Centro de Estudo e Pesquisa da Visão<br />CNPJ: 07.194.341/0001-94<br />Natureza: Entidade Filantrópica<br />Certificação: CEBAS Saúde</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-xl bg-primary-light text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[16px] font-bold text-slate-900">Responsável Técnico</h3>
+            <p class="text-[14px] leading-[24px] text-slate-500">Dr. Ivan Idalgo<br />CRM 23543 | RQE 836<br />Especialidade: Oftalmologia</p>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-xl bg-primary-light text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div class="flex flex-col gap-2">
+            <h3 class="font-display text-[16px] font-bold text-slate-900">Acreditações</h3>
+            <p class="text-[14px] leading-[24px] text-slate-500">ONA — Acreditado Pleno<br />WAEH — Full Member<br />Newsweek — Best Hospitals 2026<br />GPTW — Great Place to Work</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Politicas -->
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#" class="flex items-center gap-2 rounded-lg border border-slate-300 bg-slate-50 px-5 py-2.5 text-[13.6px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Política de Privacidade</a>
+        <a href="#" class="flex items-center gap-2 rounded-lg border border-slate-300 bg-slate-50 px-5 py-2.5 text-[13.6px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 16v-3a2 2 0 0 0-4 0v3"/><path d="M12 2a10 10 0 1 0 10 10"/><path d="M18 2h4v4"/><path d="m22 2-6 6"/></svg>Código de Ética</a>
+        <a href="#" class="flex items-center gap-2 rounded-lg border border-slate-300 bg-slate-50 px-5 py-2.5 text-[13.6px] font-semibold text-slate-600 transition-colors hover:border-primary hover:text-primary"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>Canal de Ouvidoria</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto flex max-w-site flex-col gap-6 px-6 py-16 lg:px-[120px] lg:py-24">
+
+      <div id="agendar" class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div class="flex flex-col gap-2">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Agendar Consulta
+          </span>
+          <h2 class="font-display text-[28px] font-bold leading-[1.15] tracking-[-1.32px] text-slate-900 lg:text-[36px] lg:leading-[48.4px]">Sua visão não pode esperar.</h2>
+          <p class="text-[16px] font-light leading-[25.6px] text-slate-500">Agende sua consulta com um dos melhores hospitais de olhos da América Latina.</p>
+        </div>
+        <div class="flex w-full flex-col gap-2 sm:max-w-[266px]">
+          <a href="fale-conosco.html#form" class="flex h-[58px] items-center justify-center gap-4 rounded-lg bg-primary px-6 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+            Agende sua Consulta
+            <span class="flex size-9 items-center justify-center rounded-full bg-white text-primary">
+              <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+          <a href="tel:+554333759500" class="flex h-[58px] items-center justify-center rounded-lg border border-[rgba(15,23,42,0.3)] px-6 text-[16px] font-medium text-ink transition-colors hover:border-ink">Ligue: (43) 3375-9500</a>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <div class="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-8">
+        <div class="flex shrink-0 flex-col items-center gap-4 text-center lg:w-[275px]">
+          <img src="assets/brand/hoftalon-logo.svg" alt="Hoftalon Hospital de Olhos" class="h-[100px] w-auto" />
+          <p class="text-[14px] leading-[18px] text-slate-600">Referencia internacional em oftalmologia. Mais de 33 anos transformando a saude ocular de milhares de pessoas.</p>
+          <p class="text-[13.6px] leading-[22px] text-slate-600">CNPJ: 07.194.341/0001-94</p>
+          <div class="flex items-center gap-6">
+            <img src="assets/images/footer/waeh.webp" alt="WAEH" class="h-[41px] w-auto object-contain" />
+            <img src="assets/images/footer/gptw.webp" alt="Great Place To Work" class="h-[63px] w-auto object-contain" />
+            <img src="assets/images/footer/ona.webp" alt="ONA Acreditado Pleno" class="h-[79px] w-auto object-contain" />
+          </div>
+        </div>
+
+        <div class="hidden w-px self-stretch bg-slate-300 lg:block"></div>
+
+        <div class="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:flex-1 lg:gap-12 lg:pl-4">
+          <nav class="flex flex-col gap-5" aria-label="Institucional">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Institucional</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="o-hospital.html" class="transition-colors hover:text-primary">O Hospital</a></li>
+              <li><a href="o-hospital.html#historia-title" class="transition-colors hover:text-primary">Nossa Historia</a></li>
+              <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
+              <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+            </ul>
+          </nav>
+          <nav class="flex flex-col gap-5" aria-label="Servicos">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Servicos</p>
+            <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
+              <li><a href="especialidades.html" class="transition-colors hover:text-primary">Especialidades</a></li>
+              <li><a href="especialidades.html" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="hoftalon-clinic.html" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
+              <li><a href="hoftalon-clinic.html#convenios-title" class="transition-colors hover:text-primary">Convênios</a></li>
+              <li><a href="#" class="transition-colors hover:text-primary">SUS</a></li>
+              <li><a href="quero-ajudar.html" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
+            </ul>
+          </nav>
+          <div class="col-span-2 flex flex-col gap-5 sm:col-span-1">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Contato</p>
+            <ul class="flex flex-col gap-3 text-[13.6px] leading-[18px] text-slate-600">
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>(43) 3375-9500</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+                <span>WhatsApp: (43) 99173-5250</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Hospital: 24h<br />Clinicas: Seg-Sex 8h-18h</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <hr class="border-slate-200" />
+
+      <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+        <p class="text-[16px] text-slate-400">© Hoftalon. Todos os direitos reservados.</p>
+        <a href="https://ldna.com.br" target="_blank" rel="noopener" class="opacity-80 transition-opacity hover:opacity-100" aria-label="LDNA S/A - Agência Digital">
+          <img src="assets/brand/logo-ldnasa.svg" alt="LDNA S/A - Agência Digital" class="h-[26px] w-auto" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js?v=8" defer></script>
+</body>
+</html>
