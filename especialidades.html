@@ -62,6 +62,7 @@
           <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
             <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
             <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+            <li><a href="trabalhe-conosco.html" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
             <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
           </ul>
           <div class="flex items-center gap-2">
@@ -255,7 +256,7 @@
               <p class="text-[16px] leading-[25px] text-slate-500">Recupere a nitidez da sua visão com quem é referência na América Latina.</p>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-lg bg-primary-light/60 p-5"><strong class="font-display text-[20px] font-bold text-slate-900">42ª posição</strong><span class="mt-1 block text-[13.6px] text-slate-500">América Latina — Ranking Newsweek 2026</span></div>
+              <div class="rounded-lg bg-primary-light/60 p-5"><strong class="font-display text-[20px] font-bold text-slate-900">42ª posição</strong><span class="mt-1 block text-[13.6px] text-slate-500">América Latina - Ranking Newsweek 2026</span></div>
               <div class="rounded-lg bg-primary-light/60 p-5"><strong data-ticker class="font-display text-[20px] font-bold text-slate-900">11 mil+</strong><span class="mt-1 block text-[13.6px] text-slate-500">cirurgias realizadas por ano</span></div>
             </div>
             <div class="flex flex-col gap-5">
@@ -265,18 +266,14 @@
             </div>
             <p class="flex items-center gap-2 text-[13.6px] text-slate-500"><span class="rounded-full bg-[#DCFCE7] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#16A34A]">SUS · Convênio · Particular</span></p>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Eduardo Tanaka</strong><span class="text-[13px] leading-[18px] text-slate-500">Cirurgião de Catarata</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Marina Oliveira</strong><span class="text-[13px] leading-[18px] text-slate-500">Catarata e Cirurgia Refrativa</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="catarata" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="catarata" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta de catarata<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -298,18 +295,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Prevenção</h3><p class="text-[15px] leading-[25px] text-slate-600">Desde 2007, realizamos o Projeto Glaucoma com campanhas anuais de exames gratuitos para a comunidade. A prevenção é a melhor forma de combater essa doença silenciosa.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Paulo Menezes</strong><span class="text-[13px] leading-[18px] text-slate-500">Especialista em Glaucoma</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Camila Ferreira</strong><span class="text-[13px] leading-[18px] text-slate-500">Especialista em Glaucoma</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="glaucoma" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="glaucoma" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta de glaucoma<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -326,18 +319,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Tecnologia</h3><p class="text-[15px] leading-[25px] text-slate-600">Contamos com equipamentos de última geração para diagnóstico (angiografia, OCT) e tratamento (laser, injeções intravítreas, vitrectomia).</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. André Yamada</strong><span class="text-[13px] leading-[18px] text-slate-500">Retina e Vítreo</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Beatriz Lima</strong><span class="text-[13px] leading-[18px] text-slate-500">Retina Clínica</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="retina" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="retina" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -354,18 +343,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Diferenciais</h3><p class="text-[15px] leading-[25px] text-slate-600">Equipe com formação internacional em transplantes e cirurgias de córnea. Técnicas modernas incluindo transplante lamelar e crosslinking.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Rafael Costa</strong><span class="text-[13px] leading-[18px] text-slate-500">Córnea e Transplantes</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Juliana Alves</strong><span class="text-[13px] leading-[18px] text-slate-500">Córnea e Ceratocone</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="cornea" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="cornea" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -378,7 +363,7 @@
               <p class="text-[16px] leading-[25px] text-slate-500">Liberdade para enxergar sem depender de óculos ou lentes.</p>
             </div>
             <div class="grid gap-4 sm:grid-cols-2">
-              <div class="rounded-lg bg-primary-light/60 p-5"><strong class="font-display text-[20px] font-bold text-slate-900">50ª posição</strong><span class="mt-1 block text-[13.6px] text-slate-500">América Latina — Ranking Newsweek 2026</span></div>
+              <div class="rounded-lg bg-primary-light/60 p-5"><strong class="font-display text-[20px] font-bold text-slate-900">50ª posição</strong><span class="mt-1 block text-[13.6px] text-slate-500">América Latina - Ranking Newsweek 2026</span></div>
               <div class="rounded-lg bg-primary-light/60 p-5"><strong class="font-display text-[20px] font-bold text-slate-900">Laser</strong><span class="mt-1 block text-[13.6px] text-slate-500">Alta precisão e segurança</span></div>
             </div>
             <div class="flex flex-col gap-5">
@@ -386,18 +371,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Para quem é indicada?</h3><p class="text-[15px] leading-[25px] text-slate-600">Pacientes maiores de 18 anos com grau estável há pelo menos 1 ano. Uma avaliação completa determina a melhor técnica para cada caso.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Felipe Souza</strong><span class="text-[13px] leading-[18px] text-slate-500">Cirurgia Refrativa</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Larissa Rocha</strong><span class="text-[13px] leading-[18px] text-slate-500">Cirurgia Refrativa</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="refrativa" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="refrativa" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua avaliação<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -414,18 +395,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Abordagem</h3><p class="text-[15px] leading-[25px] text-slate-600">Equipe com fellowship em plástica ocular. Combinamos a funcionalidade com a estética, devolvendo conforto e autoestima ao paciente.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Gustavo Nakamura</strong><span class="text-[13px] leading-[18px] text-slate-500">Plástica Ocular</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Renata Dias</strong><span class="text-[13px] leading-[18px] text-slate-500">Plástica Ocular</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="plastica" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="plastica" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -442,18 +419,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">O que fazemos?</h3><p class="text-[15px] leading-[25px] text-slate-600">Exames de acuidade visual, teste do reflexo vermelho, avaliação de estrabismo, prescrição de óculos infantis e acompanhamento do desenvolvimento visual. O Projeto Hoftalon nas Escolas leva exames gratuitos a crianças de 0 a 10 anos.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Fernanda Castro</strong><span class="text-[13px] leading-[18px] text-slate-500">Oftalmopediatria</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Thiago Moraes</strong><span class="text-[13px] leading-[18px] text-slate-500">Oftalmopediatria</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="pediatria" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="pediatria" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende consulta para seu filho<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -470,18 +443,14 @@
               <div class="flex flex-col gap-2"><h3 class="font-display text-[17px] font-bold text-slate-900">Tratamento</h3><p class="text-[15px] leading-[25px] text-slate-600">Dependendo do caso, o tratamento pode incluir óculos, exercícios ortópticos, aplicação de toxina botulínica ou correção cirúrgica. O Hoftalon oferece todas as opções, do diagnóstico ao pós-operatório.</p></div>
             </div>
 
+            <!-- Especialistas: renderizados por js/medicos.js (Corpo Clinico 2026) -->
             <div class="flex flex-col gap-3">
-              <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dra. Patrícia Gomes</strong><span class="text-[13px] leading-[18px] text-slate-500">Estrabismo</span></div>
-                </div>
-                <div class="flex items-center gap-4 rounded-lg border border-slate-200 bg-white p-4">
-                  <span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-white/85"><svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-                  <div class="flex flex-col"><strong class="text-[14px] font-semibold text-slate-900">Dr. Marcelo Vieira</strong><span class="text-[13px] leading-[18px] text-slate-500">Estrabismo</span></div>
-                </div>
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 class="font-display text-[16px] font-bold text-slate-900">Especialistas</h3>
+                <span data-medicos-total="estrabismo" class="text-[13px] text-slate-500"></span>
               </div>
+              <div data-medicos-por-especialidade="estrabismo" data-limite="4" class="grid gap-3 sm:grid-cols-2"></div>
+              <a href="#corpo-clinico" class="w-fit text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Ver o corpo clínico completo</a>
             </div>
 
             <a href="#agendar" class="flex w-fit items-center gap-4 rounded-lg bg-primary px-6 py-2 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">Agende sua consulta<span class="flex size-9 items-center justify-center rounded-full bg-white text-primary"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></a>
@@ -489,6 +458,73 @@
 
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORPO CLINICO ==================== -->
+  <section id="corpo-clinico" aria-labelledby="corpo-clinico-title" class="w-full py-16 lg:py-24" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
+
+      <div class="flex max-w-[720px] flex-col gap-4">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Corpo Clínico 2026
+        </span>
+        <h2 id="corpo-clinico-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Encontre o médico <span class="text-primary">da sua especialidade</span>
+        </h2>
+        <p class="text-[16px] leading-[25px] text-slate-500">
+          O maior corpo clínico oftalmológico da região, entre equipe Hoftalon e médicos parceiros. Filtre por especialidade ou unidade e fale direto com o profissional.
+        </p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="mt-10 flex flex-col gap-5">
+        <div class="flex flex-col gap-2">
+          <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-500">Especialidade</p>
+          <div data-medicos-filtros="especialidade" class="flex flex-wrap gap-2">
+            <button type="button" data-valor="all" class="rounded-full border border-primary bg-primary px-4 py-1.5 text-[13.6px] font-medium text-white transition-colors">Todas</button>
+            <button type="button" data-valor="catarata" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Catarata</button>
+            <button type="button" data-valor="glaucoma" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Glaucoma</button>
+            <button type="button" data-valor="retina" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Retina</button>
+            <button type="button" data-valor="cornea" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Córnea</button>
+            <button type="button" data-valor="refrativa" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Refrativa</button>
+            <button type="button" data-valor="plastica" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Plástica Ocular</button>
+            <button type="button" data-valor="pediatria" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Oftalmopediatria</button>
+            <button type="button" data-valor="estrabismo" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Estrabismo</button>
+            <button type="button" data-valor="geral" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Geral</button>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div class="flex flex-col gap-2">
+            <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-500">Unidade</p>
+            <div data-medicos-filtros="unidade" class="flex flex-wrap gap-2">
+              <button type="button" data-valor="all" class="rounded-full border border-primary bg-primary px-4 py-1.5 text-[13.6px] font-medium text-white transition-colors">Todas</button>
+              <button type="button" data-valor="amado-noivo" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Clinic Amado Noivo</button>
+              <button type="button" data-valor="souza-naves" class="rounded-full border border-slate-300 bg-slate-50 px-4 py-1.5 text-[13.6px] font-medium text-slate-600 transition-colors hover:border-primary">Clinic Souza Naves</button>
+            </div>
+          </div>
+
+          <div class="relative w-full sm:max-w-[300px]">
+            <svg class="pointer-events-none absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="search" data-medicos-busca aria-label="Buscar médico pelo nome" placeholder="Buscar pelo nome..." class="w-full rounded-lg border border-slate-300 bg-slate-50 py-3 pl-11 pr-4 text-[14px] text-slate-800 outline-none transition-colors placeholder:text-slate-400 focus:border-primary" />
+          </div>
+        </div>
+
+        <p data-medicos-contador aria-live="polite" class="text-[13.6px] text-slate-500"></p>
+      </div>
+
+      <!-- Grid de medicos (renderizado por js/medicos.js) -->
+      <div data-medicos-grid class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"></div>
+
+      <p data-medicos-vazio class="mt-6 hidden rounded-lg border border-dashed border-slate-300 bg-slate-50 px-5 py-4 text-[14px] text-slate-500">
+        Nenhum médico encontrado com esses filtros. Fale com a gente pelo WhatsApp (43) 99173-5250 e a gente te direciona.
+      </p>
+
+      <p class="mt-8 text-[13.6px] leading-[21px] text-slate-500">
+        Médicos parceiros possuem agenda e consultório próprios. O agendamento é feito diretamente com o profissional. Para cirurgias e exames no hospital, fale com a nossa central.
+      </p>
     </div>
   </section>
 
@@ -542,7 +578,7 @@
               <li><a href="o-hospital.html#historia-title" class="transition-colors hover:text-primary">Nossa Historia</a></li>
               <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
               <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
-              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="trabalhe-conosco.html" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
               <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
             </ul>
           </nav>
@@ -570,7 +606,7 @@
               </li>
               <li class="flex items-start gap-2.5">
                 <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+                <span>R. Senador Souza Naves, 648<br />Londrina - PR, 86015-430</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -592,6 +628,7 @@
     </div>
   </footer>
 
+  <script src="js/medicos.js?v=1" defer></script>
   <script src="js/main.js?v=8" defer></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hoftalon Clinic - Hoftalon Hospital de Olhos</title>
-  <meta name="description" content="Hoftalon Clinic: consultas eletivas com o mesmo corpo clínico do hospital. Três unidades em Londrina, atendimento particular e mais de 40 convênios aceitos." />
+  <meta name="description" content="Agende sua consulta no Hoftalon Clinic: 3 unidades em Londrina, 40+ convenios aceitos e o corpo clinico do Hoftalon Hospital de Olhos. Consulta, exames e cirurgia no mesmo lugar." />
 
   <!-- Design tokens -->
   <link rel="stylesheet" href="design_system/tokens.css" />
@@ -62,6 +62,7 @@
           <ul class="flex items-center gap-6 whitespace-nowrap text-[12px] font-medium leading-[19.5px] text-slate-500">
             <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
             <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
+            <li><a href="trabalhe-conosco.html" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
             <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
           </ul>
           <div class="flex items-center gap-2">
@@ -107,117 +108,299 @@
     </div>
   </header>
 
-  <!-- ============================ HERO ============================ -->
+    <!-- ============================ HERO (LP) ============================ -->
   <section class="relative overflow-hidden">
-    <img src="assets/images/background-img-acknowledgements.webp" alt="" class="absolute inset-0 h-full w-full -scale-x-100 object-cover" aria-hidden="true" />
-    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(10,42,74,0.94) 0%, rgba(10,42,74,0.82) 48%, rgba(19,81,143,0.62) 100%);" aria-hidden="true"></div>
+    <video class="absolute inset-0 h-full w-full object-cover" autoplay muted loop playsinline poster="assets/images/hero-poster.webp" aria-hidden="true">
+      <source src="assets/videos/video-hero.webm" type="video/webm" />
+      <source src="assets/videos/video-hero.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(10,42,74,0.95) 0%, rgba(10,42,74,0.86) 46%, rgba(19,81,143,0.66) 100%);" aria-hidden="true"></div>
 
-    <div class="relative z-10 mx-auto flex max-w-site flex-col gap-6 px-6 py-14 md:px-12 lg:px-[120px] lg:py-[88px]">
+    <div class="relative z-10 mx-auto flex max-w-site flex-col gap-8 px-6 py-16 md:px-12 lg:px-[120px] lg:py-[104px]">
       <nav aria-label="Trilha de navegacao" class="text-[12px] leading-none text-slate-300">
         <a href="index.html" class="transition-colors hover:text-white">Inicio</a>
         <span class="mx-1.5 text-slate-400">/</span>
         <span class="text-white">Hoftalon Clinic</span>
       </nav>
 
-      <div class="flex max-w-[720px] flex-col gap-5">
+      <div class="flex max-w-[760px] flex-col gap-5">
         <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-[#E5EDF1]">
           <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
           Hoftalon Clinic
         </span>
-        <h1 class="font-display text-[34px] font-bold leading-[1.12] tracking-[-1.2px] text-white md:text-[46px] md:leading-[52px]">
-          O mesmo time de referência, <span class="text-primary">por convênio e particular</span>
+        <h1 class="font-display text-[36px] font-bold leading-[1.1] tracking-[-1.4px] text-white md:text-[52px] md:leading-[56px]">
+          Sua consulta com o mesmo time <span class="text-primary">que é referência na América Latina</span>
         </h1>
-        <p class="max-w-[560px] text-[18px] leading-[28px] text-slate-300">
-          O Hoftalon Clinic é a porta de entrada para consultas eletivas com o mesmo corpo clínico do hospital. Três unidades em Londrina, com atendimento particular e mais de 40 convênios aceitos.
+        <p class="max-w-[600px] text-[18px] leading-[28px] text-slate-300">
+          Consultas eletivas por convênio ou particular, com o corpo clínico do Hoftalon. Exames e cirurgia no mesmo lugar, sem precisar rodar a cidade.
         </p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href="#unidades" class="flex items-center justify-center gap-3 rounded-lg bg-primary px-7 py-3.5 text-[16px] font-semibold text-white transition-colors hover:bg-primary-hover">
+          Agendar minha consulta
+          <span class="flex size-8 items-center justify-center rounded-full bg-white/15">
+            <svg class="size-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+          </span>
+        </a>
+        <a href="tel:+554333759595" class="flex items-center justify-center gap-2 rounded-lg border border-white/35 px-7 py-3.5 text-[16px] font-medium text-white transition-colors hover:border-white hover:bg-white/5">
+          <svg class="size-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (43) 3375-9595
+        </a>
       </div>
 
       <div class="mt-2 flex flex-wrap gap-x-8 gap-y-3">
         <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>3 unidades em Londrina</div>
         <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>40+ convênios aceitos</div>
-        <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span>Mesmo corpo clínico do hospital</div>
+        <div class="flex items-center gap-2 text-[14px] text-slate-200"><span class="size-1.5 rounded-full bg-primary"></span><span><span data-medicos-amostra-total>40</span>+ médicos no corpo clínico</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BARRA DE CONFIANCA ==================== -->
+  <section aria-label="Reconhecimentos" class="w-full border-b border-slate-200 bg-slate-50">
+    <div class="mx-auto flex max-w-site flex-col items-center gap-6 px-6 py-8 md:px-12 lg:flex-row lg:justify-between lg:px-[120px]">
+      <p class="text-center text-[13.6px] leading-[20px] text-slate-500 lg:text-left">
+        A estrutura de um hospital reconhecido internacionalmente,<br class="hidden lg:block" /> na agilidade de uma clínica.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        <div class="flex flex-col items-center">
+          <span data-ticker class="font-display text-[26px] font-bold leading-none text-slate-900">33</span>
+          <span class="mt-1 text-[12.8px] text-slate-500">anos de história</span>
+        </div>
+        <div class="h-9 w-px bg-slate-200"></div>
+        <img src="assets/images/footer/ona.webp" alt="Acreditação ONA Pleno" class="h-[54px] w-auto object-contain" loading="lazy" />
+        <!-- o SVG da Newsweek e monocromatico claro e tem preserveAspectRatio="none":
+             precisa de fundo navy e de largura/altura iguais para nao distorcer -->
+        <span class="flex items-center gap-2.5 rounded-md bg-[#0A2A4A] px-3 py-2">
+          <img src="assets/images/acknowledgements/newsweek.svg" alt="" aria-hidden="true" class="size-[26px] shrink-0" loading="lazy" />
+          <span class="flex flex-col leading-tight">
+            <span class="text-[12.5px] font-semibold text-white">Newsweek</span>
+            <span class="text-[10.5px] text-slate-300">Best Hospitals 2026</span>
+          </span>
+        </span>
+        <img src="assets/images/footer/waeh.webp" alt="Membro WAEH" class="h-[32px] w-auto object-contain" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ESPECIALIDADES ATENDIDAS ==================== -->
+  <section aria-labelledby="spec-clinic-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+
+      <div class="flex max-w-[680px] flex-col gap-4">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          O que atendemos
+        </span>
+        <h2 id="spec-clinic-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Consulta, exame e cirurgia <span class="text-primary">no mesmo lugar</span>
+        </h2>
+        <p class="text-[16px] leading-[25px] text-slate-500">Da primeira consulta ao acompanhamento pós-cirúrgico, sem precisar procurar outro serviço.</p>
+      </div>
+
+      <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <a href="especialidades.html#corpo-clinico" class="group overflow-hidden rounded-lg border border-slate-200 bg-slate-50 transition-colors hover:border-primary">
+          <img src="assets/images/specialties/catarata.webp" alt="Cirurgia de catarata no Hoftalon" class="h-[160px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-col gap-1.5 p-5">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Catarata</h3>
+            <p class="text-[13.6px] leading-[20px] text-slate-500">42º da América Latina no ranking Newsweek. Mais de 11 mil cirurgias por ano.</p>
+          </div>
+        </a>
+        <a href="especialidades.html#corpo-clinico" class="group overflow-hidden rounded-lg border border-slate-200 bg-slate-50 transition-colors hover:border-primary">
+          <img src="assets/images/specialties/glaucoma.webp" alt="Diagnóstico e tratamento de glaucoma" class="h-[160px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-col gap-1.5 p-5">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Glaucoma</h3>
+            <p class="text-[13.6px] leading-[20px] text-slate-500">Detecção precoce com campimetria e OCT. Acompanhamento contínuo.</p>
+          </div>
+        </a>
+        <a href="especialidades.html#corpo-clinico" class="group overflow-hidden rounded-lg border border-slate-200 bg-slate-50 transition-colors hover:border-primary">
+          <img src="assets/images/specialties/exames.webp" alt="Exames oftalmológicos com equipamentos de última geração" class="h-[160px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-col gap-1.5 p-5">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Retina e Córnea</h3>
+            <p class="text-[13.6px] leading-[20px] text-slate-500">Maior transplantador do Paraná. Retina clínica e cirúrgica.</p>
+          </div>
+        </a>
+        <a href="especialidades.html#corpo-clinico" class="group overflow-hidden rounded-lg border border-slate-200 bg-slate-50 transition-colors hover:border-primary">
+          <img src="assets/images/specialties/oftalmopediatria.webp" alt="Oftalmopediatria e estrabismo infantil" class="h-[160px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-col gap-1.5 p-5">
+            <h3 class="font-display text-[17px] font-bold text-slate-900">Oftalmopediatria</h3>
+            <p class="text-[13.6px] leading-[20px] text-slate-500">Estrabismo infantil e acompanhamento do desenvolvimento visual.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Cirurgia Refrativa</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Plástica Ocular</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Ceratocone</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Lentes de contato</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Olho seco</span>
+        <span class="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-[13.6px] text-slate-700">Oftalmologia geral</span>
+        <a href="especialidades.html" class="rounded-full border border-primary bg-primary/[0.06] px-4 py-1.5 text-[13.6px] font-semibold text-primary transition-colors hover:bg-primary hover:text-white">Ver todas as especialidades</a>
       </div>
     </div>
   </section>
 
   <!-- ==================== UNIDADES CLINIC ==================== -->
-  <section aria-labelledby="clinics-title" class="w-full" style="background-color: var(--surface-page);">
-    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+  <section id="unidades" aria-labelledby="clinics-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
 
-      <div class="flex flex-col gap-4">
+      <div class="flex max-w-[680px] flex-col gap-4">
         <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
           <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
           Unidades Clinic
         </span>
         <h2 id="clinics-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
-          Escolha a unidade <span class="text-primary">mais conveniente</span>
+          Escolha a unidade <span class="text-primary">e fale com a gente agora</span>
         </h2>
+        <p class="text-[16px] leading-[25px] text-slate-500">Atendimento pelo WhatsApp de segunda a sexta, das 8h às 18h, e aos sábados pela manhã.</p>
       </div>
 
       <div class="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-6">
 
         <!-- Clinic Souza Naves -->
-        <article class="flex flex-col gap-5 rounded-lg border border-slate-200 bg-slate-50 p-8">
-          <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convênio</span>
-              <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+        <article class="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+          <!-- TODO: trocar pela foto real da fachada (imagem de banco: Unsplash) -->
+          <img src="assets/images/units/unidade-souza-naves.webp" alt="Fachada da unidade Clinic Souza Naves" width="900" height="420" class="h-[180px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-1 flex-col gap-5 p-8">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convênio</span>
+                <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+              </div>
+              <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Souza Naves</h3>
             </div>
-            <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Souza Naves</h3>
+            <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
+              <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Senador Souza Naves, 626, Centro - Londrina/PR</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 3375-9595</span></p>
+            </div>
+            <a href="https://wa.me/5543991735250" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+              Agendar no WhatsApp
+            </a>
           </div>
-          <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
-            <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Senador Souza Naves, 626, Centro — Londrina</span></p>
-            <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
-          </div>
-          <a href="https://wa.me/5543991735250" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
-            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-            WhatsApp (43) 99173-5250
-          </a>
         </article>
 
-        <!-- Clinic Hospitalar -->
-        <article class="flex flex-col gap-5 rounded-lg border border-slate-200 bg-slate-50 p-8">
-          <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Exclusivo Plano Hospitalar</span>
+        <!-- Clinic Hospitalar (Amado Noivo) -->
+        <article class="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+          <!-- TODO: trocar pela foto real da fachada (imagem de banco: Unsplash) -->
+          <img src="assets/images/units/unidade-amado-noivo.webp" alt="Fachada da unidade Clinic Hospitalar, na Vila Ipiranga" width="900" height="420" class="h-[180px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-1 flex-col gap-5 p-8">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Exclusivo Plano Hospitalar</span>
+              </div>
+              <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Hospitalar</h3>
             </div>
-            <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Hospitalar</h3>
+            <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
+              <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Antônio Amado Noivo, 394, Vila Ipiranga - Londrina/PR</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(43) 3375-9545</span></p>
+            </div>
+            <a href="https://wa.me/5543999190532" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+              Agendar no WhatsApp
+            </a>
           </div>
-          <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
-            <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>R. Antônio Amado Noivo, 394, Vila Ipiranga — Londrina</span></p>
-            <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
-          </div>
-          <a href="https://wa.me/5543999190532" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
-            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-            WhatsApp (43) 99919-0532
-          </a>
         </article>
 
         <!-- Clinic Ayrton Senna -->
-        <article class="flex flex-col gap-5 rounded-lg border border-slate-200 bg-slate-50 p-8">
-          <div class="flex flex-col gap-4">
-            <div class="flex flex-wrap gap-2">
-              <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convênio</span>
-              <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+        <article class="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+          <!-- TODO: trocar pela foto real da fachada (imagem de banco: Unsplash) -->
+          <img src="assets/images/units/unidade-ayrton-senna.webp" alt="Fachada da unidade Clinic Ayrton Senna" width="900" height="420" class="h-[180px] w-full object-cover" loading="lazy" />
+          <div class="flex flex-1 flex-col gap-5 p-8">
+            <div class="flex flex-col gap-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="rounded-full bg-[#E6F6FC] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#0B9ECE]">Convênio</span>
+                <span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.88px] font-bold uppercase tracking-[0.435px] text-[#F59E0B]">Particular</span>
+              </div>
+              <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Ayrton Senna</h3>
             </div>
-            <h3 class="font-display text-[18px] font-bold leading-[26px] text-slate-900">Clinic Ayrton Senna</h3>
+            <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
+              <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Ayrton Senna da Silva, 900 - Londrina/PR</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
+              <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg><span>(43) 99173-5250</span></p>
+            </div>
+            <a href="https://wa.me/5543991735250" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
+              <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+              Agendar no WhatsApp
+            </a>
           </div>
-          <div class="flex flex-1 flex-col gap-3 text-[14px] leading-[20px] text-slate-500">
-            <p class="flex items-start gap-2"><svg class="mt-[2px] size-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>Av. Ayrton Senna da Silva, 900 — Londrina</span></p>
-            <p class="flex items-center gap-2"><svg class="size-[14px] shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>Seg-Sex: 8h às 18h | Sáb: 8h às 12h</span></p>
-          </div>
-          <a href="https://wa.me/5543991735250" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-[14px] font-semibold text-white transition-colors hover:bg-primary-hover">
-            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
-            WhatsApp (43) 99173-5250
-          </a>
         </article>
 
       </div>
     </div>
   </section>
 
+  <!-- ==================== COMO FUNCIONA ==================== -->
+  <section aria-labelledby="fluxo-title" class="w-full" style="background-color: var(--surface-page);">
+    <div class="mx-auto max-w-site px-6 py-16 md:px-12 lg:px-[120px] lg:py-24">
+      <div class="flex max-w-[680px] flex-col gap-4">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Como funciona
+        </span>
+        <h2 id="fluxo-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Do agendamento ao tratamento, <span class="text-primary">em três passos</span>
+        </h2>
+      </div>
+
+      <div class="mt-10 grid gap-4 lg:grid-cols-3 lg:gap-6">
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-full bg-primary text-[16px] font-bold text-white">1</span>
+          <h3 class="font-display text-[18px] font-bold text-slate-900">Você agenda</h3>
+          <p class="text-[14px] leading-[22px] text-slate-500">Pelo WhatsApp ou telefone da unidade. Informe seu convênio e a gente confirma a cobertura na hora.</p>
+        </article>
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-full bg-primary text-[16px] font-bold text-white">2</span>
+          <h3 class="font-display text-[18px] font-bold text-slate-900">Consulta e exames</h3>
+          <p class="text-[14px] leading-[22px] text-slate-500">A avaliação e os exames de diagnóstico acontecem no mesmo local, com equipamentos de última geração.</p>
+        </article>
+        <article class="flex flex-col gap-4 rounded-lg border border-slate-200 bg-slate-50 p-8">
+          <span class="flex size-11 items-center justify-center rounded-full bg-primary text-[16px] font-bold text-white">3</span>
+          <h3 class="font-display text-[18px] font-bold text-slate-900">Tratamento no hospital</h3>
+          <p class="text-[14px] leading-[22px] text-slate-500">Se houver indicação cirúrgica, o procedimento é feito na estrutura do Hoftalon, com o mesmo médico.</p>
+        </article>
+      </div>
+
+      <div class="mt-8 flex flex-col gap-3 rounded-lg border border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+        <p class="text-[14.5px] leading-[22px] text-slate-600">
+          <strong class="font-semibold text-slate-800">Leve seu documento, carteirinha do convênio e a receita atual.</strong> Se usa colírio, anote os nomes.
+        </p>
+        <a href="#unidades" class="w-fit shrink-0 text-[13.6px] font-semibold text-primary transition-colors hover:text-primary-hover">Agendar agora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORPO CLINICO (amostra) ==================== -->
+  <section aria-labelledby="corpo-clinic-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
+      <div class="flex flex-col gap-4 lg:max-w-[680px]">
+        <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+          <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+          Corpo Clínico 2026
+        </span>
+        <h2 id="corpo-clinic-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[42px] lg:leading-[46px]">
+          Quem vai <span class="text-primary">cuidar de você</span>
+        </h2>
+        <p class="text-[16px] leading-[25px] text-slate-500">Especialistas dedicados a cada área da oftalmologia, entre equipe Hoftalon e médicos parceiros.</p>
+      </div>
+
+      <!-- Renderizado por js/medicos.js -->
+      <div data-medicos-amostra data-limite="8" class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div>
+
+      <a href="especialidades.html#corpo-clinico" class="mt-8 flex w-fit items-center gap-4 rounded-lg border border-slate-400 px-6 py-2.5 text-[15px] font-semibold text-slate-700 transition-colors hover:border-primary hover:text-primary">
+        Ver o corpo clínico completo
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
   <!-- ==================== CONVENIOS ==================== -->
-  <section aria-labelledby="convenios-title" class="w-full bg-slate-200 py-16 lg:py-24">
+  <section aria-labelledby="convenios-title" class="w-full py-16 lg:py-24" style="background-color: var(--surface-page);">
     <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
 
       <div class="flex flex-col gap-4 lg:max-w-[640px]">
@@ -307,6 +490,62 @@
     </div>
   </section>
 
+  <!-- ==================== DUVIDAS FREQUENTES ==================== -->
+  <section aria-labelledby="faq-title" class="w-full bg-slate-200 py-16 lg:py-24">
+    <div class="mx-auto max-w-site px-6 md:px-12 lg:px-[120px]">
+      <div class="grid gap-10 lg:grid-cols-[380px_1fr] lg:gap-16">
+        <div class="flex flex-col gap-4">
+          <span class="flex items-center gap-1.5 text-[11.52px] font-medium uppercase tracking-[1.152px] text-primary">
+            <svg class="h-[10px] w-[20px]" viewBox="0 0 20 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M1 6.5C4 2 8 1 10 5s6 3 9-1.5"/></svg>
+            Dúvidas frequentes
+          </span>
+          <h2 id="faq-title" class="font-display text-[30px] font-bold leading-[1.1] tracking-[-1.32px] text-slate-900 lg:text-[38px] lg:leading-[42px]">
+            Antes de <span class="text-primary">agendar</span>
+          </h2>
+          <p class="text-[15px] leading-[24px] text-slate-500">Se a sua dúvida não estiver aqui, chame no WhatsApp que a gente responde.</p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <details class="group rounded-lg border border-slate-200 bg-slate-50 p-6" open>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
+              Qual a diferença entre o Clinic e o hospital?
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-[23px] text-slate-500">O Clinic é a porta de entrada para consultas e exames eletivos, por convênio ou particular. Quando há indicação de cirurgia, o procedimento acontece na estrutura hospitalar do Hoftalon, com o mesmo médico que te acompanhou.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
+              Preciso de encaminhamento para marcar?
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-[23px] text-slate-500">Para atendimento particular, não. Para convênio, depende das regras do seu plano: alguns exigem guia ou autorização prévia. No agendamento a gente confere isso com você.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
+              Faço os exames no mesmo dia da consulta?
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-[23px] text-slate-500">Boa parte dos exames de diagnóstico é feita na mesma estrutura. A realização no mesmo dia depende da agenda e do tipo de exame solicitado pelo médico.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
+              Vou sair com a visão embaçada?
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-[23px] text-slate-500">Se o exame exigir dilatação da pupila, a visão fica embaçada por algumas horas e a luz incomoda mais. Nesse caso, venha acompanhado e evite dirigir na volta.</p>
+          </details>
+          <details class="group rounded-lg border border-slate-200 bg-slate-50 p-6">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[16px] font-semibold text-slate-900">
+              O Clinic atende pelo SUS?
+              <svg class="size-5 shrink-0 text-primary transition-transform group-open:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </summary>
+            <p class="mt-3 text-[14.5px] leading-[23px] text-slate-500">O Clinic é dedicado a consultas por convênio e particular. O atendimento pelo SUS acontece no hospital, com encaminhamento pela rede pública do seu município.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== FOOTER ==================== -->
   <footer class="w-full" style="background-color: var(--surface-page);">
     <div class="mx-auto flex max-w-site flex-col gap-6 px-6 py-16 lg:px-[120px] lg:py-24">
@@ -356,7 +595,7 @@
               <li><a href="o-hospital.html#historia-title" class="transition-colors hover:text-primary">Nossa Historia</a></li>
               <li><a href="ensino-pesquisa.html" class="transition-colors hover:text-primary">Ensino e Pesquisa</a></li>
               <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
-              <li><a href="#" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
+              <li><a href="trabalhe-conosco.html" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
               <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
             </ul>
           </nav>
@@ -367,8 +606,8 @@
               <li><a href="especialidades.html" class="transition-colors hover:text-primary">Exames</a></li>
               <li><a href="hoftalon-clinic.html" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
               <li><a href="hoftalon-clinic.html#convenios-title" class="transition-colors hover:text-primary">Convênios</a></li>
-              <li><a href="#" class="transition-colors hover:text-primary">SUS</a></li>
-              <li><a href="#" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
+              <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">SUS</a></li>
+              <li><a href="quero-ajudar.html" class="transition-colors hover:text-primary">Quero Ajudar</a></li>
             </ul>
           </nav>
           <div class="col-span-2 flex flex-col gap-5 sm:col-span-1">
@@ -384,7 +623,7 @@
               </li>
               <li class="flex items-start gap-2.5">
                 <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>R. Senador Souza Naves, 648<br />Londrina — PR, 86015-430</span>
+                <span>R. Senador Souza Naves, 648<br />Londrina - PR, 86015-430</span>
               </li>
               <li class="flex items-start gap-2.5">
                 <svg class="mt-[2px] size-4 shrink-0 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -406,6 +645,7 @@
     </div>
   </footer>
 
+  <script src="js/medicos.js?v=1" defer></script>
   <script src="js/main.js?v=8" defer></script>
 </body>
 </html>
