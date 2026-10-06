@@ -79,14 +79,16 @@
         </div>
 
         <!-- Tier 2: main menu -->
-        <div class="flex items-center justify-end gap-[51px] border-b border-slate-100 bg-slate-50/80 px-[120px] py-3 backdrop-blur-[12px]">
+        <div class="flex items-center justify-end gap-3 border-b border-slate-100 bg-slate-50/80 px-6 py-3 xl:gap-4 xl:px-8 backdrop-blur-[12px]">
           <ul class="flex items-center gap-1 whitespace-nowrap text-[14px] font-medium leading-[22.75px] text-slate-600">
-            <li><a href="o-hospital.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">O Hospital</a></li>
-            <li><a href="especialidades.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
-            <li><a href="hoftalon-clinic.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
-            <li><a href="quero-ajudar.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Quero Ajudar</a></li>
-            <li><a href="blog.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Blog</a></li>
-            <li><a href="fale-conosco.html" class="rounded-lg px-3.5 py-2 transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
+            <li><a href="o-hospital.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">O Hospital</a></li>
+            <li><a href="especialidades.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Especialidades</a></li>
+            <li><a href="exames.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Exames</a></li>
+            <li><a href="doencas.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Doenças</a></li>
+            <li><a href="corpo-clinico.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Corpo Clínico</a></li>
+            <li><a href="urgencia.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Urgência</a></li>
+            <li><a href="hoftalon-clinic.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Hoftalon Clinic</a></li>
+            <li><a href="fale-conosco.html" class="rounded-lg px-2 py-1.5 text-[13px] transition-colors hover:bg-primary/5 hover:text-primary">Fale Conosco</a></li>
           </ul>
           <a href="#agendar" class="flex shrink-0 items-center gap-2 rounded-lg bg-primary px-6 py-1.5 text-[14px] font-semibold text-slate-50 transition-colors hover:bg-primary-hover">
             Agende sua Consulta
@@ -235,78 +237,97 @@
       <!-- Carrossel -->
       <div id="spec-carousel" data-carousel class="scrollbar-hide mt-10 cursor-grab select-none snap-x snap-proximity scroll-smooth overflow-x-auto">
         <div class="flex items-end gap-[18px] pb-2">
-
-          <!-- Card ativo (destaque azul) -->
-          <article data-carousel-item class="group relative flex h-[362px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg" style="background-image: linear-gradient(83.53deg, #0A2A4A 61%, #13518F 100%);">
-            <img src="assets/images/specialties/exames.webp" alt="" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] mix-blend-screen transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
-              <div class="flex w-[162px] flex-col gap-[11px]">
-                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-50">Exames Oftalmológicos</h3>
-                <p class="text-[14px] leading-5 text-slate-300">13+ exames com tecnologia de ponta: OCT, campimetria, topografia, retinografia e mais. Tudo no mesmo hospital.</p>
-              </div>
-              <span class="flex size-9 shrink-0 items-center justify-center rounded-full bg-slate-50 text-primary">
-                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </span>
-            </div>
-          </article>
-
-          <!-- Cards inativos (foto expande + opacidade no hover) -->
-          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+          <a href="especialidades.html#glaucoma" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
             <img src="assets/images/specialties/glaucoma.webp" alt="Exame de glaucoma no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
             <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
             <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
-              <div class="flex w-[162px] flex-col gap-[11px]">
-                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Glaucoma</h3>
-                <p class="text-[14px] leading-5 text-slate-600">Diagnostico precoce com equipamentos de ultima geração.</p>
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Glaucoma</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Diagnóstico precoce com equipamentos de última geração.</p>
               </div>
               <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
-          </article>
-
-          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+          </a>
+          <a href="especialidades.html#pediatria" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
             <img src="assets/images/specialties/oftalmopediatria.webp" alt="Oftalmopediatria no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
             <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
             <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
-              <div class="flex w-[162px] flex-col gap-[11px]">
-                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Oftalmopediatria</h3>
-                <p class="text-[14px] leading-5 text-slate-600">Tratamento clinico e cirúrgico para alinhamento ocular.</p>
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Oftalmopediatria e estrabismo</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Visão da criança e alinhamento ocular, do exame à cirurgia.</p>
               </div>
               <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
-          </article>
-
-          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
-            <img src="assets/images/specialties/estrabismo.webp" alt="Tratamento de estrabismo no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
-            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
-            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
-              <div class="flex w-[162px] flex-col gap-[11px]">
-                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Estrabismo</h3>
-                <p class="text-[14px] leading-5 text-slate-600">Tratamento clinico e cirúrgico para alinhamento ocular.</p>
-              </div>
-              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-              </span>
-            </div>
-          </article>
-
-          <article data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+          </a>
+          <a href="especialidades.html#catarata" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
             <img src="assets/images/specialties/catarata.webp" alt="Cirurgia de catarata no Hoftalon" class="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-[0.16] transition-all duration-500 group-hover:scale-105 group-hover:opacity-100" loading="lazy" />
             <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
             <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
-              <div class="flex w-[162px] flex-col gap-[11px]">
-                <h3 class="font-display text-[18px] font-bold leading-[18.48px] tracking-[-0.504px] text-slate-900">Catarata</h3>
-                <p class="text-[14px] leading-5 text-slate-600">42° posição na América Latina. Mais de 11 mil cirurgias por ano.</p>
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Catarata</h3>
+                <p class="text-[14px] leading-5 text-slate-600">42ª posição na América Latina. Mais de 11 mil cirurgias por ano.</p>
               </div>
               <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
               </span>
             </div>
-          </article>
-
+          </a>
+          <a href="especialidades.html#cornea" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(165deg, #E6F6FC 0%, #F8FAFC 42%, #F8FAFC 100%);"></div>
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Córnea</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Ceratocone, transplante e crosslinking no mesmo hospital.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="especialidades.html#retina" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(165deg, #E6F6FC 0%, #F8FAFC 42%, #F8FAFC 100%);"></div>
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Retina e vítreo</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Doenças do fundo do olho, do diagnóstico ao tratamento.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="especialidades.html#plastica" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(165deg, #E6F6FC 0%, #F8FAFC 42%, #F8FAFC 100%);"></div>
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Plástica ocular</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Pálpebras, vias lacrimais e reconstrução da região dos olhos.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
+          <a href="especialidades.html#refrativa" data-carousel-item class="group relative flex h-[340px] w-[286px] shrink-0 snap-start overflow-hidden rounded-lg bg-slate-50 transition-[height] duration-300 hover:h-[362px]">
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(165deg, #E6F6FC 0%, #F8FAFC 42%, #F8FAFC 100%);"></div>
+            <div class="pointer-events-none absolute inset-0" style="background: linear-gradient(to top, #F8FAFC 0%, #F8FAFC 28%, rgba(248,250,252,0.85) 46%, rgba(248,250,252,0) 72%);"></div>
+            <div class="relative z-10 mt-auto flex w-full items-end justify-between gap-[11px] px-6 pb-6">
+              <div class="flex w-[176px] flex-col gap-[11px]">
+                <h3 class="font-display text-[18px] font-bold leading-[22px] tracking-[-0.4px] text-slate-900">Cirurgia refrativa</h3>
+                <p class="text-[14px] leading-5 text-slate-600">Correção de miopia, hipermetropia e astigmatismo a laser.</p>
+              </div>
+              <span class="flex size-9 shrink-0 translate-y-2 items-center justify-center rounded-full bg-primary text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </a>
         </div>
       </div>
     </div>
@@ -688,6 +709,7 @@
               <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">Responsabilidade Social</a></li>
               <li><a href="trabalhe-conosco.html" class="transition-colors hover:text-primary">Trabalhe Conosco</a></li>
               <li><a href="transparencia.html" class="transition-colors hover:text-primary">Transparência</a></li>
+              <li><a href="blog.html" class="transition-colors hover:text-primary">Blog</a></li>
             </ul>
           </nav>
           <!-- Servicos -->
@@ -695,7 +717,10 @@
             <p class="text-[11.2px] font-semibold uppercase tracking-[1.12px] text-slate-800">Servicos</p>
             <ul class="flex flex-col gap-2.5 text-[14px] text-slate-600">
               <li><a href="#especialidades" class="transition-colors hover:text-primary">Especialidades</a></li>
-              <li><a href="especialidades.html" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="exames.html" class="transition-colors hover:text-primary">Exames</a></li>
+              <li><a href="doencas.html" class="transition-colors hover:text-primary">Doenças</a></li>
+              <li><a href="corpo-clinico.html" class="transition-colors hover:text-primary">Corpo Clínico</a></li>
+              <li><a href="urgencia.html" class="transition-colors hover:text-primary">Urgência 24h</a></li>
               <li><a href="hoftalon-clinic.html" class="transition-colors hover:text-primary">Hoftalon Clinic</a></li>
               <li><a href="hoftalon-clinic.html#convenios-title" class="transition-colors hover:text-primary">Convênios</a></li>
               <li><a href="responsabilidade-social.html" class="transition-colors hover:text-primary">SUS</a></li>

@@ -190,12 +190,19 @@
       ICON_CAL + 'Agendar com o médico</a>';
   }
 
+  function avatarHTML(m) {
+    if (m.foto) {
+      return '<img src="' + esc(m.foto) + '" alt="" class="size-14 shrink-0 rounded-full object-cover" />';
+    }
+    return '<span class="flex size-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-[15px] font-semibold text-white/90" aria-hidden="true">' + esc(iniciais(m.nome)) + '</span>';
+  }
+
   function cardHTML(m, opts) {
     opts = opts || {};
     var unidades = m.atende.map(function (a) { return UNIDADES[a.unidade] ? UNIDADES[a.unidade].nome : a.unidade; });
-    var tagVinculo = m.vinculo === 'externo'
+    var tagVinculo = opts.ocultarVinculo ? '' : (m.vinculo === 'externo'
       ? '<span class="rounded-full bg-[#FFFBEB] px-2.5 py-[3px] text-[10.4px] font-bold uppercase tracking-[0.4px] text-[#B45309]">Médico parceiro</span>'
-      : '<span class="rounded-full bg-primary-light px-2.5 py-[3px] text-[10.4px] font-bold uppercase tracking-[0.4px] text-primary">Corpo clínico</span>';
+      : '<span class="rounded-full bg-primary-light px-2.5 py-[3px] text-[10.4px] font-bold uppercase tracking-[0.4px] text-primary">Corpo clínico</span>');
 
     var cidade = m.cidade
       ? '<span class="rounded-full border border-slate-200 px-2.5 py-[3px] text-[10.4px] font-semibold uppercase tracking-[0.4px] text-slate-500">' + esc(m.cidade) + '</span>'
@@ -211,13 +218,13 @@
         'data-unidades="' + esc(m.atende.map(function (a) { return a.unidade; }).join(' ')) + '" ' +
         'data-vinculo="' + esc(m.vinculo) + '" data-nome="' + esc(normalizar(m.nome)) + '">' +
         '<div class="flex items-start gap-4">' +
-          '<span class="flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#0A2A4A] to-[#13518F] text-[14px] font-semibold text-white/90" aria-hidden="true">' + esc(iniciais(m.nome)) + '</span>' +
+          avatarHTML(m) +
           '<div class="flex min-w-0 flex-col gap-1">' +
             '<h3 class="text-[15px] font-semibold leading-[21px] text-slate-900">' + esc(m.nome) + '</h3>' +
             '<p class="text-[13px] leading-[19px] text-slate-500">' + esc(textoEspecialidade(m, opts.unidade)) + '</p>' +
           '</div>' +
         '</div>' +
-        '<div class="flex flex-wrap gap-1.5">' + tagVinculo + cidade + '</div>' +
+        (tagVinculo || cidade ? '<div class="flex flex-wrap gap-1.5">' + tagVinculo + cidade + '</div>' : '') +
         '<ul class="flex flex-col gap-1 text-[12.5px] leading-[18px] text-slate-500">' +
           unidades.map(function (u) { return '<li class="flex items-center gap-1.5">' + ICON_PIN + esc(u) + '</li>'; }).join('') +
         '</ul>' +
@@ -232,7 +239,10 @@
     var grid = document.querySelector('[data-medicos-grid]');
     if (!grid) return;
 
-    grid.innerHTML = MEDICOS.map(function (m) { return cardHTML(m); }).join('');
+    var somente = grid.getAttribute('data-somente');
+    var lista = MEDICOS.filter(function (m) { return !somente || m.vinculo === somente; });
+    var optsCard = { ocultarVinculo: somente === 'externo' };
+    grid.innerHTML = lista.map(function (m) { return cardHTML(m, optsCard); }).join('');
 
     var cards = grid.querySelectorAll('[data-medico]');
     var busca = document.querySelector('[data-medicos-busca]');
@@ -241,6 +251,8 @@
     var barras = document.querySelectorAll('[data-medicos-filtros]');
 
     var estado = { especialidade: 'all', unidade: 'all', termo: '' };
+    var qEsp = new URLSearchParams(window.location.search).get('especialidade');
+    if (qEsp) estado.especialidade = qEsp;
 
     var activeCls = ['border-primary', 'bg-primary', 'text-white'];
     var idleCls = ['border-slate-300', 'bg-slate-50', 'text-slate-600', 'hover:border-primary'];
@@ -251,7 +263,9 @@
         var esp = (card.getAttribute('data-especialidades') || '').split(' ');
         var uni = (card.getAttribute('data-unidades') || '').split(' ');
         var nome = card.getAttribute('data-nome') || '';
-        var ok = (estado.especialidade === 'all' || esp.indexOf(estado.especialidade) !== -1) &&
+        var wanted = estado.especialidade === 'all' ? [] : estado.especialidade.split(/\s+/);
+        var okEsp = !wanted.length || wanted.some(function (w) { return esp.indexOf(w) !== -1; });
+        var ok = okEsp &&
                  (estado.unidade === 'all' || uni.indexOf(estado.unidade) !== -1) &&
                  (estado.termo === '' || nome.indexOf(estado.termo) !== -1);
         card.classList.toggle('hidden', !ok);
@@ -287,21 +301,40 @@
       });
     }
 
+    if (estado.especialidade !== 'all') {
+      barras.forEach(function (barra) {
+        if (barra.getAttribute('data-medicos-filtros') !== 'especialidade') return;
+        barra.querySelectorAll('[data-valor]').forEach(function (b) {
+          var on = b.getAttribute('data-valor') === estado.especialidade;
+          activeCls.forEach(function (c) { b.classList.toggle(c, on); });
+          idleCls.forEach(function (c) { b.classList.toggle(c, !on); });
+        });
+      });
+    }
+
     aplicar();
   }
 
   // Blocos por especialidade dentro dos paineis ([data-medicos-por-especialidade="catarata"]).
   function initPorEspecialidade() {
     document.querySelectorAll('[data-medicos-por-especialidade]').forEach(function (slot) {
-      var id = slot.getAttribute('data-medicos-por-especialidade');
+      var ids = (slot.getAttribute('data-medicos-por-especialidade') || '').split(/\s+/);
+      var somente = slot.getAttribute('data-somente');
       var limite = parseInt(slot.getAttribute('data-limite') || '4', 10);
-      var lista = MEDICOS.filter(function (m) { return m.especialidades.indexOf(id) !== -1; });
-      if (!lista.length) { slot.classList.add('hidden'); return; }
+      var lista = MEDICOS.filter(function (m) {
+        if (somente && m.vinculo !== somente) return false;
+        return ids.some(function (id) { return m.especialidades.indexOf(id) !== -1; });
+      });
+      if (!lista.length) {
+        if (slot.parentElement) slot.parentElement.classList.add('hidden');
+        return;
+      }
 
       var mostrados = lista.slice(0, limite);
-      slot.innerHTML = mostrados.map(function (m) { return cardHTML(m); }).join('');
+      var optsCard = { ocultarVinculo: somente === 'externo' };
+      slot.innerHTML = mostrados.map(function (m) { return cardHTML(m, optsCard); }).join('');
 
-      var rodape = document.querySelector('[data-medicos-total="' + id + '"]');
+      var rodape = slot.parentElement.querySelector('[data-medicos-total]');
       if (rodape) {
         rodape.textContent = lista.length === 1
           ? '1 especialista nesta área.'

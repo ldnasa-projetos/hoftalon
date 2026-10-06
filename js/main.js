@@ -249,11 +249,42 @@
     group.addEventListener('click', function (e) {
       var tab = e.target.closest('[data-spec-tab]');
       if (!tab) return;
-      activate(tab.getAttribute('data-spec-tab'), true);
+      var key = tab.getAttribute('data-spec-tab');
+      activate(key, true);
+      if (history.replaceState) history.replaceState(null, '', '#' + key);
       var panelTop = document.querySelector('[data-spec-panels]');
       if (panelTop && window.matchMedia('(max-width: 1023px)').matches) {
         panelTop.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    });
+    var alias = { estrabismo: 'pediatria' };
+    var initial = (window.location.hash || '').replace('#', '');
+    initial = alias[initial] || initial;
+    if (initial && group.querySelector('[data-spec-tab="' + initial + '"]')) {
+      activate(initial, false);
+    }
+  }
+
+  function initMobileNav() {
+    var btn = document.querySelector('header button[aria-label="Abrir menu"]');
+    if (!btn) return;
+    var lists = document.querySelectorAll('header nav ul');
+    if (lists.length < 2) return;
+    var panel = document.createElement('div');
+    panel.className = 'hidden border-t border-slate-200 bg-slate-50 px-5 py-3 lg:hidden';
+    var clone = lists[1].cloneNode(true);
+    clone.className = 'flex flex-col text-[16px] font-medium text-slate-700';
+    clone.querySelectorAll('a').forEach(function (a) {
+      a.className = 'block rounded-lg px-3 py-3 transition-colors hover:bg-primary/5 hover:text-primary';
+    });
+    panel.appendChild(clone);
+    var bar = btn.parentElement;
+    bar.parentElement.appendChild(panel);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', function () {
+      var open = panel.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
     });
   }
 
@@ -314,6 +345,7 @@
     initUnitFilters();
     initGalleryFilters();
     initSpecTabs();
+    initMobileNav();
     initConvenioSearch();
     initCopyLink();
   });
