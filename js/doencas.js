@@ -98,7 +98,7 @@
       id: 'glaucoma',
       nome: 'Glaucoma',
       grupo: 'glaucoma',
-      oQueE: 'O glaucoma danifica o nervo óptico, em geral associado ao aumento da pressão intraocular. É uma das principais causas de cegueira irreversível, e pode ser controlado quando o diagnóstico é cedo.',
+      oQueE: 'O glaucoma danifica o nervo óptico, em geral associado ao aumento da pressão intraocular. É uma das principais causas de cegueira irreversível e pode ser controlado quando o diagnóstico é precoce.',
       diagnostico: 'A detecção usa tomografia de coerência óptica (OCT), campimetria computadorizada e tonometria, exame que mede a pressão intraocular. Desde 2007, o Projeto Glaucoma leva campanhas de exames à comunidade.',
       tratamentos: ['colirios', 'laser-glaucoma', 'cirurgia-glaucoma']
     },
@@ -106,7 +106,7 @@
       id: 'estrabismo',
       nome: 'Estrabismo',
       grupo: 'pediatria',
-      oQueE: 'O estrabismo é o desalinhamento dos olhos e pode aparecer em qualquer idade. Além da aparência, pode comprometer a visão binocular e a percepção de profundidade. Na criança, a visão influencia aprendizado, coordenação e convívio.',
+      oQueE: 'O estrabismo é o desalinhamento dos olhos e pode aparecer em qualquer idade. Além da aparência, pode comprometer a visão binocular e a percepção de profundidade. Na criança, a visão influencia o aprendizado, a coordenação e o convívio.',
       diagnostico: 'A avaliação inclui o exame do alinhamento, a acuidade visual e, na infância, o teste do reflexo vermelho e o acompanhamento do desenvolvimento visual.',
       tratamentos: ['oculos', 'ortoptica', 'toxina', 'cirurgia-estrabismo']
     },
